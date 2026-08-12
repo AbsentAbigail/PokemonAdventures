@@ -1,0 +1,3 @@
+﻿namespace PokemonMod.StatusEffectImplementations;
+
+public class StatusEffectInstantDoNothing : StatusEffectInstant;

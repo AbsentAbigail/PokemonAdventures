@@ -1,6 +1,7 @@
 ﻿using Deadpan.Enums.Engine.Components.Modding;
 using PokemonMod.Builders.Traits;
 using PokemonMod.Builders.Tribes;
+using PokemonMod.Variables;
 using UnityEngine;
 
 namespace PokemonMod.Helpers;

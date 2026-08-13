@@ -1,4 +1,4 @@
-﻿namespace PokemonMod;
+﻿namespace PokemonMod.Variables;
 
 public static class Types
 {

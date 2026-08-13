@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using PokemonMod.Builders.Cards.Evolutions;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
+using PokemonMod.Variables;
 
 namespace PokemonMod.Builders.Cards.Companions;
 

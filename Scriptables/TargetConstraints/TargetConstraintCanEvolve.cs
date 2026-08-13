@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using PokemonMod.Variables;
 
 namespace PokemonMod.Scriptables.TargetConstraints;
 

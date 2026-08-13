@@ -3,6 +3,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
+using PokemonMod.Variables;
 
 namespace PokemonMod.Builders.Cards.Enemies;
 
@@ -18,7 +19,7 @@ public class Spearow : ICardBuilder
             .SetSprites(
                 Mod.GetSprite("Spearow"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Suburban))
-            .DropsBling(4)
+            .DropsBling(5)
             .EvolvesInto(Fearow.Name)
             .SubscribeToAfterAllBuildEvent(card =>
             {

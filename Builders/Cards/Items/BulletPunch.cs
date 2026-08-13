@@ -2,6 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
+using PokemonMod.Variables;
 
 namespace PokemonMod.Builders.Cards.Items;
 

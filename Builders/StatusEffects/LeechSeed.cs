@@ -2,8 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
-using PokemonMod.Helpers;
-using WildfrostHopeMod.VFX;
+using PokemonMod.StatusEffectImplementations;
 
 namespace PokemonMod.Builders. StatusEffects;
 
@@ -13,23 +12,15 @@ public class LeechSeed : IStatusBuilder
     public DataFileBuilder<StatusEffectData, StatusEffectDataBuilder> Builder()
     {
         return new StatusEffectDataBuilder(Mod.Instance)
-            .Create<StatusEffectApplyXEveryTurn>(Name)
-            .WithStackable(true)
+            .Create<StatusEffectApplyXWhenConstrictedDamageDealt>(Name)
+            .WithStackable(false)
             .WithCanBeBoosted(false)
-            .SubscribeToAfterAllBuildEvent<StatusEffectApplyXEveryTurn>(status =>
+            .SubscribeToAfterAllBuildEvent<StatusEffectApplyXWhenConstrictedDamageDealt>(status =>
             {
-                status.effectToApply = Mod.GetStatus(InstantTakeHpFromApplier.Name);
-                status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Applier;
-                status.targetConstraints =
-                [
-                    TargetConstraintHelper.HealthMoreThan(0),
-                ];
-                
-                status.type = "leechseed";
-                status.offensive = true;
-                status.removeOnDiscard = true;
-            })
-            .Subscribe_WithStatusIcon("leechseed");
+                status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
+                status.effectToApply = Mod.GetStatus("Increase Max Health");
+                status.postHit = true;
+            });
     }
     
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;

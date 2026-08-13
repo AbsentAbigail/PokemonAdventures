@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
 using PokemonMod.Helpers;
+using PokemonMod.Variables;
 
 namespace PokemonMod.Builders.Cards.Evolutions;
 
@@ -23,12 +24,16 @@ public class Venusaur : ICardBuilder
             {
                 card.attackEffects =
                 [
-                    Mod.SStack(LeechSeed.Name, 3),
+                    Mod.SStack(Constricted.Name, 3),
                 ];
                 card.startWithEffects =
                 [
                     Mod.SStack(Types.Grass.Name),
                     Mod.SStack(Types.Poison.Name),
+                ];
+                card.traits =
+                [
+                    Mod.TStack(LeechSeed.Name),
                 ];
             });
     }

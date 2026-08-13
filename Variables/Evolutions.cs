@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace PokemonMod;
+namespace PokemonMod.Variables;
 
 public static class Evolutions
 {

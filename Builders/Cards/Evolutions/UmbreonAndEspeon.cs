@@ -5,6 +5,7 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.Traits;
 using PokemonMod.Helpers;
 using PokemonMod.Scriptables.ScriptableImages;
+using PokemonMod.Variables;
 
 namespace PokemonMod.Builders.Cards.Evolutions;
 
@@ -15,7 +16,7 @@ public class UmbreonAndEspeon : ICardBuilder
     {
         return new CardDataBuilder(Mod.Instance)
             .CreateUnit(Name, "Umbreon and Espeon")
-            .SetStats(10, 1, 4)
+            .SetStats(10, 1, 5)
             .SetSprites(
                 Mod.GetSprite("UmbreonAndEspeon1"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Suburban))

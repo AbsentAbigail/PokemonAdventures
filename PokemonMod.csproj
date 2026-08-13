@@ -16,7 +16,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
+    <DebugType>embedded</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
@@ -385,14 +385,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Battles\KantoYoungster.cs" />
+    <Compile Include="Battles\YoungsterFight.cs" />
     <Compile Include="Builders\Cards\Companions\Machop.cs" />
     <Compile Include="Builders\Cards\Companions\Magnetite.cs" />
     <Compile Include="Builders\Cards\Companions\Mareep.cs" />
     <Compile Include="Builders\Cards\Companions\Scyther.cs" />
     <Compile Include="Builders\Cards\Companions\Yanma.cs" />
     <Compile Include="Builders\Cards\Enemies\Fearow.cs" />
-    <Compile Include="Builders\Cards\Enemies\KantoYoungster.cs" />
+    <Compile Include="Builders\Cards\Enemies\Gligar.cs" />
+    <Compile Include="Builders\Cards\Enemies\TrainerYoungster.cs" />
     <Compile Include="Builders\Cards\Enemies\Mankey.cs" />
     <Compile Include="Builders\Cards\Enemies\Meowth.cs" />
     <Compile Include="Builders\Cards\Enemies\Oddish.cs" />
@@ -405,11 +406,13 @@
     <Compile Include="Builders\Cards\Enemies\Rattata.cs" />
     <Compile Include="Builders\Cards\Enemies\Spearow.cs" />
     <Compile Include="Builders\Cards\Enemies\Staryu.cs" />
+    <Compile Include="Builders\Cards\Enemies\Wooper.cs" />
     <Compile Include="Builders\Cards\Evolutions\Ampharos.cs" />
     <Compile Include="Builders\Cards\Evolutions\Blastoise.cs" />
     <Compile Include="Builders\Cards\Evolutions\Charizard.cs" />
     <Compile Include="Builders\Cards\Evolutions\Charmeleon.cs" />
     <Compile Include="Builders\Cards\Evolutions\Bayleaf.cs" />
+    <Compile Include="Builders\Cards\Evolutions\Gliscor.cs" />
     <Compile Include="Builders\Cards\Evolutions\UmbreonAndEspeon.cs" />
     <Compile Include="Builders\Cards\Evolutions\Magneton.cs" />
     <Compile Include="Builders\Cards\Evolutions\Magnezone.cs" />
@@ -424,6 +427,7 @@
     <Compile Include="Builders\Cards\Evolutions\Typhlosion.cs" />
     <Compile Include="Builders\Cards\Evolutions\Wartortle.cs" />
     <Compile Include="Builders\Cards\Evolutions\Venusaur.cs" />
+    <Compile Include="Builders\Cards\Evolutions\Quagsire.cs" />
     <Compile Include="Builders\Cards\Evolutions\Yanmega.cs" />
     <Compile Include="Builders\Cards\FieldEffects\HarshSunlight.cs" />
     <Compile Include="Builders\Cards\Items\BulletPunch.cs" />
@@ -445,9 +449,10 @@
     <Compile Include="Builders\Cards\Leaders\Leaf.cs" />
     <Compile Include="Builders\Cards\Leaders\Lyra.cs" />
     <Compile Include="Builders\Cards\Leaders\Red.cs" />
+    <Compile Include="Builders\Cards\Leaders\Wes.cs" />
     <Compile Include="Builders\Cards\Legendaries\Celebi.cs" />
     <Compile Include="Builders\Icons\Burn.cs" />
-    <Compile Include="Builders\Icons\LeechSeed.cs" />
+    <Compile Include="Builders\Icons\Constricted.cs" />
     <Compile Include="Builders\Icons\Paralysis.cs" />
     <Compile Include="Builders\Icons\Sleep.cs" />
     <Compile Include="Builders\Interfaces\IBattleBuilder.cs" />
@@ -463,21 +468,26 @@
     <Compile Include="Builders\Interfaces\IUpgradeBuilder.cs" />
     <Compile Include="Builders\Keywords\Berry.cs" />
     <Compile Include="Builders\Keywords\Burn.cs" />
+    <Compile Include="Builders\Keywords\LeechSeed.cs" />
+    <Compile Include="Builders\Keywords\Pokeball.cs" />
     <Compile Include="Builders\Keywords\Sunny.cs" />
     <Compile Include="Builders\Keywords\Guts.cs" />
     <Compile Include="Builders\Keywords\KeywordColours.cs" />
     <Compile Include="Builders\Keywords\LeafGuard.cs" />
-    <Compile Include="Builders\Keywords\LeechSeed.cs" />
+    <Compile Include="Builders\Keywords\Constricted.cs" />
     <Compile Include="Builders\Keywords\Paralysis.cs" />
     <Compile Include="Builders\Keywords\Sleep.cs" />
     <Compile Include="Builders\Keywords\TagTeam.cs" />
     <Compile Include="Builders\StatusEffects\AfterCardPlayedRecallSelf.cs" />
     <Compile Include="Builders\StatusEffects\AttackWithTeeth.cs" />
-    <Compile Include="Builders\StatusEffects\BossRewardKantoYoungster.cs" />
+    <Compile Include="Builders\StatusEffects\BossRewardYoungster.cs" />
     <Compile Include="Builders\StatusEffects\Burn.cs" />
     <Compile Include="Builders\StatusEffects\DealAdditionalDamage.cs" />
     <Compile Include="Builders\StatusEffects\DealAdditionalDamageIfDebuffed.cs" />
-    <Compile Include="Builders\StatusEffects\ImmuneToDebuffs.cs" />
+    <Compile Include="Builders\StatusEffects\ImmuneToBomDemonizeSpiceFrost.cs" />
+    <Compile Include="Builders\StatusEffects\WhileShroomedImmuneToDebuffs.cs" />
+    <Compile Include="Builders\StatusEffects\ShroomHeal.cs" />
+    <Compile Include="Builders\StatusEffects\ShroomImmune.cs" />
     <Compile Include="Builders\StatusEffects\InstantAddBulletPunchToHand.cs" />
     <Compile Include="Builders\StatusEffects\InstantAddRandomBerryToHand.cs" />
     <Compile Include="Builders\StatusEffects\InstantApplyRetainSpice.cs" />
@@ -485,10 +495,11 @@
     <Compile Include="Builders\StatusEffects\InstantDoNothing.cs" />
     <Compile Include="Builders\StatusEffects\InstantRecall.cs" />
     <Compile Include="Builders\StatusEffects\InstantTripleAttack.cs" />
-    <Compile Include="Builders\StatusEffects\LeechSeed.cs" />
+    <Compile Include="Builders\StatusEffects\Constricted.cs" />
     <Compile Include="Builders\StatusEffects\InstantChooseEvolution.cs" />
     <Compile Include="Builders\StatusEffects\InstantEvolve.cs" />
     <Compile Include="Builders\StatusEffects\InstantTakeHpFromApplier.cs" />
+    <Compile Include="Builders\StatusEffects\LeechSeed.cs" />
     <Compile Include="Builders\StatusEffects\OnCardPlayedAddRandomBerryToHand.cs" />
     <Compile Include="Builders\StatusEffects\OnCardPlayedApplyFrostToEveryoneInRow.cs" />
     <Compile Include="Builders\StatusEffects\OnCardPlayedApplySpiceToAlliesInRow.cs" />
@@ -515,7 +526,6 @@
     <Compile Include="Builders\StatusEffects\TakeHalfDamage.cs" />
     <Compile Include="Builders\StatusEffects\TemporaryFlourish.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyAttacksGainSpice.cs" />
-    <Compile Include="Builders\StatusEffects\WhenDestroyedBossReward.cs" />
     <Compile Include="Builders\StatusEffects\WhenItemUsedApplySpiceToAllAllies.cs" />
     <Compile Include="Builders\StatusEffects\WhenItemUsedApplySpiceToAlliesInRow.cs" />
     <Compile Include="Builders\StatusEffects\WhenItemUsedApplySpiceToAllyBehind.cs" />
@@ -530,11 +540,14 @@
     <Compile Include="Builders\StatusEffects\WhileActiveFrenzyEqualToAlliesAndEnemiesInRow.cs" />
     <Compile Include="Builders\StatusEffects\WhileActiveFrenzyEqualToAlliesInRow.cs" />
     <Compile Include="Builders\StatusEffects\WhileActiveGrassAlliesHaveFlourish.cs" />
+    <Compile Include="Builders\StatusEffects\WhileActivePokeballDealMoreDamage.cs" />
     <Compile Include="Builders\StatusEffects\WhileActiveSunnySelfAndAlliesImmuneToDebuffs.cs" />
     <Compile Include="Builders\StatusEffects\WhileActiveWaterDecreaseAttack.cs" />
     <Compile Include="Builders\Traits\Berry.cs" />
     <Compile Include="Builders\Traits\Guts.cs" />
     <Compile Include="Builders\Traits\LeafGuard.cs" />
+    <Compile Include="Builders\Traits\LeechSeed.cs" />
+    <Compile Include="Builders\Traits\Pokeball.cs" />
     <Compile Include="Builders\Traits\TagTeamEeveeAndEevee.cs" />
     <Compile Include="Builders\Traits\TagTeamUmbreonAndEspeon.cs" />
     <Compile Include="Builders\Tribes\PokemonTribe.cs" />
@@ -568,10 +581,13 @@
     <Compile Include="StatusEffectImplementations\StatusEffectApplyXWhenItemUsed.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectBurn.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectApplyXOnHitScriptableTarget.cs" />
+    <Compile Include="StatusEffectImplementations\StatusEffectConstricted.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectInstantCountUpWaveBell.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectInstantRecall.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectInstantSummonRandomFromPool.cs" />
+    <Compile Include="StatusEffectImplementations\StatusEffectApplyXWhenConstrictedDamageDealt.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectOngoingAttackEffect.cs" />
+    <Compile Include="StatusEffectImplementations\StatusEffectPoisonHeal.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectReduceDamageTaken.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectStanceChange.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectTriggerWhenCardIsPlayed.cs" />
@@ -582,7 +598,7 @@
     <Compile Include="StatusEffectImplementations\StatusEffectAttackWithStatus.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectDealAdditionalDamage.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectBossRewards.cs" />
-    <Compile Include="StatusEffectImplementations\StatusEffectImmuneToDebuffs.cs" />
+    <Compile Include="StatusEffectImplementations\StatusEffectImmuneToStatus.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectInstantDoNothing.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectParalysis.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectInstantChooseEvolution.cs" />
@@ -592,6 +608,7 @@
     <Compile Include="StatusEffectImplementations\StatusEffectType.cs" />
     <Compile Include="Variables\BackgroundSprites.cs" />
     <Compile Include="Variables\Evolutions.cs" />
+    <Compile Include="Variables\Localization.cs" />
     <Compile Include="Variables\Types.cs" />
   </ItemGroup>
   <ItemGroup>

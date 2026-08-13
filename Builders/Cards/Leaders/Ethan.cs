@@ -5,6 +5,7 @@ using PokemonMod.Builders.Cards.LeaderPokemon;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
 using PokemonMod.Helpers;
+using PokemonMod.Variables;
 
 namespace PokemonMod.Builders.Cards.Leaders;
 

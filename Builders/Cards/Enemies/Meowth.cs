@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
 using PokemonMod.Helpers;
+using PokemonMod.Variables;
 
 namespace PokemonMod.Builders.Cards.Enemies;
 

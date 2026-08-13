@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
 using PokemonMod.Helpers;
+using PokemonMod.Variables;
 
 namespace PokemonMod.Builders.Cards.Evolutions;
 
@@ -24,12 +25,16 @@ public class Ivysaur : ICardBuilder
             {
                 card.attackEffects =
                 [
-                    Mod.SStack(LeechSeed.Name, 2),
+                    Mod.SStack(Constricted.Name, 2),
                 ];
                 card.startWithEffects =
                 [
                     Mod.SStack(Types.Grass.Name),
                     Mod.SStack(Types.Poison.Name),
+                ];
+                card.traits =
+                [
+                    Mod.TStack(LeechSeed.Name),
                 ];
             });
     }

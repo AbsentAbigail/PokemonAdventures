@@ -8,7 +8,7 @@ using WildfrostHopeMod.VFX;
 namespace PokemonMod.Builders.Icons;
 
 [UsedImplicitly]
-public class LeechSeed : IIconBuilder
+public class Constricted : IIconBuilder
 {
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower();
 
@@ -16,12 +16,12 @@ public class LeechSeed : IIconBuilder
     {
         return new StatusIconBuilder(Mod.Instance)
             .Create(name: Name,
-                statusType: "leechseed",
-                Mod.GetIconSprite("leechseed"))
+                statusType: "constricted",
+                Mod.GetIconSprite("constricted"))
             .WithIconGroupName(StatusIconBuilder.IconGroups.health)
             .WithTextColour(KeywordColours.White)
             .WithTextShadow(KeywordColours.Pink)
             .WithTextboxSprite()
-            .WithKeywords(Keywords.LeechSeed.Name);
+            .WithKeywords(Keywords.Constricted.Name);
     }
 }

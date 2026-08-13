@@ -3,6 +3,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
+using PokemonMod.Variables;
 
 namespace PokemonMod.Builders.Cards.Items;
 
@@ -22,12 +23,9 @@ public class Pokeball : ICardBuilder
             .WithValue(50)
             .SubscribeToAfterAllBuildEvent(card =>
             {
-                card.startWithEffects =
-                [
-                    Mod.SStack(StatusEffects.Pokeball.Name),
-                ];
                 card.traits =
                 [
+                    Mod.TStack(Traits.Pokeball.Name),
                     Mod.TStack("Consume"),
                 ];
                 card.targetConstraints =

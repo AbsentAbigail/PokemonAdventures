@@ -16,9 +16,10 @@ public class LeechSeed : IKeywordBuilder
             .Create(Name)
             .WithTitle("Leech Seed")
             .WithTitleColour(KeywordColours.Orange)
-            .WithDescription("Every turn, applier takes <sprite name=health>")
+            .WithShowName(true)
+            .WithDescription($"Dealing {Mod.KeywordTag(Constricted.Name)} damage also increases own <keyword=health>")
             .WithBodyColour(KeywordColours.White)
             .WithNoteColour(KeywordColours.Orange)
-            .WithCanStack(true);
+            .WithCanStack(false);
     }
 }

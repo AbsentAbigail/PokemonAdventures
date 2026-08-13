@@ -15,6 +15,7 @@ using PokemonMod.EventHooks;
 using PokemonMod.Helpers;
 using PokemonMod.Patches;
 using PokemonMod.StatusEffectImplementations;
+using PokemonMod.Variables;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -26,6 +27,7 @@ using WildfrostHopeMod.Utils;
 using WildfrostHopeMod.VFX;
 using Debug = UnityEngine.Debug;
 using Object = UnityEngine.Object;
+using Types = PokemonMod.Variables.Types;
 
 namespace PokemonMod;
 
@@ -113,7 +115,7 @@ public class Pokemon : WildfrostMod
         }
         base.Load();
 
-        KantoYoungster.AddBattle();
+        YoungsterFight.AddBattle();
         
         Evolutions.Setup();
             
@@ -335,7 +337,7 @@ public class Pokemon : WildfrostMod
             .Select(type => ((IClassBuilder)Activator.CreateInstance(type)).Builder()).ToList()
         );
 
-        CreateLocalizedStrings();
+        Localization.CreateLocalizedStrings();
             
         _loaded = true;
     }
@@ -396,29 +398,6 @@ public class Pokemon : WildfrostMod
         {
             pool.list.RemoveAllWhere((item) => item == null || item.ModAdded == this);
         }
-    }
-
-    private static void CreateLocalizedStrings()
-    {
-        var uiText = LocalizationHelper.GetCollection("UI Text", SystemLanguage.English);
-        uiText.SetString(InstantChooseEvolution.Name, "Do you want to evolve {0}?");
-        
-        uiText.SetString("MinibossReward", "You defeated a miniboss! Pick your reward");
-        
-        uiText.SetString("CaughtPokemon", "Yay! You caught {0}!");
-        uiText.SetString("Sleep", "{0} is asleep");
-        uiText.SetString("Paralysed", "{0} is paralysed!");
-        uiText.SetString(CustomStats.PokemonCaughtKey, "Pokemon caught: {0}");
-        uiText.SetString(CustomStats.PokemonEvolvedKey, "Pokemon evolved: {0}");
-        
-        uiText.SetString("SuperEffectiveLog", "{1} is weak to {0}, damage is increased by {2}");
-        uiText.SetString("ResistedLog", "{1} resists {0}, damage is decreased by {2}");
-        uiText.SetString("ImmuneLog", "{1} is immune against {0}, damage is decreased by {2}");
-        
-        uiText.SetString("CountUpWaveBell", "{0} counted up the Wave Bell by [{1}]");
-        
-        uiText.SetString("TagTeamEevee1", "Eevee");
-        uiText.SetString("TagTeamEevee2", "Eevee");
     }
 
     public override List<T> AddAssets<T, TY>()

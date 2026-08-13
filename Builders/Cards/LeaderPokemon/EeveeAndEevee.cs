@@ -7,6 +7,7 @@ using PokemonMod.Builders.StatusEffects;
 using PokemonMod.Builders.Traits;
 using PokemonMod.Helpers;
 using PokemonMod.Scriptables.ScriptableImages;
+using PokemonMod.Variables;
 
 namespace PokemonMod.Builders.Cards.LeaderPokemon;
 
@@ -17,7 +18,7 @@ public class EeveeAndEevee : ICardBuilder
     {
         return new CardDataBuilder(Mod.Instance)
             .CreateUnit(Name, "Eevee and Eevee")
-            .SetStats(4, 1, 4)
+            .SetStats(4, 1, 5)
             .SetSprites(
                 Mod.GetSprite("EeveeAndEevee1"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Suburban))

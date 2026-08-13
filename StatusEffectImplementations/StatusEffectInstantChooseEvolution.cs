@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Linq;
+using PokemonMod.Variables;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.UI;

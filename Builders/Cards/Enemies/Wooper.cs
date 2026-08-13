@@ -1,30 +1,35 @@
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
+using PokemonMod.Builders.Cards.Evolutions;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
+using PokemonMod.Helpers;
+using PokemonMod.Variables;
 
 namespace PokemonMod.Builders.Cards.Enemies;
 
 [UsedImplicitly]
-public class KantoYoungster : ICardBuilder
+public class Wooper : ICardBuilder
 {
     public DataFileBuilder<CardData, CardDataBuilder> Builder()
     {
         return new CardDataBuilder(Mod.Instance)
-            .CreateUnit(Name, "Kanto Youngster")
-            .WithCardType("Miniboss")
-            .SetStats(6, null, 3)
+            .CreateUnit(Name, "Wooper")
+            .WithCardType("Enemy")
+            .SetStats(10, 1, 5)
             .SetSprites(
-                Mod.GetSprite("KantoYoungster"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Battlefield))
+                Mod.GetSprite("Wooper"),
+                Mod.GetBackgroundSprite(BackgroundSprites.River))
+            .DropsBling(4)
+            .EvolvesInto(Quagsire.Name)
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.startWithEffects =
                 [
-                    Mod.SStack(OnCardPlayedIncreaseAttackOfNormalAllies.Name),
-                    Mod.SStack(OnCardPlayedApplyFrostToEveryoneInRow.Name),
-                    Mod.SStack(WhenDestroyedBossReward.Name),
+                    Mod.SStack(Types.Water.Name),
+                    Mod.SStack(Types.Ground.Name),
+                    Mod.SStack(ImmuneToBomDemonizeSpiceFrost.Name),
                 ];
             });
     }

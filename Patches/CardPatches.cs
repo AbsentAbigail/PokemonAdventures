@@ -31,7 +31,10 @@ public class CardPatches
             {
                 continue;
             }
-            card.mentionedCards.Add(replacementCard);
+            if (!AddStanceChangePartner(card, replacementCard)) // If tag team, add both stances, otherwise just add the card
+            {
+                card.mentionedCards.Add(replacementCard);
+            }
         }
     }
 
@@ -51,5 +54,38 @@ public class CardPatches
         ];
         
         card.mentionedCards.Add(newCard);
+    }
+
+    private static bool AddStanceChangePartner(Card card, CardData partner)
+    {
+        var stanceTrait = partner.traits?.FirstOrDefault(trait => trait.data.effects?.Any(status => status is StatusEffectStanceChange) ?? false)?.data;
+        if (stanceTrait == null)
+        {
+            return false;
+        }
+        var stanceChange = stanceTrait.effects.FirstOrDefault(status => status is StatusEffectStanceChange) as StatusEffectStanceChange;
+        if (!stanceChange)
+        {
+            return false;
+        }
+        
+        var stance1 = Mod.GetCard(partner.name).Clone();
+        stance1.startWithEffects =
+        [
+            .. stance1.startWithEffects,
+            .. stanceChange.firstStance,
+        ];
+        card.mentionedCards.Add(stance1);
+        
+        var stance2 = Mod.GetCard(partner.name).Clone();
+        stance2.name += "2"; // Mentioned cards don't get added if they share a name, so change the name
+        stance2.startWithEffects =
+        [
+            .. stance2.startWithEffects,
+            .. stanceChange.secondStance,
+        ];
+        card.mentionedCards.Add(stance2);
+        
+        return true;
     }
 }

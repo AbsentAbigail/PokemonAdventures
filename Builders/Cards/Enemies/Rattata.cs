@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.Traits;
 using PokemonMod.Helpers;
+using PokemonMod.Variables;
 
 namespace PokemonMod.Builders.Cards.Enemies;
 
@@ -29,7 +30,7 @@ public class Rattata : ICardBuilder
                 ];
                 card.traits =
                 [
-                    Mod.TStack(Guts.Name),
+                    Mod.TStack(Guts.Name, 2),
                 ];
             });
     }

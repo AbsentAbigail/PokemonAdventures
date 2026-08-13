@@ -1,4 +1,4 @@
-﻿namespace PokemonMod;
+﻿namespace PokemonMod.Variables;
 
 public static class BackgroundSprites
 {
@@ -6,6 +6,7 @@ public static class BackgroundSprites
     public const string Battlefield = "Battlefield";
     public const string Sky = "Sky";
     public const string Garden = "Garden";
+    public const string River = "River";
     public const string Volcanic = "Volcanic";
     public const string Gym = "Gym";
     public const string Surge = "Surge";

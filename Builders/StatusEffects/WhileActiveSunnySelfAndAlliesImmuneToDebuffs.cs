@@ -18,7 +18,7 @@ public class WhileActiveSunnySelfAndAlliesImmuneToDebuffs : IStatusBuilder
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectWhileActiveX>(status =>
             {
-                status.effectToApply = Mod.GetStatus(ImmuneToDebuffs.Name);
+                status.effectToApply = Mod.GetStatus(WhileShroomedImmuneToDebuffs.Name);
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self | StatusEffectApplyX.ApplyToFlags.Allies;
                 status.applyConstraints =
                 [

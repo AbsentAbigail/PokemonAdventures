@@ -3,6 +3,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
+using PokemonMod.Variables;
 
 namespace PokemonMod.Builders.Cards.Enemies;
 
@@ -18,7 +19,7 @@ public class Pidgey : ICardBuilder
             .SetSprites(
                 Mod.GetSprite("Pidgey"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Suburban))
-            .DropsBling(4)
+            .DropsBling(3)
             .EvolvesInto(Pidgeotto.Name)
             .SubscribeToAfterAllBuildEvent(card =>
             {

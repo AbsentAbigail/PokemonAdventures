@@ -5,6 +5,8 @@ using PokemonMod.Builders.Cards.Evolutions;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
 using PokemonMod.Helpers;
+using PokemonMod.Variables;
+using LeechSeed = PokemonMod.Builders.Traits.LeechSeed;
 
 namespace PokemonMod.Builders.Cards.LeaderPokemon;
 
@@ -26,12 +28,16 @@ public class Bulbasaur : ICardBuilder
                 card.AddToPets();
                 card.attackEffects =
                 [
-                    Mod.SStack(LeechSeed.Name),
+                    Mod.SStack(Constricted.Name),
                 ];
                 card.startWithEffects =
                 [
                     Mod.SStack(Types.Grass.Name),
                     Mod.SStack(Types.Poison.Name),
+                ];
+                card.traits =
+                [
+                    Mod.TStack(LeechSeed.Name),
                 ];
             });
     }

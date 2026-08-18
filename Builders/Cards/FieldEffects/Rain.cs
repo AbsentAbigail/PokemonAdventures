@@ -1,0 +1,39 @@
+﻿using Deadpan.Enums.Engine.Components.Modding;
+using HarmonyLib;
+using JetBrains.Annotations;
+using PokemonMod.Builders.Interfaces;
+using PokemonMod.Builders.StatusEffects;
+using PokemonMod.Helpers;
+using PokemonMod.Variables;
+
+namespace PokemonMod.Builders.Cards.FieldEffects;
+
+[UsedImplicitly]
+public class Rain : ICardBuilder
+{
+    public DataFileBuilder<CardData, CardDataBuilder> Builder()
+    {
+        return new CardDataBuilder(Mod.Instance)
+            .CreateUnit(Name, "Rain")
+            .SetStats(5, null, 2)
+            .WithCardType("Summoned")
+            .SetSprites(
+                Mod.GetSprite("Rain"),
+                Mod.GetBackgroundSprite(BackgroundSprites.Sky))
+            .DropsBling(4)
+            .SubscribeToAfterAllBuildEvent(card =>
+            {
+                card.startWithEffects =
+                [
+                    Mod.SStack(WhileActiveWaterIncreaseAttack.Name),
+                    Mod.SStack(OnCardPlayedHealWater.Name),
+                ];
+                card.traits =
+                [
+                    Mod.TStack("Summoned"),
+                ];
+            });
+    }
+    
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
+}

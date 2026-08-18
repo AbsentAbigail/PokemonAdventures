@@ -12,7 +12,7 @@ public class StatusEffectInstantChooseEvolution : StatusEffectInstant
 {
     private CardData[] GetPossibleEvolutions()
     {
-        return (from profile in Evolutions.Profiles where target.name == profile.cardName select Mod.GetCard(profile.changeToCardName)).ToArray();
+        return (from profile in Evolutions.Profiles where target.name == profile.cardName select Mod.GetCard(profile.changeToCardName).Clone()).ToArray();
     }
     
     public StatusEffectInstantEvolve evolveEffect;
@@ -115,6 +115,9 @@ public class StatusEffectInstantChooseEvolution : StatusEffectInstant
     {
         foreach (var cardData in GetPossibleEvolutions())
         {
+            cardData.cardType = target.data.cardType;
+            cardData.SetCustomData("OverrideCardType", cardData.cardType.name);
+            
             var card = CardManager.Get(cardData, Battle.instance.playerCardController, References.Player,
                 true,
                 true);

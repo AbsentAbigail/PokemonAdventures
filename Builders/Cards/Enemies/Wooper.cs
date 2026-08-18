@@ -20,7 +20,7 @@ public class Wooper : ICardBuilder
             .SetStats(10, 1, 5)
             .SetSprites(
                 Mod.GetSprite("Wooper"),
-                Mod.GetBackgroundSprite(BackgroundSprites.River))
+                Mod.GetBackgroundSprite(BackgroundSprites.Bog))
             .DropsBling(4)
             .EvolvesInto(Quagsire.Name)
             .SubscribeToAfterAllBuildEvent(card =>

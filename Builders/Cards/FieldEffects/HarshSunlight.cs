@@ -29,6 +29,10 @@ public class HarshSunlight : ICardBuilder
                     Mod.SStack(WhileActiveWaterDecreaseAttack.Name),
                     Mod.SStack(OnCardPlayedHealGrass.Name),
                 ];
+                card.traits =
+                [
+                    Mod.TStack("Summoned"),
+                ];
             });
     }
     

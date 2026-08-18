@@ -15,7 +15,6 @@ public class OnCardPlayedHealGrass : IStatusBuilder
         return new StatusEffectDataBuilder(Mod.Instance)
             .Create<StatusEffectApplyXOnCardPlayed>(Name)
             .WithText($"Restore <{{a}}><keyword=health> to all <sprite name={Types.Grass.Keyword()}> allies and enemies")
-            // .WithText($"Restore <{{a}}><keyword=health> to all {Mod.KeywordTag(Types.Grass.Keyword())} allies and enemies")
             .WithStackable(true)
             .WithCanBeBoosted(true)
             .SubscribeToAfterAllBuildEvent<StatusEffectApplyXOnCardPlayed>(status =>

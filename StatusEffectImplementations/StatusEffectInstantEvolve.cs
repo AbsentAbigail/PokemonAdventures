@@ -20,8 +20,6 @@ public class StatusEffectInstantEvolve : StatusEffectInstant
     private IEnumerator Evolve()
     {
         var evolvedForm = evolveInto.Clone();
-        evolvedForm.cardType = target.data.cardType;
-        evolvedForm.SetCustomData("OverrideCardType", evolvedForm.cardType.name);
 
         var inventory = References.PlayerData.inventory;
         var deckCopy = inventory.deck.FirstOrDefault(deckCard => deckCard.id == target.data.id);

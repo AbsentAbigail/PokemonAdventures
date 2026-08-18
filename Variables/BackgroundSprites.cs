@@ -11,5 +11,7 @@ public static class BackgroundSprites
     public const string Gym = "Gym";
     public const string Surge = "Surge";
     public const string Ocean = "Ocean";
+    public const string Bog = "Bog";
     public const string Item = "Item";
+    public const string Berry = "Berry";
 }

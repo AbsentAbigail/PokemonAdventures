@@ -19,7 +19,7 @@ public class Quagsire : ICardBuilder
             .SetStats(15, 2, 5)
             .SetSprites(
                 Mod.GetSprite("Quagsire"),
-                Mod.GetBackgroundSprite(BackgroundSprites.River))
+                Mod.GetBackgroundSprite(BackgroundSprites.Bog))
             .DropsBling(4)
             .SubscribeToAfterAllBuildEvent(card =>
             {

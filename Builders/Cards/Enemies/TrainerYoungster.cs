@@ -19,7 +19,7 @@ public class TrainerYoungster : ICardBuilder
             .SetStats(8, null, 3)
             .DropsBling(13)
             .SetSprites(
-                Mod.GetSprite("KantoYoungster"),
+                Mod.GetSprite("Youngster"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Battlefield))
             .SubscribeToAfterAllBuildEvent(card =>
             {

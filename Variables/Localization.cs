@@ -32,6 +32,7 @@ public static class Localization
         uiText.SetString("SuperEffectiveLog", "{1} is weak to {0}, damage is increased by {2}");
         uiText.SetString("ResistedLog", "{1} resists {0}, damage is decreased by {2}");
         uiText.SetString("ImmuneLog", "{1} is immune against {0}, damage is decreased by {2}");
+        uiText.SetString("KasibLog", "{0} takes {1} less damage from super effective attacks");
 
         uiText.SetString("CaughtPokemon", "Yay! You caught {0}!");
         uiText.SetString("Sleep", "{0} is asleep");

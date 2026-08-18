@@ -16,7 +16,7 @@ public class Oddish : ICardBuilder
         return new CardDataBuilder(Mod.Instance)
             .CreateUnit(Name, "Oddish")
             .WithCardType("Enemy")
-            .SetStats(4, 1, 3)
+            .SetStats(5, 1, 4)
             .SetSprites(
                 Mod.GetSprite("Oddish"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Garden))
@@ -24,15 +24,11 @@ public class Oddish : ICardBuilder
             .WithText("I don't evolve yet :(")
             .SubscribeToAfterAllBuildEvent(card =>
             {
-                card.attackEffects =
-                [
-                    Mod.SStack(Paralysis.Name),
-                ];
                 card.startWithEffects =
                 [
                     Mod.SStack(Types.Grass.Name),
                     Mod.SStack(Types.Poison.Name),
-                    Mod.SStack(OnCardPlayedAddRandomBerryToHand.Name),
+                    Mod.SStack(OnCardPlayedAddLumBerryToHand.Name),
                 ];
             });
     }

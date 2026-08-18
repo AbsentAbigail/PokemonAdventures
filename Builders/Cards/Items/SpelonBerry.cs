@@ -19,9 +19,8 @@ public class SpelonBerry : ICardBuilder
             .CanPlayOnHand()
             .SetSprites(
                 Mod.GetSprite("SpelonBerry"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Sky))
+                Mod.GetBackgroundSprite(BackgroundSprites.Berry))
             .WithValue(50)
-            .IsBerry()
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.attackEffects =
@@ -29,7 +28,8 @@ public class SpelonBerry : ICardBuilder
                     Mod.SStack("Spice", 2),
                     Mod.SStack(InstantApplyRetainSpice.Name),
                 ];
-            });
+            })
+            .IsBerry();
     }
     
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;

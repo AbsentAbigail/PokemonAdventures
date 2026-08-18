@@ -9,24 +9,19 @@ public class StatusEffectSleep : StatusEffectData
     
     public override void Init()
     {
-        Events.OnEntityPreTrigger += ReplaceTrigger;
+        PreTrigger += ReplaceTrigger;
         OnTurnEnd += CustomCountDown;
     }
 
-    private void OnDestroy()
+    public override bool RunPreTriggerEvent(Trigger trigger)
     {
-        Events.OnEntityPreTrigger -= ReplaceTrigger;
+        return trigger.entity == target;
     }
 
-    private void ReplaceTrigger(ref Trigger trigger)
+    private IEnumerator ReplaceTrigger(Trigger trigger)
     {
-        if (trigger.entity != target)
-        {
-            return;
-        }
-
-        ActionQueue.Insert(0, new ActionSequence(CustomTextPopupSystem.RunWithShake(target, Mod.GetLocalizedString("Sleep"), target.data.title)));
         trigger.nullified = true;
+        yield return CustomTextPopupSystem.RunWithShake(target, Mod.GetLocalizedString("Sleep"), target.data.title);
     }
     
     public override bool RunTurnStartEvent(Entity entity)

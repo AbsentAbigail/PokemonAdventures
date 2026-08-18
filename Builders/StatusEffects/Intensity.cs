@@ -1,22 +1,21 @@
 ﻿using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
-using PokemonMod.Builders.Cards.FieldEffects;
 using PokemonMod.Builders.Interfaces;
+using PokemonMod.StatusEffectImplementations;
 
 namespace PokemonMod.Builders. StatusEffects;
 
 [UsedImplicitly]
-public class SummonSun : IStatusBuilder
+public class Intensity : IStatusBuilder
 {
     public DataFileBuilder<StatusEffectData, StatusEffectDataBuilder> Builder()
     {
-        return Mod.StatusCopy("Summon Beepop", Name)
-            .WithText($"Summon {Mod.CardTag(HarshSunlight.Name)}")
-            .SubscribeToAfterAllBuildEvent<StatusEffectSummon>(status =>
-            {
-                status.summonCard = Mod.GetCard(HarshSunlight.Name);
-            });
+        return new StatusEffectDataBuilder(Mod.Instance)
+            .Create<StatusEffectDoNothing>(Name)
+            .WithText("Intensity {a}")
+            .WithStackable(true)
+            .WithCanBeBoosted(false);
     }
     
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;

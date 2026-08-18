@@ -25,7 +25,7 @@ public class Lyra : ITrainerBuilder
             {
                 card.startWithEffects =
                 [
-                    Mod.SStack(SummonSun.Name),
+                    Mod.SStack(CastHarshSunlight.Name),
                 ];
             });
     }

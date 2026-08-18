@@ -115,7 +115,11 @@ public class Pokemon : WildfrostMod
         }
         base.Load();
 
+        // Fight 1
         YoungsterFight.AddBattle();
+        
+        // Fight 3
+        MistyGym.AddBattle();
         
         Evolutions.Setup();
             
@@ -386,6 +390,7 @@ public class Pokemon : WildfrostMod
                     status.weakTypes = type.WeakTypes;
                     status.resistingTypes = type.ResistingTypes;
                     status.immuneTypes = type.ImmuneTypes;
+                    status.kasibBerry = Mod.GetStatus(ReduceSuperEffectiveDamage.Name);
                 }));
         }
     }

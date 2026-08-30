@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Deadpan.Enums.Engine.Components.Modding;
 using UnityEngine;
@@ -13,13 +14,19 @@ internal static class Mod
 {
     public static readonly WildfrostMod Instance = Pokemon.Instance;
     public static readonly bool BetaArt = Pokemon.Instance.BetaArt;
+    public static readonly Dictionary<string, Action> ActionsOnUnload = new();
 
     public static Sprite GetIconSprite(string spriteName)
     {
-        var sprite = Pokemon.BetaSpriteAtlas?.GetSprite(spriteName);
+        var sprite = Pokemon.IconSpriteAtlas?.GetSprite(spriteName);
         return sprite != null ? sprite : Instance.ImagePath($"Icons/{spriteName}.png").ToSprite();
     }
     
+    public static Sprite GetCharmSprite(string spriteName)
+    {
+        return GetSprite(spriteName, Pokemon.CharmSpriteAtlas, "Charms/");
+    }
+
     public static Sprite GetSprite(string spriteName)
     {
         if (BetaArt)
@@ -184,7 +191,7 @@ internal static class Mod
         var ghostObject = new GameObject(name, typeof(RectTransform), typeof(Image), typeof(T))
         {
             // HideAndDontSave so it doesn't get touched during gameplay, OR
-            hideFlags = HideFlags.HideAndDontSave
+            hideFlags = HideFlags.HideAndDontSave,
         };
 
         // ensure the GameObject is kept in memory this session

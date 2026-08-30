@@ -20,7 +20,7 @@ public class Sleep : IIconBuilder
                 Mod.GetIconSprite("sleep"))
             .WithIconGroupName(StatusIconBuilder.IconGroups.counter)
             .WithTextColour(KeywordColours.White)
-            .WithTextShadow(KeywordColours.Pink)
+            .WithTextShadow(KeywordColours.SleepDark)
             .WithTextboxSprite()
             .WithKeywords(Keywords.Sleep.Name);
     }

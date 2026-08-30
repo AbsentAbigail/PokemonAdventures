@@ -3,7 +3,6 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Cards.Evolutions;
 using PokemonMod.Builders.Interfaces;
-using PokemonMod.Builders.StatusEffects;
 using PokemonMod.Builders.Traits;
 using PokemonMod.Helpers;
 using PokemonMod.Scriptables.ScriptableImages;

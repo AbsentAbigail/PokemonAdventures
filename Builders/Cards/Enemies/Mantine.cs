@@ -18,7 +18,7 @@ public class Mantine : ICardBuilder
             .WithCardType("Enemy")
             .SetStats(8, 1, 5)
             .SetSprites(
-                Mod.GetSprite("Remoraid"),
+                Mod.GetSprite("Mantine"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Ocean))
             .DropsBling(6)
             .SubscribeToAfterAllBuildEvent(card =>

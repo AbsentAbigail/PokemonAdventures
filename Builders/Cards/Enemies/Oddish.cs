@@ -29,6 +29,7 @@ public class Oddish : ICardBuilder
                     Mod.SStack(Types.Grass.Name),
                     Mod.SStack(Types.Poison.Name),
                     Mod.SStack(OnCardPlayedAddLumBerryToHand.Name),
+                    Mod.SStack(WhenBerryPlayedApplyShroomToEnemiesInRow.Name),
                 ];
             });
     }

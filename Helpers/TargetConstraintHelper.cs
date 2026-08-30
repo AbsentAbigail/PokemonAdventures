@@ -2,6 +2,7 @@
 using System.Linq;
 using JetBrains.Annotations;
 using PokemonMod.Scriptables.TargetConstraints;
+using Types = PokemonMod.Variables.Types;
 
 namespace PokemonMod.Helpers;
 
@@ -16,6 +17,11 @@ public class TargetConstraintHelper
         return targetConstraint;
     }
 
+    public static TargetConstraintOr IsPokemon(bool not = false)
+    {
+        return IsOfTypes(Types.TypeChart.Select(type => type.Keyword()).ToArray());
+    }
+    
     public static TargetConstraintOr IsOfTypes(string[] types, bool not = false)
     {
         var constraints = types.Select(type => HasStatus(type));
@@ -30,7 +36,7 @@ public class TargetConstraintHelper
         return targetConstraint;
     }
 
-    public static TargetConstraintWeather Weather(string weather,
+    public static TargetConstraintWeather WeatherActive(string weather,
         Action<TargetConstraintWeather> modification = null, bool not = false)
     {
         var targetConstraint = General((not ? "Weather not active" : "Weather active") + $" {weather}", modification, not);

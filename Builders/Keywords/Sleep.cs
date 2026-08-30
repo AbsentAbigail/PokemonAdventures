@@ -15,10 +15,10 @@ public class Sleep : IKeywordBuilder
         return new KeywordDataBuilder(Mod.Instance)
             .Create(Name)
             .WithTitle("Sleep")
-            .WithTitleColour(KeywordColours.Blue)
+            .WithTitleColour(KeywordColours.SleepLight)
             .WithDescription("Unable to trigger|Counts down every turn")
             .WithBodyColour(KeywordColours.White)
-            .WithNoteColour(KeywordColours.Blue)
+            .WithNoteColour(KeywordColours.SleepLight)
             .WithCanStack(true);
     }
 }

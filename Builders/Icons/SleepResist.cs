@@ -2,7 +2,6 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
-using PokemonMod.Builders.Keywords;
 using WildfrostHopeMod.VFX;
 
 namespace PokemonMod.Builders.Icons;
@@ -17,8 +16,6 @@ public class SleepResist : IIconBuilder
                 statusType: "sleepresist",
                 Mod.GetIconSprite("sleepresist"))
             .WithIconGroupName(StatusIconBuilder.IconGroups.counter)
-            .WithTextColour(KeywordColours.White)
-            .WithTextShadow(KeywordColours.Pink)
             .WithTextboxSprite()
             .WithKeywords(Keywords.SleepResist.Name);
     }

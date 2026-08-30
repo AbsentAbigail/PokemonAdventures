@@ -10,14 +10,12 @@ namespace PokemonMod.Builders.Upgrades;
 [UsedImplicitly]
 public class CardUpgradeGrowl : IUpgradeBuilder
 {
-    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
-
     public DataFileBuilder<CardUpgradeData, CardUpgradeDataBuilder> Builder()
     {
         return new CardUpgradeDataBuilder(Mod.Instance)
             .Create(Name)
             .WithType(CardUpgradeData.Type.Charm)
-            .WithImage(Mod.GetSprite("CardUpgradeGrowl"))
+            .WithImage(Mod.GetCharmSprite("Growl"))
             .WithTitle("TM - Growl")
             .WithText("Apply <1><keyword=frost> to allies and enemies in row")
             .InCharmPool()
@@ -30,4 +28,6 @@ public class CardUpgradeGrowl : IUpgradeBuilder
                 ];
             });
     }
+    
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

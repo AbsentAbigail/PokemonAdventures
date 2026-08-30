@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using PokemonMod.GameSystems;
+using PokemonMod.Helpers;
 using Random = UnityEngine.Random;
 
 namespace PokemonMod.StatusEffectImplementations;
@@ -21,6 +22,10 @@ public class StatusEffectParalysis : StatusEffectData
     {
         var amount = 1;
         Events.InvokeStatusEffectCountDown(this, ref amount);
+        if (amount == 0)
+        {
+            yield break;
+        }
         yield return CountDown(target, amount);
     }
 
@@ -41,6 +46,7 @@ public class StatusEffectParalysis : StatusEffectData
             return;
         }
 
+        this.PlayApplyAnimation();
         ActionQueue.Add(new ActionSequence(CustomTextPopupSystem.RunWithShake(target, Mod.GetLocalizedString("Paralysed"), target.data.title)));
         countdownAmount = 0;
     }

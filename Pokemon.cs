@@ -6,27 +6,21 @@ using System.Reflection;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
-using PokemonMod.Battles;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.Keywords;
-using PokemonMod.Builders.StatusEffects;
 using PokemonMod.Builders.Tribes;
 using PokemonMod.EventHooks;
 using PokemonMod.Helpers;
-using PokemonMod.Patches;
 using PokemonMod.StatusEffectImplementations;
 using PokemonMod.Variables;
 using TMPro;
-using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.AddressableAssets.ResourceLocators;
 using UnityEngine.U2D;
-using UnityEngine.UI;
 using WildfrostHopeMod.SFX;
 using WildfrostHopeMod.Utils;
 using WildfrostHopeMod.VFX;
 using Debug = UnityEngine.Debug;
-using Object = UnityEngine.Object;
 using Types = PokemonMod.Variables.Types;
 
 namespace PokemonMod;
@@ -46,7 +40,6 @@ public class Pokemon : WildfrostMod
     public override string[] Depends => [
         "mhcdc9.wildfrost.battle",
         "hope.wildfrost.vfx",
-        "hope.wildfrost.console"// todo: remove :(
     ];
 
     public override string Title => "Pokemon Adventures";
@@ -115,11 +108,22 @@ public class Pokemon : WildfrostMod
         }
         base.Load();
 
-        // Fight 1
-        YoungsterFight.AddBattle();
+        var cards = AddressableLoader.groups["CardData"].list.Cast<CardData>();
+        foreach (var cardData in cards)
+        {
+            if (cardData.ModAdded != Instance)
+            {
+                continue;
+            }
+            
+            var name = Pokedex.Names.FirstOrDefault(name => name == cardData.name.Replace(GUID + ".", ""));
+            if (name != null)
+            {
+                Pokedex.PokedexDictionary.Add(name, cardData);
+            }
+        }
         
-        // Fight 3
-        MistyGym.AddBattle();
+        Battles.Battles.AddBattles();
         
         Evolutions.Setup();
             
@@ -133,6 +137,11 @@ public class Pokemon : WildfrostMod
 
     public override void Unload()
     {
+        Mod.ActionsOnUnload.Do(keyValuePair =>
+        {
+            keyValuePair.Value();
+        });
+        
         UnloadEvents();
         UnloadFromClasses();
         base.Unload();
@@ -387,10 +396,9 @@ public class Pokemon : WildfrostMod
                 .SubscribeToAfterAllBuildEvent<StatusEffectType>(status =>
                 {
                     status.type = type.Keyword();
-                    status.weakTypes = type.WeakTypes;
-                    status.resistingTypes = type.ResistingTypes;
-                    status.immuneTypes = type.ImmuneTypes;
-                    status.kasibBerry = Mod.GetStatus(ReduceSuperEffectiveDamage.Name);
+                    status.weakTypes = type.GetWeakTypes();
+                    status.resistingTypes = type.GetResistingTypes();
+                    status.immuneTypes = type.GetImmuneTypes();
                 }));
         }
     }

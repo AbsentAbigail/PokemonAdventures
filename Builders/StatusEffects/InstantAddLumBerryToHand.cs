@@ -3,7 +3,6 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Cards.Items;
 using PokemonMod.Builders.Interfaces;
-using PokemonMod.Builders.Tribes;
 using PokemonMod.StatusEffectImplementations;
 
 namespace PokemonMod.Builders.StatusEffects;

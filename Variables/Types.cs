@@ -1,4 +1,6 @@
-﻿namespace PokemonMod.Variables;
+﻿using System.Linq;
+
+namespace PokemonMod.Variables;
 
 public static class Types
 {
@@ -353,6 +355,21 @@ public static class Types
         public string Keyword()
         {
             return ReadableName().ToLower();
+        }
+
+        public string[] GetWeakTypes()
+        {
+            return WeakTypes.Select(type => TypeChart.First(a => a.Name == type).Keyword()).ToArray();
+        }
+
+        public string[] GetResistingTypes()
+        {
+            return ResistingTypes.Select(type => TypeChart.First(a => a.Name == type).Keyword()).ToArray();
+        }
+
+        public string[] GetImmuneTypes()
+        {
+            return ImmuneTypes.Select(type => TypeChart.First(a => a.Name == type).Keyword()).ToArray();
         }
     }
 }

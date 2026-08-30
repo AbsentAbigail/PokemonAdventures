@@ -2,6 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
+using PokemonMod.Builders.Keywords;
 using PokemonMod.Builders.StatusEffects;
 
 namespace PokemonMod.Builders.Traits;
@@ -17,7 +18,7 @@ public class TagTeamEeveeAndEevee : ITraitBuilder
             .Create(Name)
             .SubscribeToAfterAllBuildEvent(trait =>
             {
-                trait.keyword = Mod.GetKeyword(Keywords.TagTeam.Name);
+                trait.keyword = Mod.GetKeyword(TagTeam.Name);
                 trait.effects =
                 [
                     Mod.GetStatus(TagTeamEevee.Name),

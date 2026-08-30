@@ -6,7 +6,6 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
 using PokemonMod.Helpers;
 using PokemonMod.Variables;
-using UnityEngine;
 
 namespace PokemonMod.Builders.Cards.Leaders;
 

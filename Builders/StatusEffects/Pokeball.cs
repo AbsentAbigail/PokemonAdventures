@@ -15,11 +15,7 @@ public class Pokeball : IStatusBuilder
     {
         return new StatusEffectDataBuilder(Mod.Instance)
             .Create<StatusEffectPokeball>(Name)
-            .WithText("Pokeball")
             .WithStackable(false)
-            .WithCanBeBoosted(false)
-            .SubscribeToAfterAllBuildEvent<StatusEffectPokeball>(status =>
-            {
-            });
+            .WithCanBeBoosted(false);
     }
 }

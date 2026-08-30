@@ -1,12 +1,10 @@
 ﻿using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
-using PokemonMod.Builders.Cards.FieldEffects;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.Keywords;
 using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
-using PokemonMod.Variables;
 
 namespace PokemonMod.Builders. StatusEffects;
 
@@ -28,7 +26,7 @@ public class WhenBerryPlayedRestoreOwnHealth : IStatusBuilder
                 [
                     TargetConstraintHelper.HasTrait(Traits.Berry.Name),
                 ];
-                status.allies = false;
+                status.onlyAllied = false;
             });
     }
     

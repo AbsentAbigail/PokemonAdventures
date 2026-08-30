@@ -32,6 +32,7 @@ public class ErikaAndVileplume2 : ICardBuilder
                     Mod.SStack(Types.Grass.Name),
                     Mod.SStack(Types.Poison.Name),
                     Mod.SStack(WhenBerryPlayedApplyParalysisToEnemiesAndIncreaseEffects.Name),
+                    Mod.SStack(BossRewardBoss1.Name),
                 ];
             });
     }

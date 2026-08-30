@@ -2,6 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
+using PokemonMod.Builders.StatusEffects;
 
 namespace PokemonMod.Builders.Traits;
 
@@ -20,6 +21,7 @@ public class Pokeball : ITraitBuilder
                 trait.effects =
                 [
                     Mod.GetStatus(StatusEffects.Pokeball.Name),
+                    Mod.GetStatus(WhileLastInHandGainAttack.Name),
                 ];
             });
     }

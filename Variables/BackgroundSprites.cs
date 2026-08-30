@@ -14,4 +14,6 @@ public static class BackgroundSprites
     public const string Bog = "Bog";
     public const string Item = "Item";
     public const string Berry = "Berry";
+    public const string Sunny = "Sunny";
+    public const string Rain = "Rain";
 }

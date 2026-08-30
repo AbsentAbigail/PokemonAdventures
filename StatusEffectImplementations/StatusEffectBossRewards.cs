@@ -20,7 +20,9 @@ public class StatusEffectBossReward : StatusEffectApplyX
     private IEnumerator CheckDestroy(Entity entity, DeathType deathType)
     {
         if (entity.LastHitStillProcessing())
+        {
             yield return entity.WaitForLastHitToFinishProcessing();
-        yield return FindObjectOfType<MiniBossRewardSystem>(true).ChooseRewards(choices);
+        }
+        yield return FindObjectOfType<MiniBossRewardSystem>(true).ChooseRewards(choices, target.data.cardType.name is "Boss" or "BossSmall");
     }
 }

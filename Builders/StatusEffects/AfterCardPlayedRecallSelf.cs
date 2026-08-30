@@ -1,10 +1,7 @@
 ﻿using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
-using PokemonMod.Builders.Cards.FieldEffects;
 using PokemonMod.Builders.Interfaces;
-using PokemonMod.Builders.Keywords;
-using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 
 namespace PokemonMod.Builders. StatusEffects;

@@ -9,14 +9,12 @@ namespace PokemonMod.Builders.Upgrades;
 [UsedImplicitly]
 public class CardUpgradeLeer : IUpgradeBuilder
 {
-    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
-
     public DataFileBuilder<CardUpgradeData, CardUpgradeDataBuilder> Builder()
     {
         return new CardUpgradeDataBuilder(Mod.Instance)
             .Create(Name)
             .WithType(CardUpgradeData.Type.Charm)
-            .WithImage(Mod.GetSprite("CardUpgradeLeer"))
+            .WithImage(Mod.GetCharmSprite("Leer"))
             .WithTitle("TM - Leer")
             .WithText("""
                       <-2><keyword=attack>
@@ -35,4 +33,6 @@ public class CardUpgradeLeer : IUpgradeBuilder
                 ];
             });
     }
+    
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

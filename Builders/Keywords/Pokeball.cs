@@ -17,7 +17,10 @@ public class Pokeball : IKeywordBuilder
             .WithTitle("Pokeball")
             .WithTitleColour(KeywordColours.Orange)
             .WithShowName(true)
-            .WithDescription("On kill, add the target to your reserve|Can only be played on Enemies")
+            .WithDescription("""
+                             On kill, add the target to your reserve
+                             Has <+1><sprite name=attack> if this is the rightmost card in your hand|Can only be played on Enemies
+                             """)
             .WithBodyColour(KeywordColours.White)
             .WithNoteColour(KeywordColours.Orange);
     }

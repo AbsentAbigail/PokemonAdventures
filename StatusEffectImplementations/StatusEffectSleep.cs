@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using PokemonMod.GameSystems;
+using PokemonMod.Helpers;
 
 namespace PokemonMod.StatusEffectImplementations;
 
@@ -21,6 +22,7 @@ public class StatusEffectSleep : StatusEffectData
     private IEnumerator ReplaceTrigger(Trigger trigger)
     {
         trigger.nullified = true;
+        this.PlayApplyAnimation();
         yield return CustomTextPopupSystem.RunWithShake(target, Mod.GetLocalizedString("Sleep"), target.data.title);
     }
     
@@ -48,7 +50,5 @@ public class StatusEffectSleep : StatusEffectData
         }
 
         yield return CountDown(entity, amount);
-        entity.display.promptUpdateDescription = true;
-        entity.PromptUpdate();
     }
 }

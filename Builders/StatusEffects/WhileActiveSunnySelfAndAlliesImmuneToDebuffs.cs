@@ -22,7 +22,7 @@ public class WhileActiveSunnySelfAndAlliesImmuneToDebuffs : IStatusBuilder
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self | StatusEffectApplyX.ApplyToFlags.Allies;
                 status.applyConstraints =
                 [
-                    TargetConstraintHelper.Weather(HarshSunlight.Name),
+                    TargetConstraintHelper.WeatherActive(HarshSunlight.Name),
                 ];
             });
     }

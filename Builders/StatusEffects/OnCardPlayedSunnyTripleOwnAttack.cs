@@ -24,7 +24,7 @@ public class OnCardPlayedSunnyTripleOwnAttack : IStatusBuilder
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
                 status.applyConstraints =
                 [
-                    TargetConstraintHelper.Weather(HarshSunlight.Name),
+                    TargetConstraintHelper.WeatherActive(HarshSunlight.Name),
                 ];
             });
     }

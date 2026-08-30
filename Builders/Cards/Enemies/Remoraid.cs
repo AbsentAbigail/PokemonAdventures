@@ -1,6 +1,7 @@
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
+using PokemonMod.Builders.Cards.Evolutions;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 using PokemonMod.Variables;
@@ -20,8 +21,7 @@ public class Remoraid : ICardBuilder
                 Mod.GetSprite("Remoraid"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Ocean))
             .DropsBling(5)
-            // .EvolvesInto(Name)
-            .WithText("I don't evolve yet :(")
+            .EvolvesInto(Octillery.Name)
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.startWithEffects =

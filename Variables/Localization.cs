@@ -16,7 +16,10 @@ public static class Localization
         
         uiText.SetString(InstantChooseEvolution.Name, "Do you want to evolve {0}?");
         
+        uiText.SetString("LinkCable", "Which Pokemon do you want to trade for?");
+        
         uiText.SetString("MinibossReward", "You defeated a miniboss! Pick your reward");
+        uiText.SetString("BossReward", "You defeated a boss! Here's your reward");
         
         uiText.SetString(CustomStats.PokemonCaughtKey, "Pokemon caught: {0}");
         uiText.SetString(CustomStats.PokemonEvolvedKey, "Pokemon evolved: {0}");
@@ -29,10 +32,10 @@ public static class Localization
 
     private static void AddStatusText(StringTable uiText)
     {
-        uiText.SetString("SuperEffectiveLog", "{1} is weak to {0}, damage is increased by {2}");
-        uiText.SetString("ResistedLog", "{1} resists {0}, damage is decreased by {2}");
-        uiText.SetString("ImmuneLog", "{1} is immune against {0}, damage is decreased by {2}");
-        uiText.SetString("KasibLog", "{0} takes {1} less damage from super effective attacks");
+        uiText.SetString("SuperEffectiveLog", "<sprite name={1}> is weak to <sprite name={0}>, damage is increased by [{2}]");
+        uiText.SetString("ResistedLog", "<sprite name={1}> resists <sprite name={0}>, damage is decreased by [{2}]");
+        uiText.SetString("ImmuneLog", "<sprite name={1}> is immune against <sprite name={0}>, damage is decreased by [{2}]");
+        uiText.SetString("KasibLog", "{0} takes [{1}] less damage from super effective attacks");
 
         uiText.SetString("CaughtPokemon", "Yay! You caught {0}!");
         uiText.SetString("Sleep", "{0} is asleep");

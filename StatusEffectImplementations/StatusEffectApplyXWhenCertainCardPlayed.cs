@@ -6,7 +6,7 @@ namespace PokemonMod.StatusEffectImplementations;
 internal class StatusEffectApplyXWhenCertainCardPlayed : StatusEffectApplyX
 {
     public TargetConstraint[] cardConstraints;
-    public bool allies = true;
+    public bool onlyAllied = true;
     
     public override void Init()
     {
@@ -25,7 +25,7 @@ internal class StatusEffectApplyXWhenCertainCardPlayed : StatusEffectApplyX
             return false;
         }
 
-        return !allies || entity.owner == target.owner;
+        return !onlyAllied || entity.owner == target.owner;
     }
     
     private IEnumerator Check(Entity entity, Entity[] targets)

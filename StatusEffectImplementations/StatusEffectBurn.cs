@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using PokemonMod.GameSystems;
+using PokemonMod.Helpers;
 
 namespace PokemonMod.StatusEffectImplementations;
 
@@ -35,6 +35,7 @@ public class StatusEffectBurn : StatusEffectData
         {
             yield break;
         }
+
         yield return StatusEffectSystem.Apply(target, applier, overburn, overburn.GetAmount());
         
         var amount = 1;
@@ -43,5 +44,6 @@ public class StatusEffectBurn : StatusEffectData
         {
             yield return CountDown(target, amount);
         }
+        this.PlayApplyAnimation();
     }
 }

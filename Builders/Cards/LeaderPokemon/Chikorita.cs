@@ -22,7 +22,7 @@ public class Chikorita : ICardBuilder
                 Mod.GetSprite("Chikorita"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Garden))
             .DropsBling(4)
-            .EvolvesInto(Bayleaf.Name)
+            .EvolvesInto(Bayleef.Name)
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.AddToPets();

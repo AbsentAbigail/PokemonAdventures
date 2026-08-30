@@ -15,10 +15,10 @@ public class Paralysis : IKeywordBuilder
         return new KeywordDataBuilder(Mod.Instance)
             .Create(Name)
             .WithTitle("Paralysis")
-            .WithTitleColour(KeywordColours.Orange)
+            .WithTitleColour(KeywordColours.Paralysis)
             .WithDescription("50% chance not to count down <sprite name=counter> each turn|Counts down every turn")
             .WithBodyColour(KeywordColours.White)
-            .WithNoteColour(KeywordColours.Orange)
+            .WithNoteColour(KeywordColours.Paralysis)
             .WithCanStack(true);
     }
 }

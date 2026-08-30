@@ -2,7 +2,6 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
-using PokemonMod.Builders.StatusEffects;
 
 namespace PokemonMod.Builders.Traits;
 

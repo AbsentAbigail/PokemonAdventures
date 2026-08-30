@@ -5,7 +5,6 @@ using PokemonMod.Builders.Cards.FieldEffects;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
-using PokemonMod.Variables;
 
 namespace PokemonMod.Builders. StatusEffects;
 
@@ -27,7 +26,7 @@ public class WhenRainPlayedCountDown : IStatusBuilder
                 [
                     TargetConstraintHelper.General<TargetConstraintIsSpecificCard>("Is Rain", constraint => constraint.allowedCards = [Mod.GetCard(Rain.Name)]),
                 ];
-                status.allies = false;
+                status.onlyAllied = false;
             });
     }
     

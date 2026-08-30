@@ -3,7 +3,6 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
-using PokemonMod.Helpers;
 using PokemonMod.Variables;
 
 namespace PokemonMod.Builders.Cards.Enemies;
@@ -28,7 +27,7 @@ public class ErikaAndVileplume : ICardBuilder
                     Mod.SStack(Types.Poison.Name),
                     Mod.SStack(OnCardPlayedAddLumBerryToHand.Name),
                     Mod.SStack(WhenBerryPlayedRestoreOwnHealth.Name, 2),
-                    Mod.SStack(MistyAndStarmiePhase2.Name),
+                    Mod.SStack(ErikaAndVileplumePhase2.Name),
                 ];
                 card.traits =
                 [

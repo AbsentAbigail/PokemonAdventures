@@ -1,42 +1,30 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using PokemonMod.GameSystems;
 
 namespace PokemonMod.StatusEffectImplementations;
 
 public class StatusEffectReduceSuperEffectiveDamage : StatusEffectData
 {
-    private static readonly HashSet<Hit> Hits = [];
-
     public override void Init()
     {
-        StatusEffectType.OnSuperEffectiveEvent += Check;
+        TypeInteractionSystem.OnSuperEffectiveEvent += Check;
     }
 
     private void OnDestroy()
     {
-        StatusEffectType.OnSuperEffectiveEvent -= Check;
+        TypeInteractionSystem.OnSuperEffectiveEvent -= Check;
     }
 
-    public override bool RunTurnEndEvent(Entity entity)
+    private void Check(Hit hit)
     {
-        if (Hits.Any())
-        {
-            Hits.Clear();
-        }
-        
-        return false;
-    }
-
-    private void Check(Hit hit, string attackingType, string defendingType)
-    {
-        if (!Hits.Add(hit))
+        if (hit.target != target)
         {
             return;
         }
+        
         var amount = GetAmount();
         hit.damage -= amount;
         
         var localisedString = Mod.GetLocalizedString("KasibLog");
-        FindObjectOfType<BattleLogSystem>()?.Log(localisedString, BattleLogType.Buff, BattleLogSystem.GetBattleEntity(applier), amount);
+        FindObjectOfType<BattleLogSystem>()?.Log(localisedString, BattleLogType.Buff, BattleLogSystem.GetBattleEntity(target), amount);
     }
 }

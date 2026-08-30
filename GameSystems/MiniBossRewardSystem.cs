@@ -12,7 +12,8 @@ namespace PokemonMod.GameSystems;
 public class MiniBossRewardSystem : GameSystem
 {
     private static readonly string CardName = Item.Name;
-    private static readonly LocalizedString Title = Mod.GetLocalizedString("MinibossReward");
+    private static readonly LocalizedString TitleMiniboss = Mod.GetLocalizedString("MinibossReward");
+    private static readonly LocalizedString TitleBoss = Mod.GetLocalizedString("BossReward");
 
     private static Entity _selected;
     private static CardContainer _cardContainer;
@@ -20,7 +21,7 @@ public class MiniBossRewardSystem : GameSystem
     private static GameObject _objectGroup;
     private static CardPocketSequence _sequence;
     
-    public IEnumerator ChooseRewards(CardUpgradeData[] choices)
+    public IEnumerator ChooseRewards(CardUpgradeData[] choices, bool boss = false)
     {
         _sequence = FindObjectOfType<CardPocketSequence>(true);
         var cardController = (CardControllerSelectCard)_sequence.cardController;
@@ -35,10 +36,8 @@ public class MiniBossRewardSystem : GameSystem
 
         CinemaBarSystem.In();
         CinemaBarSystem.SetSortingLayer("UI2");
-        if (!Title.IsEmpty)
-        {
-            CinemaBarSystem.Top.SetPrompt(Title.GetLocalizedString(), "Select");
-        }
+        CinemaBarSystem.Top.SetPrompt((boss ? TitleBoss : TitleMiniboss).GetLocalizedString(), "Select");
+        
         _sequence.AddCards(container);
         yield return _sequence.Run();
         
@@ -50,7 +49,6 @@ public class MiniBossRewardSystem : GameSystem
         CinemaBarSystem.Clear();
         CinemaBarSystem.Out();
     }
-    
     
     private static void ChooseCard(Entity entity)
     {

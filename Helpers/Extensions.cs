@@ -1,4 +1,5 @@
-﻿using Deadpan.Enums.Engine.Components.Modding;
+﻿using System.Linq;
+using Deadpan.Enums.Engine.Components.Modding;
 using PokemonMod.Builders.Traits;
 using PokemonMod.Builders.Tribes;
 using PokemonMod.Variables;
@@ -21,11 +22,6 @@ public static class Extensions
             return builder;
         }
 
-        // public CardDataBuilder TrainerLeader(string title, Sprite sprite, params string[] pokemon)
-        // {
-        //     
-        // }
-        
         public CardDataBuilder ReplacePreRun(params string[] replacements)
         {
             return builder.SubscribeToAfterAllBuildEvent(card =>
@@ -79,5 +75,25 @@ public static class Extensions
         return statusEffectDataBuilder
             .WithIsReaction(true)
             .FreeModify(status => status.descColorHex = "F99C61");
+    }
+    
+    public static void PlayApplyAnimation(this StatusEffectData status)
+    {
+        if (Object.FindObjectOfType<VfxStatusSystem>() is not { } hitSystem)
+        {
+            return;
+        }
+        if (!hitSystem.profileLookup.TryGetValue(status.type, out var profile) || profile == null || !profile.applyEffectPrefab)
+        {
+            return;
+        }
+        
+        var transform = status.target.transform;
+        hitSystem.CreateEffect(profile.applyEffectPrefab, transform.position, transform.lossyScale);
+    }
+
+    public static bool AllApply(this TargetConstraint[] constraints, Entity entity)
+    {
+        return constraints.All(constraint => constraint.Check(entity));
     }
 }

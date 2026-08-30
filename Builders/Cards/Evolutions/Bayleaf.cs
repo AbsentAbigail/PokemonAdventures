@@ -10,15 +10,15 @@ using LeafGuard = PokemonMod.Builders.Traits.LeafGuard;
 namespace PokemonMod.Builders.Cards.Evolutions;
 
 [UsedImplicitly]
-public class Bayleaf : ICardBuilder
+public class Bayleef : ICardBuilder
 {
     public DataFileBuilder<CardData, CardDataBuilder> Builder()
     {
         return new CardDataBuilder(Mod.Instance)
-            .CreateUnit(Name, "Bayleaf")
+            .CreateUnit(Name, "Bayleef")
             .SetStats(6, 2, 3)
             .SetSprites(
-                Mod.GetSprite("Bayleaf"),
+                Mod.GetSprite("Bayleef"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Garden))
             .DropsBling(4)
             .EvolvesInto(Meganium.Name)

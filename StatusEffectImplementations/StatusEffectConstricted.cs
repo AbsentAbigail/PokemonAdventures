@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using PokemonMod.GameSystems;
+using PokemonMod.Helpers;
 
 namespace PokemonMod.StatusEffectImplementations;
 
@@ -30,6 +31,7 @@ public class StatusEffectConstricted : StatusEffectApplyX
 
     private IEnumerator Damage(Entity entity)
     {
+        this.PlayApplyAnimation();
         return new Hit(GetDamager(), target, count)
         {
             screenShake = 0.25f,

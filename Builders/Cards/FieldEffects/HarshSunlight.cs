@@ -19,7 +19,7 @@ public class HarshSunlight : ICardBuilder
             .WithCardType("Summoned")
             .SetSprites(
                 Mod.GetSprite("HarshSunlight"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Sky))
+                Mod.GetBackgroundSprite(BackgroundSprites.Sunny))
             .DropsBling(4)
             .SubscribeToAfterAllBuildEvent(card =>
             {
@@ -28,11 +28,13 @@ public class HarshSunlight : ICardBuilder
                     Mod.SStack(WhileActiveFireIncreaseAttack.Name),
                     Mod.SStack(WhileActiveWaterDecreaseAttack.Name),
                     Mod.SStack(OnCardPlayedHealGrass.Name),
+                    Mod.SStack(Intensity.Name),
                 ];
                 card.traits =
                 [
                     Mod.TStack("Summoned"),
                 ];
+                card.charmSlots = 0;
             });
     }
     

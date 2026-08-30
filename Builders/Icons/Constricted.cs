@@ -20,7 +20,7 @@ public class Constricted : IIconBuilder
                 Mod.GetIconSprite("constricted"))
             .WithIconGroupName(StatusIconBuilder.IconGroups.health)
             .WithTextColour(KeywordColours.White)
-            .WithTextShadow(KeywordColours.Pink)
+            .WithTextShadow(KeywordColours.Constricted)
             .WithTextboxSprite()
             .WithKeywords(Keywords.Constricted.Name);
     }

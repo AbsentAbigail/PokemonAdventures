@@ -19,8 +19,8 @@ public class Paralysis : IIconBuilder
                 statusType: "paralysis",
                 Mod.GetIconSprite("paralysis"))
             .WithIconGroupName(StatusIconBuilder.IconGroups.counter)
-            .WithTextColour(KeywordColours.White)
-            .WithTextShadow(KeywordColours.Pink)
+            .WithTextColour(KeywordColours.DarkLabel)
+            .WithTextShadow(KeywordColours.Paralysis)
             .WithTextboxSprite()
             .WithKeywords(Keywords.Paralysis.Name);
     }

@@ -15,10 +15,10 @@ public class Constricted : IKeywordBuilder
         return new KeywordDataBuilder(Mod.Instance)
             .Create(Name)
             .WithTitle("Constricted")
-            .WithTitleColour(KeywordColours.Orange)
+            .WithTitleColour(KeywordColours.Constricted)
             .WithDescription("Deals damage every turn|Clears when applier is recalled or destroyed")
             .WithBodyColour(KeywordColours.White)
-            .WithNoteColour(KeywordColours.Orange)
+            .WithNoteColour(KeywordColours.Constricted)
             .WithCanStack(true);
     }
 }

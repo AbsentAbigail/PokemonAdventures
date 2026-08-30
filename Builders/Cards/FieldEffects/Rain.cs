@@ -19,7 +19,7 @@ public class Rain : ICardBuilder
             .WithCardType("Summoned")
             .SetSprites(
                 Mod.GetSprite("Rain"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Sky))
+                Mod.GetBackgroundSprite(BackgroundSprites.Rain))
             .DropsBling(4)
             .SubscribeToAfterAllBuildEvent(card =>
             {
@@ -27,11 +27,13 @@ public class Rain : ICardBuilder
                 [
                     Mod.SStack(WhileActiveWaterIncreaseAttack.Name),
                     Mod.SStack(OnCardPlayedHealWater.Name),
+                    Mod.SStack(Intensity.Name),
                 ];
                 card.traits =
                 [
                     Mod.TStack("Summoned"),
                 ];
+                card.charmSlots = 0;
             });
     }
     

@@ -19,8 +19,8 @@ public class Burn : IIconBuilder
                 statusType: "burn",
                 Mod.GetIconSprite("burn"))
             .WithIconGroupName(StatusIconBuilder.IconGroups.health)
-            .WithTextColour(KeywordColours.White)
-            .WithTextShadow(KeywordColours.Red)
+            .WithTextColour(KeywordColours.DarkLabel)
+            .WithTextShadow(KeywordColours.BurnLight)
             .WithTextboxSprite()
             .WithKeywords(Keywords.Burn.Name);
     }

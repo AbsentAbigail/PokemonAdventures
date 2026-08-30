@@ -2,9 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
-using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
-using WildfrostHopeMod.VFX;
 
 namespace PokemonMod.Builders. StatusEffects;
 

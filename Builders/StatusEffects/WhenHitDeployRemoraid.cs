@@ -20,6 +20,7 @@ public class WhenHitDeployRemoraid : IStatusBuilder
             {
                 status.effectToApply = Mod.GetStatus(InstantDeployRemoraid.Name);
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
+                status.queue = true;
             });
     }
     

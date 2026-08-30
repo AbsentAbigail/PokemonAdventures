@@ -13,6 +13,7 @@ public static class AddGameSystems
             return;
         }
 
+        GameObject.Find("Systems")?.AddComponent<TypeInteractionSystem>();
         GameObject.Find("Systems")?.AddComponent<CustomTextPopupSystem>();
         GameObject.Find("Systems")?.AddComponent<MiniBossRewardSystem>();
     }

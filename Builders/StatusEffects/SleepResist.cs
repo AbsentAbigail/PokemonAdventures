@@ -3,7 +3,6 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using WildfrostHopeMod.VFX;
-using Berry = PokemonMod.Builders.Keywords.Berry;
 
 namespace PokemonMod.Builders. StatusEffects;
 

@@ -10,14 +10,12 @@ namespace PokemonMod.Builders.Upgrades;
 [UsedImplicitly]
 public class CardUpgradePayday : IUpgradeBuilder
 {
-    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
-
     public DataFileBuilder<CardUpgradeData, CardUpgradeDataBuilder> Builder()
     {
         return new CardUpgradeDataBuilder(Mod.Instance)
             .Create(Name)
             .WithType(CardUpgradeData.Type.Charm)
-            .WithImage(Mod.GetSprite("CardUpgradePayday"))
+            .WithImage(Mod.GetCharmSprite("Payday"))
             .WithTitle("TM16 - Payday")
             .WithText("Gain <2><keyword=blings>")
             .InCharmPool()
@@ -30,4 +28,6 @@ public class CardUpgradePayday : IUpgradeBuilder
                 ];
             });
     }
+    
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

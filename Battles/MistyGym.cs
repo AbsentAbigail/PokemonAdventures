@@ -26,6 +26,6 @@ public static class MistyGym
             .ConstructWaves(3, 1, "HRR", "HRW")
             .StartWavePoolData(2, "Wave 3: Staryu")
             .ConstructWaves(3, 2, "YYH")
-            .GiveMiniBossesCharms([TrainerYoungster.Name], "CardUpgradeHeart");
+            .GiveMiniBossesCharms([MistyAndStarmie.Name], "CardUpgradeHeart");
     }
 }

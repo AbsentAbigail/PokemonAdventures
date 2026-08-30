@@ -15,13 +15,13 @@ public class Burn : IKeywordBuilder
         return new KeywordDataBuilder(Mod.Instance)
             .Create(Name)
             .WithTitle("Burn")
-            .WithTitleColour(KeywordColours.Red)
+            .WithTitleColour(KeywordColours.BurnDark)
             .WithDescription("""
                              Reduces <keyword=attack>
                              Every turn, if <sprite name=overload>'d, double <sprite name=overload>|Counts down when activated
                              """)
             .WithBodyColour(KeywordColours.White)
-            .WithNoteColour(KeywordColours.Red)
+            .WithNoteColour(KeywordColours.BurnDark)
             .WithCanStack(true);
     }
 }

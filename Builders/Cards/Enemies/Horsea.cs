@@ -21,7 +21,7 @@ public class Horsea : ICardBuilder
                 Mod.GetSprite("Horsea"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Ocean))
             .DropsBling(5)
-            .WithText("I don't evolve yet :(")
+            .EvolvesInto(Seadra.Name)
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.startWithEffects =

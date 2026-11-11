@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using PokemonMod.Helpers;
 using Extensions = Deadpan.Enums.Engine.Components.Modding.Extensions;
 
 namespace PokemonMod.StatusEffectImplementations;
@@ -13,13 +14,11 @@ public class StatusEffectInstantSummonRandomFromPool : StatusEffectInstantSummon
     {
         Routine.Clump clump = new();
         var amount = GetAmount();
+        var summonPool = GetPool();
         for (var i = 0; i < amount; i++)
         {
-            if (pool.Length > 0)
-            {
-                var card = GetPool().RandomItem().Clone();
-                targetSummon.summonCard = card;
-            }
+            var card = summonPool.RandomItem().Clone();
+            targetSummon.summonCard = card;
             clump.Add(TrySummon());
             yield return clump.WaitForEnd();
         }

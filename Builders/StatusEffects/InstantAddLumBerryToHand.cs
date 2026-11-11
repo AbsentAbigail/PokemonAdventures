@@ -21,7 +21,7 @@ public class InstantAddLumBerryToHand : IStatusBuilder
             .SubscribeToAfterAllBuildEvent<StatusEffectInstantSummonRandomFromPool>(status =>
             {
                 status.pool = [Mod.GetCard(LumBerry.Name)];
-                status.targetSummon = Mod.GetStatusOf<StatusEffectSummon>(SummonBerry.Name);
+                status.targetSummon = Mod.GetStatusOf<StatusEffectSummon>(SummonDummy.Name);
                 status.canSummonMultiple = true;
                 status.summonPosition = StatusEffectInstantSummon.Position.Hand;
             });

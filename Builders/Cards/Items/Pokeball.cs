@@ -19,7 +19,7 @@ public class Pokeball : ICardBuilder
             .CanPlayOnFriendly(false)
             .SetSprites(
                 Mod.GetSprite("Pokeball"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Sky))
+                Mod.GetBackgroundSprite(BackgroundSprites.Pokeball))
             .WithValue(50)
             .SubscribeToAfterAllBuildEvent(card =>
             {

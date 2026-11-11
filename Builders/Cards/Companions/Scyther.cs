@@ -1,7 +1,6 @@
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
-using PokemonMod.Builders.Cards.Evolutions;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 using PokemonMod.Variables;
@@ -15,12 +14,13 @@ public class Scyther : ICardBuilder
     {
         return new CardDataBuilder(Mod.Instance)
             .CreateUnit(Name, "Scyther")
-            .SetStats(2, 1, 5)
+            .SetStats(2, 1, 4)
             .SetSprites(
                 Mod.GetSprite("Scyther"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Garden))
             .DropsBling(4)
             .EvolvesInto(Scizor.Name)
+            .InUnitPool()
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.startWithEffects =

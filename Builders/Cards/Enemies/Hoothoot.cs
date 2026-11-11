@@ -19,16 +19,16 @@ public class Hoothoot : ICardBuilder
             .SetStats(6, 1, 4)
             .SetSprites(
                 Mod.GetSprite("Hoothoot"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Suburban))
+                Mod.GetBackgroundSprite(BackgroundSprites.Moonflowers))
             .DropsBling(4)
-            .WithText("I don't evolve yet :(")
+            .EvolvesInto(Noctowl.Name)
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.startWithEffects =
                 [
                     Mod.SStack(Types.Normal.Name),
                     Mod.SStack(Types.Flying.Name),
-                    Mod.SStack(SleepResist.Name),
+                    Mod.SStack(Insomnia.Name),
                     Mod.SStack(WhenSleepEnemyTakesDamageGainEqualHeal.Name),
                 ];
             });

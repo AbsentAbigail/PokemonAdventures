@@ -43,14 +43,15 @@ public class StatusEffectCastWeather : StatusEffectSummon
         hit.AddStatusEffect(intensityEffect, GetAmount());
         hit.AddStatusEffect(increaseHealthEffect, healthIncreaseBase - intensity);
         yield return hit.Process();
-        target.display.promptUpdateDescription = true;
-        target.PromptUpdate();
+        weather.display.promptUpdateDescription = true;
+        weather.PromptUpdate();
     }
 
     private IEnumerator NewWeather()
     {
-        var data = summonCard.Clone();
-        var intensity = data.startWithEffects.FirstOrDefault(status => status.data.name == intensityEffect.name);
+        var originalCard = summonCard;
+        summonCard = summonCard.Clone();
+        var intensity = summonCard.startWithEffects.FirstOrDefault(status => status.data.name == intensityEffect.name);
 
         if (intensity != null)
         {
@@ -58,9 +59,9 @@ public class StatusEffectCastWeather : StatusEffectSummon
         }
         else
         {
-            data.startWithEffects =
+            summonCard.startWithEffects =
             [
-                .. data.startWithEffects,
+                .. summonCard.startWithEffects,
                 new CardData.StatusEffectStacks(intensityEffect, GetAmount()),
             ];
         }
@@ -73,5 +74,6 @@ public class StatusEffectCastWeather : StatusEffectSummon
         {
             yield return TrySummon(cardSlotArray![index], controller, target);
         }
+        summonCard = originalCard;
     }
 }

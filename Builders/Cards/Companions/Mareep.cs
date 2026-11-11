@@ -1,7 +1,6 @@
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
-using PokemonMod.Builders.Cards.Evolutions;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 using PokemonMod.Variables;
@@ -15,23 +14,23 @@ public class Mareep : ICardBuilder
     {
         return new CardDataBuilder(Mod.Instance)
             .CreateUnit(Name, "Mareep")
-            .SetStats(1, 1, 1)
+            .SetStats(3, 0, 6)
             .SetSprites(
                 Mod.GetSprite("Mareep"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Garden))
             .DropsBling(4)
             .EvolvesInto(Flaaffy.Name)
+            .InUnitPool()
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.attackEffects =
                 [
+                    Mod.SStack("Weakness", 2),
                 ];
                 card.startWithEffects =
                 [
                     Mod.SStack(Types.Electric.Name),
-                ];
-                card.traits =
-                [
+                    Mod.SStack("When Hit Apply Weakness To Attacker"),
                 ];
             });
     }

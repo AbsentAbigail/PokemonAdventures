@@ -22,6 +22,12 @@ public static class Extensions
             return builder;
         }
 
+        public CardDataBuilder MakePet()
+        {
+            PetManager.Pets.Add(builder._data.name);
+            return builder;
+        }
+
         public CardDataBuilder ReplacePreRun(params string[] replacements)
         {
             return builder.SubscribeToAfterAllBuildEvent(card =>

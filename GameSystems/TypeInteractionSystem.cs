@@ -36,7 +36,7 @@ public class TypeInteractionSystem : GameSystem
 
     private static void Check(Hit hit)
     {
-        if (!hit.Offensive || !hit.BasicHit)
+        if (!(hit.Offensive && hit.BasicHit && hit.canRetaliate))
         {
             return;
         }

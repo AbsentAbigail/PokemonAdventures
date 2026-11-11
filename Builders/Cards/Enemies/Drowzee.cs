@@ -21,7 +21,7 @@ public class Drowzee : ICardBuilder
                 Mod.GetSprite("Drowzee"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Suburban))
             .DropsBling(5)
-            .WithText("I don't evolve yet :(")
+            .EvolvesInto(Hypno.Name)
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.attackEffects =
@@ -31,7 +31,7 @@ public class Drowzee : ICardBuilder
                 card.startWithEffects =
                 [
                     Mod.SStack(Types.Psychic.Name),
-                    Mod.SStack(SleepResist.Name),
+                    Mod.SStack(Insomnia.Name),
                 ];
             });
     }

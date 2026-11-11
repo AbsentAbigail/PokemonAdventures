@@ -14,7 +14,7 @@ public class SleepResist : IKeywordBuilder
     {
         return new KeywordDataBuilder(Mod.Instance)
             .Create(Name)
-            .WithTitle("Sleep Resist")
+            .WithTitle("Insomnia")
             .WithTitleColour(KeywordColours.Blue)
             .WithDescription("Can only have a maximum of <1><sprite name=sleep>")
             .WithBodyColour(KeywordColours.White)

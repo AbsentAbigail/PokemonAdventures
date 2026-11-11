@@ -1,7 +1,6 @@
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
-using PokemonMod.Builders.Cards.Evolutions;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
 using PokemonMod.Helpers;
@@ -22,9 +21,9 @@ public class Charmander : ICardBuilder
                 Mod.GetBackgroundSprite(BackgroundSprites.Suburban))
             .DropsBling(4)
             .EvolvesInto(Charmeleon.Name)
+            .MakePet()
             .SubscribeToAfterAllBuildEvent(card =>
             {
-                card.AddToPets();
                 card.attackEffects =
                 [
                     Mod.SStack(Burn.Name),

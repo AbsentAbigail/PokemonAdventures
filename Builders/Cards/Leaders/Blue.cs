@@ -19,7 +19,7 @@ public class Blue : ITrainerBuilder
             .SetStats(5, 0, 4)
             .SetSprites(
                 Mod.GetSprite("Blue"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Sky))
+                Mod.GetBackgroundSprite(BackgroundSprites.Suburban))
             .DropsBling(4)
             .SubscribeToAfterAllBuildEvent(card =>
             {

@@ -15,6 +15,7 @@ public static class Localization
         AddStatusText(uiText);
         
         uiText.SetString(InstantChooseEvolution.Name, "Do you want to evolve {0}?");
+        uiText.SetString(OnCardPlayedRestoreConsumedCard.Name, "Which card do you want to recycle?");
         
         uiText.SetString("LinkCable", "Which Pokemon do you want to trade for?");
         
@@ -28,6 +29,8 @@ public static class Localization
         
         uiText.SetString("TagTeamEevee1", "Eevee");
         uiText.SetString("TagTeamEevee2", "Eevee");
+        
+        uiText.SetString("CorsolaDies", ":(");
     }
 
     private static void AddStatusText(StringTable uiText)

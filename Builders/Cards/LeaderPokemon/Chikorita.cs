@@ -1,7 +1,6 @@
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
-using PokemonMod.Builders.Cards.Evolutions;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
 using PokemonMod.Builders.Traits;
@@ -23,9 +22,9 @@ public class Chikorita : ICardBuilder
                 Mod.GetBackgroundSprite(BackgroundSprites.Garden))
             .DropsBling(4)
             .EvolvesInto(Bayleef.Name)
+            .MakePet()
             .SubscribeToAfterAllBuildEvent(card =>
             {
-                card.AddToPets();
                 card.startWithEffects =
                 [
                     Mod.SStack(Types.Grass.Name),

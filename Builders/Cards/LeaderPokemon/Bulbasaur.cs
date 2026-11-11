@@ -1,7 +1,6 @@
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
-using PokemonMod.Builders.Cards.Evolutions;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
 using PokemonMod.Helpers;
@@ -23,9 +22,9 @@ public class Bulbasaur : ICardBuilder
                 Mod.GetBackgroundSprite(BackgroundSprites.Garden))
             .DropsBling(4)
             .EvolvesInto(Ivysaur.Name)
+            .MakePet()
             .SubscribeToAfterAllBuildEvent(card =>
             {
-                card.AddToPets();
                 card.attackEffects =
                 [
                     Mod.SStack(Constricted.Name),

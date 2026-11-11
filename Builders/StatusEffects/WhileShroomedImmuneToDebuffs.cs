@@ -14,7 +14,7 @@ public class WhileShroomedImmuneToDebuffs : IStatusBuilder
     {
         return new StatusEffectDataBuilder(Mod.Instance)
             .Create<StatusEffectImmuneToStatus>(Name)
-            .WithText($"While <keyword=shroom>'d, immune to debuffs")
+            .WithText("While <keyword=shroom>'d, immune to debuffs")
             .WithStackable(false)
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectImmuneToStatus>(status =>

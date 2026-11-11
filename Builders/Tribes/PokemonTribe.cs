@@ -3,6 +3,7 @@ using System.Linq;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
+using PokemonMod.Builders.Cards.Clunkers;
 using PokemonMod.Builders.Cards.Items;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
@@ -43,12 +44,11 @@ public class PokemonTribe : IClassBuilder
                 tribe.characterPrefab.data.companionLimit = 6;
                 Inventory inventory = new Script<Inventory>("Inventory (Pokemon)", null);
                 inventory.deck.list = DataList<CardData>(
-                    "Sword", "Sword", "Sword",
-                    RareCandy.Name, Pokeball.Name,
-                    "SnowStick",
-                    "SnowStick",
-                    "ZoomlinNest",
-                    "SunRod"
+                    MudBall.Name, MudBall.Name, MudBall.Name,
+                    AuxPowerguard.Name, AuxPowerguard.Name,
+                    Potion.Name,
+                    RareCandy.Name, Pokeball.Name, Recycle.Name,
+                    BerryBush.Name
                 ).ToList();
                 tribe.startingInventory = inventory;
 
@@ -61,8 +61,6 @@ public class PokemonTribe : IClassBuilder
                     BerryPool(),
                     CharmPool(),
                     Extensions.GetRewardPool("GeneralModifierPool"),
-                    Extensions.GetRewardPool("GeneralUnitPool"),
-                    Extensions.GetRewardPool("GeneralItemPool"),
                     Extensions.GetRewardPool("GeneralCharmPool"),
                 ];
             });
@@ -93,28 +91,13 @@ public class PokemonTribe : IClassBuilder
         return CreateRewardPool(UnitPoolName, nameof(RewardPool.Type.Units),
         [
             .. DataList<CardData>([
-                    .. ItemPoolCards,
-                    "BloodBoy", // Berry Sis
-                    "Turmeep", // Alloy
-                    "Witch",
-                    "TailsFive", // Chikichi
-                    "Egg",
-                    "Firefist",
-                    "Kernel",
-                    "LilBerry",
-                    "GuardianGnome", // Nom and Stompy
-                    "Pootie",
-                    "Pyra",
-                    "Shelly",
-                    "Kokonut", // Taiga
-                    "Tusk",
-                    "Zula",
+                    .. UnitPoolCards,
                 ]
             ),
         ]);
     }
 
-    private RewardPool ItemPool()
+    private static RewardPool ItemPool()
     {
         return CreateRewardPool(ItemPoolName, nameof(RewardPool.Type.Items),
         [
@@ -150,7 +133,7 @@ public class PokemonTribe : IClassBuilder
         ]);
     }
 
-    private RewardPool BerryPool()
+    private static RewardPool BerryPool()
     {
         return CreateRewardPool(BerryPoolName, nameof(RewardPool.Type.Items),
         [
@@ -162,7 +145,7 @@ public class PokemonTribe : IClassBuilder
         ]);
     }
 
-    private RewardPool CharmPool()
+    private static RewardPool CharmPool()
     {
         return CreateRewardPool(CharmPoolName, nameof(RewardPool.Type.Charms),
         [

@@ -8,6 +8,8 @@ public class StatusEffectApplyXWhenConstrictedDamageDealt : StatusEffectApplyX
     public bool alliedConstrict = false;
     public bool anyConstrict = false;
     public bool postHit = false;
+
+    public bool onlyEnemies = false;
     
     public override void Init()
     {
@@ -22,7 +24,17 @@ public class StatusEffectApplyXWhenConstrictedDamageDealt : StatusEffectApplyX
 
     public override bool RunHitEvent(Hit hit)
     {
-        return hit.damageType == "constricted" && CheckAttacker(hit);
+        return hit.damageType == "constricted" && CheckTarget(hit) && CheckAttacker(hit);
+    }
+
+    private bool CheckTarget(Hit hit)
+    {
+        if (!onlyEnemies)
+        {
+            return true;
+        }
+
+        return hit.target.owner != target.owner;
     }
 
     public override bool RunPostHitEvent(Hit hit)

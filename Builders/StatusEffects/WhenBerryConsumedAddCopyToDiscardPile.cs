@@ -20,7 +20,7 @@ public class WhenBerryConsumedAddCopyToDiscardPile : IStatusBuilder
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectRecycleItem>(status =>
             {
-                status.summonEffect = Mod.GetStatusOf<StatusEffectSummon>(SummonBerry.Name);
+                status.summonEffect = Mod.GetStatusOf<StatusEffectSummon>(SummonDummy.Name);
                 status.cardConstraints =
                 [
                     TargetConstraintHelper.HasTrait(Traits.Berry.Name),

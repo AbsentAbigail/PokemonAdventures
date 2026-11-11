@@ -19,9 +19,9 @@ public class Jigglypuff : ICardBuilder
             .SetStats(10, 1, 6)
             .SetSprites(
                 Mod.GetSprite("Jigglypuff"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Suburban))
+                Mod.GetBackgroundSprite(BackgroundSprites.Moonflowers))
             .DropsBling(4)
-            .WithText("I don't evolve yet :(")
+            .EvolvesInto(Wigglytuff.Name)
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.startWithEffects =

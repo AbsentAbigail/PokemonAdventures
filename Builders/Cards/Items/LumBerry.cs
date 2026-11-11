@@ -25,7 +25,7 @@ public class LumBerry : ICardBuilder
             {
                 card.attackEffects =
                 [
-                    Mod.SStack(InstantApplyLumBerry.Name),
+                    Mod.SStack(Lum.Name),
                 ];
             })
             .IsBerry();

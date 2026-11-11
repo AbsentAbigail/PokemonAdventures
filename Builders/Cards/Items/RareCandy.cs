@@ -19,7 +19,7 @@ public class RareCandy : ICardBuilder
             .CanPlayOnHand()
             .SetSprites(
                 Mod.GetSprite("RareCandy"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Sky))
+                Mod.GetBackgroundSprite(BackgroundSprites.Evolution))
             .WithValue(50)
             .SubscribeToAfterAllBuildEvent(card =>
             {

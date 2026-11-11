@@ -1,7 +1,6 @@
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
-using PokemonMod.Builders.Cards.Evolutions;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
 using PokemonMod.Helpers;
@@ -22,9 +21,9 @@ public class Cyndaquil : ICardBuilder
                 Mod.GetBackgroundSprite(BackgroundSprites.Suburban))
             .DropsBling(4)
             .EvolvesInto(Quilava.Name)
+            .MakePet()
             .SubscribeToAfterAllBuildEvent(card =>
             {
-                card.AddToPets();
                 card.startWithEffects =
                 [
                     Mod.SStack(Types.Fire.Name),

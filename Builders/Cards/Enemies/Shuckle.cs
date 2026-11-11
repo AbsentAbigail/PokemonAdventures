@@ -21,7 +21,6 @@ public class Shuckle : ICardBuilder
                 Mod.GetSprite("Shuckle"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Garden))
             .DropsBling(3)
-            .WithText("I don't evolve yet :(")
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.startWithEffects =

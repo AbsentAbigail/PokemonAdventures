@@ -21,7 +21,7 @@ public class InstantAddSalacBerryToHand : IStatusBuilder
             .SubscribeToAfterAllBuildEvent<StatusEffectInstantSummonRandomFromPool>(status =>
             {
                 status.pool = [Mod.GetCard(SalacBerry.Name)];
-                status.targetSummon = Mod.GetStatusOf<StatusEffectSummon>(SummonBerry.Name);
+                status.targetSummon = Mod.GetStatusOf<StatusEffectSummon>(SummonDummy.Name);
                 status.canSummonMultiple = true;
                 status.summonPosition = StatusEffectInstantSummon.Position.Hand;
             });

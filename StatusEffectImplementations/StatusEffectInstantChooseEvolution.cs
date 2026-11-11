@@ -51,12 +51,7 @@ public class StatusEffectInstantChooseEvolution : StatusEffectInstant
         _sequence.AddCards(container);
         yield return _sequence.Run();
 
-        if (_selected != null) //Card Selected
-        {
-            ActionQueue.Stack(new ActionApplyStatus(target, applier, evolveEffect, count));
-
-            _selected = null;
-        }
+        _selected = null;
 
         _cardContainer?.ClearAndDestroyAllImmediately();
 

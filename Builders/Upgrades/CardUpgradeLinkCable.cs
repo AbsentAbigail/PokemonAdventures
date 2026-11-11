@@ -17,7 +17,7 @@ public class CardUpgradeLinkCable : IUpgradeBuilder
             .WithType(CardUpgradeData.Type.Charm)
             .WithImage(Mod.GetCharmSprite("LinkCable"))
             .WithTitle("Link Cable")
-            .WithText($"When equipped to a <Companion>, choose <1> of <3> units to trade for")
+            .WithText("When equipped to a <Companion>, choose <1> of <3> Pokemon to trade for")
             .SubscribeToAfterAllBuildEvent(charm =>
             {
                 charm.targetConstraints =

@@ -2,6 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
+using PokemonMod.Builders.Keywords;
 using PokemonMod.Variables;
 
 namespace PokemonMod.Builders.Cards.Items;
@@ -15,12 +16,12 @@ public class Item : ICardBuilder
             .CreateItem(Name, "Item")
             .SetSprites(
                 Mod.GetSprite("Item"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Item))
+                Mod.GetBackgroundSprite(BackgroundSprites.Pokeball))
             .WithValue(50)
             .SubscribeToAfterAllBuildEvent(card =>
             {
             })
-            .WithText("Gain the equipped charm on Pickup:\n{0}");
+            .WithText($"<color=#{KeywordColours.Gray.ToHexRGB()}>Gain the equipped charm:</color>\n{{0}}");
     }
     
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;

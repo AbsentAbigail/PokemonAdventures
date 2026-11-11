@@ -7,6 +7,7 @@ internal class StatusEffectApplyXWhenCertainCardPlayed : StatusEffectApplyX
 {
     public TargetConstraint[] cardConstraints;
     public bool onlyAllied = true;
+    public bool onSelf = false;
     
     public override void Init()
     {
@@ -16,6 +17,11 @@ internal class StatusEffectApplyXWhenCertainCardPlayed : StatusEffectApplyX
     public override bool RunCardPlayedEvent(Entity entity, Entity[] targets)
     {
         if (entity == target)
+        {
+            return false;
+        }
+
+        if (onSelf && !targets.Contains(target))
         {
             return false;
         }

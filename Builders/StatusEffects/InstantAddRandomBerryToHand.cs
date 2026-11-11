@@ -21,7 +21,7 @@ public class InstantAddRandomBerryToHand : IStatusBuilder
             .SubscribeToAfterAllBuildEvent<StatusEffectInstantSummonRandomFromPool>(status =>
             {
                 status.rewardPoolName = PokemonTribe.BerryPoolName;
-                status.targetSummon = Mod.GetStatusOf<StatusEffectSummon>(SummonBerry.Name);
+                status.targetSummon = Mod.GetStatusOf<StatusEffectSummon>(SummonDummy.Name);
                 status.canSummonMultiple = true;
                 status.summonPosition = StatusEffectInstantSummon.Position.Hand;
             });

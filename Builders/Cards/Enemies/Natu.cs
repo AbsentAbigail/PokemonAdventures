@@ -1,7 +1,6 @@
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
-using PokemonMod.Builders.Cards.Evolutions;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
 using PokemonMod.Helpers;
@@ -31,7 +30,7 @@ public class Natu : ICardBuilder
                     Mod.SStack(Types.Psychic.Name),
                     Mod.SStack(Types.Flying.Name),
                     Mod.SStack(DealAdditionalDamage.Name, 4),
-                    Mod.SStack(SleepResist.Name),
+                    Mod.SStack(Insomnia.Name),
                 ];
                 card.traits =
                 [

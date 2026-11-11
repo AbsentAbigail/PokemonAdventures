@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -32,9 +33,6 @@ public class LinkCableScript : CardScript
     {
         _cardController = FindObjectOfType<CardControllerDeck>();
         
-        CardScriptDestroyCard.RemoveFromDeck(target);
-        CardScriptDestroyCard.DestroyEntities(target);
-        
         _sequence = FindObjectOfType<CardPocketSequence>(true);
         var backButtonScale = _sequence.backButton.transform.localScale; 
         _sequence.backButton.transform.localScale = new Vector3(0,0,0);
@@ -43,9 +41,9 @@ public class LinkCableScript : CardScript
         cardController.canPress = true;
         var container = GetCardContainer();
 
-        foreach (var card in container)
+        foreach (var entity in container)
         {
-            yield return card.GetCard()!.UpdateData();
+            yield return entity.GetCard()!.UpdateData();
         }
 
         CinemaBarSystem.In();
@@ -56,6 +54,16 @@ public class LinkCableScript : CardScript
         }
         _sequence.AddCards(container);
         yield return _sequence.Run();
+        
+        var cardData = _selected.data.Clone();
+        References.PlayerData.inventory.deck.Add(cardData);
+        
+        var card = CardManager.Get(cardData, _cardController, References.Player,
+            false,
+            true);
+        References.instance.StartCoroutine(Animation(target, card));
+        
+        _selected = null;
         
         _cardContainer?.ClearAndDestroyAllImmediately();
 
@@ -71,14 +79,6 @@ public class LinkCableScript : CardScript
     {
         _selected = entity;
         _sequence.promptEnd = true;
-
-        var cardData = _selected.data.Clone();
-        References.PlayerData.inventory.deck.Add(cardData);
-        var card = CardManager.Get(cardData, _cardController, References.Player,
-            false,
-            true);
-        References.instance.StartCoroutine(Animation(card));
-        _selected = null;
     }
 
     private static CardContainer GetCardContainer()
@@ -162,11 +162,29 @@ public class LinkCableScript : CardScript
         parentObject.GetOrAdd<TouchScroller>().scroller = scroller; // Scroll with touchscreen
     }
     
-    // Copied from Pokefrosts CardScriptCopy
-    // ReSharper disable Unity.PerformanceAnalysis
-    private static IEnumerator Animation(Card card)
+        // Copied from Pokefrosts CardScriptCopy
+        // ReSharper disable Unity.PerformanceAnalysis
+    private static IEnumerator Animation(CardData target, Card card)
     {
+        var original = FindObjectsOfType<Entity>().FirstOrDefault(entity => entity.data == target);
+        var position = original!.gameObject.transform.position;
+        // var animation = VFXHelper.VFX.TryPlayEffect("trade", position, Vector3.zero);
+        // LeanTween.scale(animation, Vector3.one, 0.1f);
+        var cardSize = card.transform.localScale;
+        LeanTween.scale(card.gameObject, Vector3.zero, 0f);
+        LeanTween.move(card.gameObject, position, 0f); 
+        LeanTween.scale(original.gameObject, Vector3.zero, 0.5f);
+        yield return new WaitForSeconds(0.2f);
+
+        CardScriptDestroyCard.RemoveFromDeck(target);
+        original.RemoveFromContainers();
+        original.display.GetCanvas().sortingLayerName = "Inspect";
+
         yield return card.UpdateData();
+        LeanTween.scale(card.gameObject, cardSize, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+        card.entity.curveAnimator.Ping();
+
 
         var deckDisplaySequence = FindObjectOfType<DeckDisplaySequence>();
         if (deckDisplaySequence is null)
@@ -175,7 +193,8 @@ public class LinkCableScript : CardScript
         }
 
         deckDisplaySequence.activeCardsGroup.GetGrid(card).Add(card.entity);
-        
+
+        CardManager.ReturnToPool(original.gameObject.GetComponent<Card>());
         deckDisplaySequence.UpdatePositions();
     }
 }

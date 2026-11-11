@@ -1,7 +1,6 @@
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
-using PokemonMod.Builders.Cards.Evolutions;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
 using PokemonMod.Helpers;
@@ -19,9 +18,10 @@ public class Yanma : ICardBuilder
             .SetStats(8, 4, 5)
             .SetSprites(
                 Mod.GetSprite("Yanma"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Garden))
+                Mod.GetBackgroundSprite(BackgroundSprites.River))
             .DropsBling(4)
             .EvolvesInto(Yanmega.Name)
+            .InUnitPool()
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.startWithEffects =

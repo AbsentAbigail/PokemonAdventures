@@ -6,6 +6,7 @@ using System.Reflection;
 using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
+using PokemonMod.Builders.Cards.LeaderPokemon;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.Keywords;
 using PokemonMod.Builders.Tribes;
@@ -79,6 +80,7 @@ public class Pokemon : WildfrostMod
     public override void Load()
     {
         StopWatch.Start();
+        var loadTime = 0;
         
         if (!Addressables.ResourceLocators.Any(r => r is ResourceLocationMap map && map.LocatorId == CatalogPath))
         {
@@ -102,12 +104,20 @@ public class Pokemon : WildfrostMod
         _assetSprites = HopeUtils.CreateSpriteAsset("PokemonAssets", ImagePath("Icons"));
         SpriteAsset.RegisterSpriteAsset();
 
+        loadTime += StopWatch.Stop();
+        LogHelper.Log($"Loaded assets in {StopWatch.GetMilliseconds()} milliseconds");
+        StopWatch.Start();
+        
         if (!_loaded)
         {
             CreateModAssets();
         }
         base.Load();
-
+        
+        loadTime += StopWatch.Stop();
+        LogHelper.Log($"Loaded data in {StopWatch.GetMilliseconds()} milliseconds");
+        StopWatch.Start();
+        
         var cards = AddressableLoader.groups["CardData"].list.Cast<CardData>();
         foreach (var cardData in cards)
         {
@@ -123,16 +133,41 @@ public class Pokemon : WildfrostMod
             }
         }
         
+        loadTime += StopWatch.Stop();
+        LogHelper.Log($"Arranged Pokedex in {StopWatch.GetMilliseconds()} milliseconds");
+        StopWatch.Start();
+
         Battles.Battles.AddBattles();
         
+        loadTime += StopWatch.Stop();
+        LogHelper.Log($"Created battles in {StopWatch.GetMilliseconds()} milliseconds");
+        StopWatch.Start();
+
         Evolutions.Setup();
+        
+        loadTime += StopWatch.Stop();
+        LogHelper.Log($"Loaded evolutions in {StopWatch.GetMilliseconds()} milliseconds");
+        StopWatch.Start();
+        
+        PetManager.AddPets();
             
+        loadTime += StopWatch.Stop();
+        LogHelper.Log($"Added pets in {StopWatch.GetMilliseconds()} milliseconds");
+        StopWatch.Start();
+
         LoadEvents();
+
+        loadTime += StopWatch.Stop();
+        LogHelper.Log($"Added events in {StopWatch.GetMilliseconds()} milliseconds");
+        StopWatch.Start();
 
         var gameMode = Mod.TryGet<GameMode>("GameModeNormal"); //GameModeNormal is the standard game mode. 
         gameMode.classes = gameMode.classes.Append(Mod.TryGet<ClassData>(PokemonTribe.Name)).ToArray();
         
-        LogHelper.Log($"Finished loading in {StopWatch.Stop()} milliseconds");
+        loadTime += StopWatch.Stop();
+        LogHelper.Log($"Added tribe in {StopWatch.GetMilliseconds()} milliseconds");
+
+        LogHelper.Log($"Finished loading in {loadTime} milliseconds");
     }
 
     public override void Unload()
@@ -246,14 +281,6 @@ public class Pokemon : WildfrostMod
                 && typeof(ICardBuilder).IsAssignableFrom(t))
             .Select(type => ((ICardBuilder)Activator.CreateInstance(type)).Builder()).Cast<CardDataBuilder>().ToList();
         _assets.AddRange(leaderPokemon);
-
-        var evolutions = Assembly.GetExecutingAssembly().GetTypes()
-            .Where(t =>
-                string.Equals(t.Namespace, builderNamespace + ".Cards.Evolutions",
-                    StringComparison.Ordinal)
-                && typeof(ICardBuilder).IsAssignableFrom(t))
-            .Select(type => ((ICardBuilder)Activator.CreateInstance(type)).Builder()).Cast<CardDataBuilder>().ToList();
-        _assets.AddRange(evolutions);
 
         var legendaries = Assembly.GetExecutingAssembly().GetTypes()
             .Where(t =>

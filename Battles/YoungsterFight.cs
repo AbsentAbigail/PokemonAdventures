@@ -27,9 +27,7 @@ public static class YoungsterFight
             .GiveMiniBossesCharms([TrainerYoungster.Name], "CardUpgradeHeart")
             .FreeModify<BattleData>(battle =>
             {
-                battle.goldGiverPool = [
-                    Mod.GetCard(Meowth.Name),
-                ];
+                battle.goldGiverPool = Battles.GoldGivers();
             });
     }
 }

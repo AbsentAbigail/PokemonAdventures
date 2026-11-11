@@ -7,11 +7,11 @@ namespace PokemonMod.StatusEffectImplementations;
 
 public class StatusEffectParalysis : StatusEffectData
 {
-    public override void Init()
-    {
-        Events.OnEntityCountDown += Paralysis;
-        OnTurnEnd += Reduce;
-    }
+public override void Init()
+{
+    Events.OnEntityCountDown += Paralysis;
+    OnTurnEnd += Reduce;
+}
 
     public override bool RunTurnEndEvent(Entity entity)
     { 

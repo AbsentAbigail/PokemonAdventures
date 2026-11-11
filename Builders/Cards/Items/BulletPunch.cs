@@ -16,7 +16,7 @@ public class BulletPunch : ICardBuilder
             .SetDamage(0)
             .SetSprites(
                 Mod.GetSprite("BulletPunch"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Item))
+                Mod.GetBackgroundSprite(BackgroundSprites.Pokeball))
             .WithValue(50)
             .SubscribeToAfterAllBuildEvent(card =>
             {

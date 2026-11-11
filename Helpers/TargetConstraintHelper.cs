@@ -19,7 +19,7 @@ public class TargetConstraintHelper
 
     public static TargetConstraintOr IsPokemon(bool not = false)
     {
-        return IsOfTypes(Types.TypeChart.Select(type => type.Keyword()).ToArray());
+        return IsOfTypes(Types.TypeChart.Select(type => type.Name).ToArray());
     }
     
     public static TargetConstraintOr IsOfTypes(string[] types, bool not = false)

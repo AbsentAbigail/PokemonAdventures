@@ -19,6 +19,7 @@ public class ImmuneToDebuffsNoText : IStatusBuilder
             {
                 status.replaceWith = Mod.GetStatus(InstantDoNothing.Name);
                 status.debuffs = true;
+                status.ignoreInk = true;
             });
     }
     

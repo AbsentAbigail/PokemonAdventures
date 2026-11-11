@@ -12,10 +12,24 @@ public static class Battles
         
         // Fight 2
         LassFight.AddBattle();
+        CamperFight.AddBattle();
         
         // Fight 3
         MistyGym.AddBattle();
         ErikaGym.AddBattle();
+        
+        // Fight 4
+        BikerFight.AddBattle();
+        
+        // Fight 5
+        
+        // Fight 6
+        
+        // Fight 7
+        
+        // Eye of the Storm
+        
+        // Heart of the Storm
     }
 
     public static CardData[] GoldGivers() => [

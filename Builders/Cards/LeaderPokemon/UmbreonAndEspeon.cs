@@ -15,7 +15,7 @@ public class UmbreonAndEspeon : ICardBuilder
     public DataFileBuilder<CardData, CardDataBuilder> Builder()
     {
         return new CardDataBuilder(Mod.Instance)
-            .CreateUnit(Name, "Umbreon and Espeon")
+            .CreateUnit(Name, "Espeon and Umbreon")
             .SetStats(10, 1, 5)
             .SetSprites(
                 Mod.GetSprite("UmbreonAndEspeon1"),

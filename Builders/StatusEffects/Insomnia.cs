@@ -17,7 +17,7 @@ public class Insomnia : IStatusBuilder
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectImmuneToX>(status =>
             {
-                status.immunityType = "sleepresist";
+                status.immunityType = "sleep";
             })
             .Subscribe_WithStatusIcon("sleepresist");
     }

@@ -20,7 +20,7 @@ public class WhenSandstormPlayedReduceCounter : IStatusBuilder
             .WithCanBeBoosted(true)
             .SubscribeToAfterAllBuildEvent<StatusEffectApplyXWhenCertainCardPlayed>(status =>
             {
-                status.effectToApply = Mod.GetStatus("Reduce Counter");
+                status.effectToApply = Mod.GetStatus("Reduce Max Counter");
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
                 status.cardConstraints =
                 [

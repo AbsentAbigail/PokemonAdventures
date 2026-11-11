@@ -2,6 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Helpers;
+using PokemonMod.Scriptables.ScriptableImages;
 using PokemonMod.StatusEffectImplementations;
 
 namespace PokemonMod.Patches;
@@ -53,6 +54,10 @@ public class CardPatches
             .. !stanceChange.isFirstStance ? stanceChange.firstStance : stanceChange.secondStance,
         ];
         
+        if (stanceChange.isFirstStance && newCard.scriptableImagePrefab is TagTeamImage tagTeamImage)
+        {
+            newCard.mainSprite = tagTeamImage.sprite2;
+        }
         card.mentionedCards.Add(newCard);
     }
 
@@ -78,6 +83,10 @@ public class CardPatches
         card.mentionedCards.Add(stance1);
         
         var stance2 = Mod.GetCard(partner.name).Clone();
+        if (stance2.scriptableImagePrefab is TagTeamImage scriptableImage)
+        {
+            stance2.mainSprite = scriptableImage.sprite2;
+        }
         stance2.name += "2"; // Mentioned cards don't get added if they share a name, so change the name
         stance2.startWithEffects =
         [

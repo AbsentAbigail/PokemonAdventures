@@ -9,7 +9,7 @@ public static class BugCatcherFight
     {
         new BattleDataEditor(Mod.Instance, "Bug Catcher Fight")
             .SetSprite("FightBugCatcher.png")
-            .SetNameRef("BugCatcher")
+            .SetNameRef("Bug Catcher")
             .AddBattleToLoader().LoadBattle(0, exclusivity: BattleStack.Exclusivity.removeAll)
             .EnemyDictionary(
                 ('L', Ledyba.Name),
@@ -24,7 +24,7 @@ public static class BugCatcherFight
             .ConstructWaves(3, 1, "NN")
             .StartWavePoolData(2, "Wave 3: Boss")
             .ConstructWaves(3, 2, "WWCCLB", "WWCSB")
-            .GiveMiniBossesCharms([TrainerYoungster.Name], "CardUpgradeHeart")
+            .GiveMiniBossesCharms([TrainerBugCatcher.Name], "CardUpgradeHeart")
             .FreeModify<BattleData>(battle =>
             {
                 battle.goldGiverPool = Battles.GoldGivers();

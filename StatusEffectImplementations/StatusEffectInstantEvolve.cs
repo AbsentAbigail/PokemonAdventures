@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using PokemonMod.GameSystems;
 using PokemonMod.Patches;
 
 namespace PokemonMod.StatusEffectImplementations;
@@ -54,13 +55,18 @@ public class StatusEffectInstantEvolve : StatusEffectInstant
         
         CustomStats.AddPokemonEvolved();
         CardDiscoverSystem.instance.DiscoverCard(evolvedForm);
-        Campaign.PromptSave();
+        SaveDeckMidBattleSystem.PromptSave();
         yield break;
     }
 
     private static void AdjustStats(CardData deckCopy, CardData evolvedCard)
     {
         var originalCard = Mod.GetCard(deckCopy.name);
+        
+        foreach (var upgrade in deckCopy.upgrades.ToArray().Reverse())
+        {
+            upgrade.UnAssign(deckCopy);
+        }
         
         var healthDiff = deckCopy.hp - originalCard.hp;
         var damageDiff = deckCopy.damage - originalCard.damage;
@@ -143,7 +149,6 @@ public class StatusEffectInstantEvolve : StatusEffectInstant
             yield return entity.display.UpdateData(true);
             entity.alive = true;
             yield return StatusEffectSystem.EntityEnableEvent(entity);
-            
         }
     }
 }

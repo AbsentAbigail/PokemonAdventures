@@ -21,7 +21,7 @@ public class CardUpgradeHarden : IUpgradeBuilder
             .InCharmPool()
             .SubscribeToAfterAllBuildEvent(charm =>
             {
-                charm.effects = [Mod.SStack("Shell", 2)];
+                charm.effects = [Mod.SStack("On Turn Apply Shell To Self", 2)];
                 charm.targetConstraints =
                 [
                     TargetConstraintHelper.General<TargetConstraintCanBeHit>(),

@@ -2,27 +2,26 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
-using PokemonMod.Builders.Upgrades;
+using PokemonMod.Builders.Traits;
+using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
-public class BossRewardBiker : IStatusBuilder
+public class InstantConsumeRightmostBerries : IStatusBuilder
 {
     public DataFileBuilder<StatusEffectData, StatusEffectDataBuilder> Builder()
     {
         return new StatusEffectDataBuilder(Mod.Instance)
-            .Create<StatusEffectBossReward>(Name)
-            .WithStackable(false)
+            .Create<StatusEffectInstantConsumeRightmost>(Name)
+            .WithStackable(true)
             .WithCanBeBoosted(false)
-            .SubscribeToAfterAllBuildEvent<StatusEffectBossReward>(status =>
+            .SubscribeToAfterAllBuildEvent<StatusEffectInstantConsumeRightmost>(status =>
             {
-                status.choices =
+                status.constraints =
                 [
-                    Mod.GetCardUpgrade(CardUpgradeSludge.Name),
-                    Mod.GetCardUpgrade(CardUpgradeSupersonic.Name),
-                    Mod.GetCardUpgrade(CardUpgradeLick.Name),
+                    TargetConstraintHelper.HasTrait(Berry.Name),
                 ];
             });
     }

@@ -30,7 +30,7 @@ public class Golem : ICardBuilder
                     Mod.SStack("Shell", 3),
                     Mod.SStack("On Card Played Apply Attack To Self", 2),
                     Mod.SStack(WhenSandstormPlayedReduceCounter.Name),
-                    Mod.SStack(CastSandstorm.Name),
+                    Mod.SStack(WhenHitCastSandstorm.Name),
                 ];
             });
     }

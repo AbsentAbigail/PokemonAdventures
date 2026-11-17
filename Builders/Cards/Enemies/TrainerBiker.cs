@@ -3,6 +3,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
+using PokemonMod.Builders.Upgrades;
 using PokemonMod.Helpers;
 using PokemonMod.Variables;
 
@@ -27,9 +28,13 @@ public class TrainerBiker : ICardBuilder
                 [
                     Mod.SStack(OnCardPlayedIncreaseAttackOfPoisonAlliesAllies.Name),
                     Mod.SStack(WhileActiveShroomRetainsAtLeast.Name),
-                    Mod.SStack(BossRewardBiker.Name),
                 ];
-            });
+            })
+            .WithBossRewards([
+                Mod.PrefixGuid(CardUpgradeSludge.Name),
+                Mod.PrefixGuid(CardUpgradeSupersonic.Name),
+                Mod.PrefixGuid(CardUpgradeLick.Name),
+            ]);
     }
     
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;

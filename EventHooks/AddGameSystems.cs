@@ -17,5 +17,8 @@ public static class AddGameSystems
         GameObject.Find("Systems")?.AddComponent<CustomTextPopupSystem>();
         GameObject.Find("Systems")?.AddComponent<MiniBossRewardSystem>();
         GameObject.Find("Systems")?.AddComponent<ConsumedItemTrackerSystem>();
+        GameObject.Find("Systems")?.AddComponent<TypePreviewSystem>();
+        GameObject.Find("Systems")?.AddComponent<SaveDeckMidBattleSystem>();
+        GameObject.Find("Systems")?.AddComponent<CustomRewardSystem>();
     }
 }

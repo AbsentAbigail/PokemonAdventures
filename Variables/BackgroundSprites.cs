@@ -23,4 +23,5 @@ public static class BackgroundSprites
     public const string Moonflowers = "Moonflowers";
     public const string Cave = "Cave";
     public const string Sandstorm = "Sandstorm";
+    public const string Winter = "Winter";
 }

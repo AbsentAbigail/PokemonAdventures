@@ -28,7 +28,6 @@ public class MistyAndStarmie2 : ICardBuilder
                     Mod.SStack(Types.Water.Name),
                     Mod.SStack(Types.Psychic.Name),
                     Mod.SStack(WhileActiveFrenzyEqualToAlliesAndEnemies.Name),
-                    Mod.SStack(BossRewardBoss1.Name),
                 ];
             });
     }

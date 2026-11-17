@@ -3,6 +3,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
+using PokemonMod.Builders.Upgrades;
 using PokemonMod.Helpers;
 using PokemonMod.Variables;
 
@@ -27,9 +28,13 @@ public class TrainerBugCatcher : ICardBuilder
                 [
                     Mod.SStack(OnCardPlayedAddOranBerryToHand.Name, 2),
                     Mod.SStack(WhenBerryPlayedTriggerAllies.Name),
-                    Mod.SStack(BossRewardBugCatcher.Name),
                 ];
-            });
+            })
+            .WithBossRewards([
+                Mod.PrefixGuid(CardUpgradeStunSpore.Name),
+                Mod.PrefixGuid(CardUpgradeHarden.Name),
+                Mod.PrefixGuid(CardUpgradeBugBite.Name),
+            ]);
     }
     
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;

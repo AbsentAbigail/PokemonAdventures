@@ -3,6 +3,8 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
+using PokemonMod.Builders.Upgrades;
+using PokemonMod.Helpers;
 using PokemonMod.Variables;
 
 namespace PokemonMod.Builders.Cards.Enemies;
@@ -28,7 +30,10 @@ public class MistyAndStarmie : ICardBuilder
                     Mod.SStack(WhileActiveFrenzyEqualToAllies.Name),
                     Mod.SStack(MistyAndStarmiePhase2.Name),
                 ];
-            });
+            })
+            .WithBossRewards([
+                Mod.PrefixGuid(CardUpgradeLinkCable.Name),
+            ]);
     }
     
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;

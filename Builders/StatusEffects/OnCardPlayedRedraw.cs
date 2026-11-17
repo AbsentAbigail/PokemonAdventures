@@ -2,28 +2,24 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
-using PokemonMod.Builders.Upgrades;
-using PokemonMod.StatusEffectImplementations;
 
 namespace PokemonMod.Builders. StatusEffects;
 
 [UsedImplicitly]
-public class BossRewardLass : IStatusBuilder
+public class OnCardPlayedRedraw : IStatusBuilder
 {
     public DataFileBuilder<StatusEffectData, StatusEffectDataBuilder> Builder()
     {
         return new StatusEffectDataBuilder(Mod.Instance)
-            .Create<StatusEffectBossReward>(Name)
+            .Create<StatusEffectApplyXOnCardPlayed>(Name)
+            .WithText("Redraw")
             .WithStackable(false)
             .WithCanBeBoosted(false)
-            .SubscribeToAfterAllBuildEvent<StatusEffectBossReward>(status =>
+            .SubscribeToAfterAllBuildEvent<StatusEffectApplyXOnCardPlayed>(status =>
             {
-                status.choices =
-                [
-                    Mod.GetCardUpgrade(CardUpgradeSing.Name),
-                    Mod.GetCardUpgrade(CardUpgradeFairyWind.Name),
-                    Mod.GetCardUpgrade(CardUpgradeMegaDrain.Name),
-                ];
+                status.effectToApply = Mod.GetStatus(InstantRedraw.Name);
+                status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
+                status.eventPriority = +1;
             });
     }
     

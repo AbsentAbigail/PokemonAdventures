@@ -21,15 +21,15 @@ public class Bellsprout : ICardBuilder
                 Mod.GetSprite("Bellsprout"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Garden))
             .DropsBling(6)
-            .WithText("I don't evolve yet :(")
+            .EvolvesInto(Weepinbell.Name)
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.startWithEffects =
                 [
                     Mod.SStack(Types.Grass.Name),
                     Mod.SStack(Types.Poison.Name),
-                    Mod.SStack(WhenHealthLostConsumeBerriesInHand.Name),
-                    Mod.SStack(WhenBerryConsumedCountDownCounter.Name),
+                    Mod.SStack(WhenHealthLostConsumeRightmostBerriesInHand.Name),
+                    Mod.SStack(WhenBerryConsumedSunnyCountDownCounter.Name),
                 ];
             });
     }

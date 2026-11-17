@@ -3,6 +3,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
+using PokemonMod.Builders.Upgrades;
 using PokemonMod.Helpers;
 using PokemonMod.Variables;
 
@@ -27,9 +28,13 @@ public class TrainerYoungster : ICardBuilder
                 [
                     Mod.SStack(OnCardPlayedIncreaseAttackOfNormalAllies.Name),
                     Mod.SStack(OnCardPlayedApplyFrostToEveryoneInRow.Name),
-                    Mod.SStack(BossRewardYoungster.Name),
                 ];
-            });
+            })
+            .WithBossRewards([
+                Mod.PrefixGuid(CardUpgradePayday.Name),
+                Mod.PrefixGuid(CardUpgradeLeer.Name),
+                Mod.PrefixGuid(CardUpgradeGrowl.Name),
+            ]);
     }
     
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;

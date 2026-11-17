@@ -10,8 +10,6 @@ namespace PokemonMod.Builders.StatusEffects;
 [UsedImplicitly]
 public class InstantAddOranBerryToHand : IStatusBuilder
 {
-    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
-
     public DataFileBuilder<StatusEffectData, StatusEffectDataBuilder> Builder()
     {
         return new StatusEffectDataBuilder(Mod.Instance)
@@ -26,4 +24,6 @@ public class InstantAddOranBerryToHand : IStatusBuilder
                 status.summonPosition = StatusEffectInstantSummon.Position.Hand;
             });
     }
+    
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

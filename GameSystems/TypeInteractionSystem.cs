@@ -25,16 +25,10 @@ public class TypeInteractionSystem : GameSystem
         _superEffectiveText = Mod.GetLocalizedString("SuperEffectiveLog");
         _resistText = Mod.GetLocalizedString("ResistedLog");
         _immuneText = Mod.GetLocalizedString("ImmuneLog");
-        
-        Events.OnEntityHit += Check;
     }
     
-    public void OnDisable()
-    {
-        Events.OnEntityHit -= Check;
-    }
-
-    private static void Check(Hit hit)
+    // Prefix Patched Hit.Process()
+    public static void Check(Hit hit)
     {
         if (!(hit.Offensive && hit.BasicHit && hit.canRetaliate))
         {
@@ -98,5 +92,35 @@ public class TypeInteractionSystem : GameSystem
         {
             InvokeImmuneEvent(hit);
         }
+    }
+
+    public static int GetDamagePreview(Entity attacker, Entity target)
+    {
+        var damageModifier = 0;
+        
+        foreach (var statusType in attacker.statusEffects.Where(status => status is StatusEffectType))
+        {
+            var attackingType = (StatusEffectType)statusType;
+            foreach (var defendingType in target.statusEffects.Where(status => attackingType.weakTypes.Contains(status.type)))
+            {
+                var modifier = attackingType.weaknessModifier;
+                FindObjectOfType<BattleLogSystem>()?.Log(_superEffectiveText, BattleLogType.Buff, attackingType.type, defendingType.type, modifier);
+                damageModifier += modifier;
+            }
+            foreach (var defendingType in target.statusEffects.Where(status => attackingType.resistingTypes.Contains(status.type)))
+            {
+                var modifier = attackingType.resistanceModifier;
+                FindObjectOfType<BattleLogSystem>()?.Log(_resistText, BattleLogType.Buff, attackingType.type, defendingType.type, modifier);
+                damageModifier += modifier;
+            }
+            foreach (var defendingType in target.statusEffects.Where(status => attackingType.immuneTypes.Contains(status.type)))
+            {
+                var modifier = attackingType.immunityModifier;
+                FindObjectOfType<BattleLogSystem>()?.Log(_immuneText, BattleLogType.Buff, attackingType.type, defendingType.type, modifier);
+                damageModifier += modifier;
+            }
+        }
+        
+        return damageModifier;
     }
 }

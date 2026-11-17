@@ -3,6 +3,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
+using PokemonMod.Builders.Upgrades;
 using PokemonMod.Helpers;
 using PokemonMod.Variables;
 
@@ -27,9 +28,13 @@ public class TrainerCamper : ICardBuilder
                 [
                     Mod.SStack(OnCardPlayedApplyShellToRockAllies.Name, 3),
                     Mod.SStack(WhenSandstormPlayedCountDownAlliedPokemon.Name),
-                    Mod.SStack(BossRewardCamper.Name),
                 ];
-            });
+            })
+            .WithBossRewards([
+                Mod.PrefixGuid(CardUpgradeDoubleEdge.Name),
+                Mod.PrefixGuid(CardUpgradeRockBlast.Name),
+                Mod.PrefixGuid(CardUpgradeMudShot.Name),
+            ]);
     }
     
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;

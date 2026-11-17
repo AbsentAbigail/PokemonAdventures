@@ -3,6 +3,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.StatusEffects;
+using PokemonMod.Builders.Upgrades;
 using PokemonMod.Helpers;
 using PokemonMod.Variables;
 
@@ -27,9 +28,13 @@ public class TrainerLass : ICardBuilder
                 [
                     Mod.SStack(OnCardPlayedHealFlyingAllies.Name, 3),
                     Mod.SStack(WhenPsychicAllyHitApplySleepToEveryone.Name),
-                    Mod.SStack(BossRewardLass.Name),
                 ];
-            });
+            })
+            .WithBossRewards([
+                Mod.PrefixGuid(CardUpgradeSing.Name),
+                Mod.PrefixGuid(CardUpgradeFairyWind.Name),
+                Mod.PrefixGuid(CardUpgradeMegaDrain.Name),
+            ]);
     }
     
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;

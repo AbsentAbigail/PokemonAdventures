@@ -21,7 +21,7 @@ public class Oddish : ICardBuilder
                 Mod.GetSprite("Oddish"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Garden))
             .DropsBling(4)
-            .WithText("I don't evolve yet :(")
+            .EvolvesInto(Gloom.Name)
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.startWithEffects =

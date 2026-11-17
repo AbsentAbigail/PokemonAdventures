@@ -1,7 +1,6 @@
 ﻿using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
-using PokemonMod.Builders.Cards.FieldEffects;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.Keywords;
 using PokemonMod.Helpers;
@@ -10,25 +9,24 @@ using PokemonMod.StatusEffectImplementations;
 namespace PokemonMod.Builders. StatusEffects;
 
 [UsedImplicitly]
-public class WhenBerryConsumedCountDownCounter : IStatusBuilder
+public class WhenBerryPlayedApplyShroomParalysisSleepToEnemiesInRow : IStatusBuilder
 {
     public DataFileBuilder<StatusEffectData, StatusEffectDataBuilder> Builder()
     {
         return new StatusEffectDataBuilder(Mod.Instance)
-            .Create<StatusEffectApplyXWhenCardConsumed>(Name)
-            .WithText($"{Mod.KeywordTag(Sunny.Name)}: Count down <keyword=counter> by <{{a}}> when a {Mod.KeywordTag(Berry.Name)} is consumed")
+            .Create<StatusEffectApplyXWhenCertainCardPlayed>(Name)
+            .WithText($"When a {Mod.KeywordTag(Berry.Name)} is played, apply <{{a}}><keyword=shroom>, <{{a}}>{Mod.KeywordTag(Keywords.Paralysis.Name)} and <{{a}}>{Mod.KeywordTag(Keywords.Sleep.Name)} to enemies in row")
             .WithStackable(true)
             .WithCanBeBoosted(true)
-            .SubscribeToAfterAllBuildEvent<StatusEffectApplyXWhenCardConsumed>(status =>
+            .SubscribeToAfterAllBuildEvent<StatusEffectApplyXWhenCertainCardPlayed>(status =>
             {
-                status.effectToApply = Mod.GetStatus("Reduce Counter");
-                status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
-                status.mustBeOnBoard = false;
-                status.constraints =
+                status.effectToApply = Mod.GetStatus(InstantMultipleShroomParalysisSleep.Name);
+                status.applyToFlags = StatusEffectApplyX.ApplyToFlags.EnemiesInRow;
+                status.cardConstraints =
                 [
-                    TargetConstraintHelper.WeatherActive(HarshSunlight.Name),
                     TargetConstraintHelper.HasTrait(Traits.Berry.Name),
                 ];
+                status.onlyAllied = false;
             });
     }
     

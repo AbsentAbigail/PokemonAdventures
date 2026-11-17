@@ -44,5 +44,7 @@ public static class Localization
         uiText.SetString("Sleep", "{0} is asleep");
         uiText.SetString("Paralysed", "{0} is paralysed!");
         uiText.SetString("ConstrictedFreed", "{0} freed itself of Constrict!");
+        
+        uiText.SetString("CharmReward", "You may take a charm as your reward for winning this fight!");
     }
 }

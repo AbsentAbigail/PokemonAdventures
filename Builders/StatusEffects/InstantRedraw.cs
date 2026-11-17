@@ -2,28 +2,20 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
-using PokemonMod.Builders.Upgrades;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
-public class BossRewardBoss1 : IStatusBuilder
+public class InstantRedraw : IStatusBuilder
 {
     public DataFileBuilder<StatusEffectData, StatusEffectDataBuilder> Builder()
     {
         return new StatusEffectDataBuilder(Mod.Instance)
-            .Create<StatusEffectBossReward>(Name)
+            .Create<StatusEffectInstantRedraw>(Name)
             .WithStackable(false)
-            .WithCanBeBoosted(false)
-            .SubscribeToAfterAllBuildEvent<StatusEffectBossReward>(status =>
-            {
-                status.choices =
-                [
-                    Mod.GetCardUpgrade(CardUpgradeLinkCable.Name),
-                ];
-            });
+            .WithCanBeBoosted(false);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

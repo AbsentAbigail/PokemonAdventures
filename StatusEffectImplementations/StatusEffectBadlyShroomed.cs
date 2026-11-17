@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using PokemonMod.Builders.Keywords;
+using PokemonMod.Helpers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,35 +14,48 @@ public class StatusEffectBadlyShroomed : StatusEffectApplyX
 
     public override void Init()
     {
+        OnApplyStatus += CheckCleanse;
         PostApplyStatus += ChangeIcon;
         OnHit += Hit;
-        OnStack += Stack;
     }
 
-    private IEnumerator Stack(int stacks)
+    public override bool RunApplyStatusEvent(StatusEffectApply apply)
     {
-        yield return Run([target], stacks);
+        return apply.effectData is StatusEffectInstantCleanse;
+    }
+
+    private IEnumerator CheckCleanse(StatusEffectApply apply)
+    {
+        yield return Remove();
+    }
+
+    // Update icon when first applied
+    public override bool RunStackEvent(int stacks)
+    {
+        ChangeIcon(stacks);
+
+        return base.RunStackEvent(stacks);
+    }
+
+    public override bool RunHitEvent(Hit hit)
+    {
+        if (hit.damageType != TargetType)
+        {
+            return false;
+        }
+
+        var status = target.FindStatus(TargetType);
+        return status;
     }
 
     private IEnumerator Hit(Hit hit)
     {
-        if (hit.damageType != TargetType)
-        {
-            yield break;
-        }
-
-        var status = target.FindStatus(TargetType);
-        if (!status)
-        {
-            yield break;
-        }
-        
-        yield return StatusEffectSystem.Apply(target, target, status, hit.damage + hit.damageBlocked);
+        yield return StatusEffectSystem.Apply(target, target, target.FindStatus(TargetType), hit.damage + hit.damageBlocked);
     }
 
     public override bool RunPostApplyStatusEvent(StatusEffectApply apply)
     {
-        if (target != null && apply?.target == target && GetAmount() > 0)
+        if (apply?.target == target && count > 0)
         {
             return apply!.effectData.type == TargetType;
         }
@@ -49,7 +64,16 @@ public class StatusEffectBadlyShroomed : StatusEffectApplyX
 
     private IEnumerator ChangeIcon(StatusEffectApply apply)
     {
-        var shroomIcon = apply.target.GetComponent<Card>().FindStatusIcon(TargetType);
+        LogHelper.Log("Post apply: " + apply.effectData.type);
+
+        ChangeIcon(apply.count);
+        
+        yield return Sequences.Wait(apply.target.curveAnimator.Ping());
+    }
+
+    private void ChangeIcon(int amount)
+    {
+        var shroomIcon = target.GetComponent<Card>().FindStatusIcon(TargetType);
         if (shroomIcon != null && sprite != null)
         {
             shroomIcon.GetComponent<Image>().sprite = sprite;
@@ -57,7 +81,7 @@ public class StatusEffectBadlyShroomed : StatusEffectApplyX
         }
         else
         {
-            shroomIcon = apply.target.GetComponent<Card>().SetStatusIcon(TargetType, "health", new Stat(apply.count, 0));
+            shroomIcon = target.GetComponent<Card>().SetStatusIcon(TargetType, "health", new Stat(amount, 0));
             shroomIcon.GetComponent<Image>().sprite = sprite;
         }
         var popup = shroomIcon.GetComponent<CardPopUpTarget>();
@@ -66,7 +90,9 @@ public class StatusEffectBadlyShroomed : StatusEffectApplyX
             .. popup.keywords,
             keywordData,
         ];
-        
-        yield return Sequences.Wait(apply.target.curveAnimator.Ping());
+
+        shroomIcon.textElement.enabled = true;
+        shroomIcon.textElement.color = KeywordColours.CatColor;
+        shroomIcon.textColour = KeywordColours.CatColor;
     }
 }

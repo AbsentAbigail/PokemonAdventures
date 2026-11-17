@@ -23,6 +23,6 @@ public class StatusEffectPokeball : StatusEffectData
         References.PlayerData.inventory.reserve.Add(card);
         yield return CustomTextPopupSystem.RunNoWait(entity, Mod.GetLocalizedString("CaughtPokemon"), card.title);
         CustomStats.AddPokemonCaught();
-        Campaign.PromptSave();
+        SaveDeckMidBattleSystem.PromptSave();
     }
 }

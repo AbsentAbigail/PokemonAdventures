@@ -20,6 +20,7 @@ public class OnCardPlayedAddPresentToHand : IStatusBuilder
             {
                 status.effectToApply = Mod.GetStatus(InstantAddRandomPresentToHand.Name);
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
+                status.targetMustBeAlive = false;
             });
     }
     

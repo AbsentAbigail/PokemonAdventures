@@ -14,7 +14,7 @@ public class StatusEffectApplyXWhenEnemyEntersBattle : StatusEffectApplyX
 
     private void Check(Entity entity)
     {
-        if (!Battle.instance && Battle.IsOnBoard(target))
+        if (!Battle.instance || !Battle.IsOnBoard(target))
         {
             return;
         }

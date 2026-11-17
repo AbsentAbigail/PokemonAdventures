@@ -1,9 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Deadpan.Enums.Engine.Components.Modding;
 using PokemonMod.Builders.Traits;
 using PokemonMod.Builders.Tribes;
 using PokemonMod.Variables;
-using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace PokemonMod.Helpers;
 
@@ -62,6 +63,13 @@ public static class Extensions
                         Mod.TStack(Berry.Name),
                     ];
                 });
+        }
+
+        public CardDataBuilder WithBossRewards(string[] rewards)
+        {
+            return builder._data.cardType.miniboss 
+                    ? builder.SubscribeToAfterAllBuildEvent(card => card.SetCustomData("pokemon.rewards", new SaveCollection<string>(rewards)))
+                    : throw new NotSupportedException("Only Boss cards can have rewards");
         }
     }
 

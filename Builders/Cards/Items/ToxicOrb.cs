@@ -19,7 +19,7 @@ public class ToxicOrb : ICardBuilder
             .CanPlayOnHand()
             .SetSprites(
                 Mod.GetSprite("ToxicOrb"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Pokeball))
+                Mod.GetBackgroundSprite(BackgroundSprites.Pollution))
             .WithValue(50)
             .InItemPool()
             .SubscribeToAfterAllBuildEvent(card =>
@@ -27,7 +27,7 @@ public class ToxicOrb : ICardBuilder
                 card.attackEffects =
                 [
                     Mod.SStack(InstantApplyBadlyShroomed.Name),
-                    Mod.SStack("Shroom", 1),
+                    Mod.SStack("Shroom"),
                 ];
             });
     }

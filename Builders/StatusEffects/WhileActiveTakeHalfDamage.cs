@@ -7,13 +7,13 @@ using PokemonMod.StatusEffectImplementations;
 namespace PokemonMod.Builders. StatusEffects;
 
 [UsedImplicitly]
-public class TakeHalfDamage : IStatusBuilder
+public class WhileActiveTakeHalfDamage : IStatusBuilder
 {
     public DataFileBuilder<StatusEffectData, StatusEffectDataBuilder> Builder()
     {
         return new StatusEffectDataBuilder(Mod.Instance)
             .Create<StatusEffectReduceDamageTaken>(Name)
-            .WithText("Take half damage")
+            .WithText("While active, take half damage")
             .WithStackable(false)
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectReduceDamageTaken>(status =>

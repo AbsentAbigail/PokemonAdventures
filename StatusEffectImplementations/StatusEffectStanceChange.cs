@@ -59,4 +59,16 @@ public class StatusEffectStanceChange : StatusEffectData
         target.display.promptUpdateDescription = true;
         target.PromptUpdate();
     }
+    
+    
+    public override object GetMidBattleData()
+    {
+        return isFirstStance;
+    }
+
+    public override void RestoreMidBattleData(object data)
+    {
+        isFirstStance = (bool)data;
+    }
+
 }

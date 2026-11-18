@@ -23,7 +23,7 @@ public class TagTeamEevee : IStatusBuilder
                 ];
                 status.secondStance =
                 [
-                    Mod.SStack(ReduceDamageTaken.Name),
+                    Mod.SStack(WhileActiveReduceDamageTaken.Name),
                 ];
             });
     }

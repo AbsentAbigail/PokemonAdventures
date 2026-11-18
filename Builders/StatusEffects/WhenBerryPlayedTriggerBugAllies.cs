@@ -10,13 +10,13 @@ using PokemonMod.Variables;
 namespace PokemonMod.Builders. StatusEffects;
 
 [UsedImplicitly]
-public class WhenBerryPlayedTriggerAllies : IStatusBuilder
+public class WhenBerryPlayedTriggerBugAllies : IStatusBuilder
 {
     public DataFileBuilder<StatusEffectData, StatusEffectDataBuilder> Builder()
     {
         return new StatusEffectDataBuilder(Mod.Instance)
             .Create<StatusEffectApplyXWhenCertainCardPlayed>(Name)
-            .WithText($"When a {Mod.KeywordTag(Berry.Name)} is played, trigger all {Mod.KeywordTag(Types.Bug.Keyword())} allies")
+            .WithText($"When a {Mod.KeywordTag(Berry.Name)} is played, trigger all <sprite name={Types.Bug.Keyword()}> allies")
             .WithStackable(false)
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectApplyXWhenCertainCardPlayed>(status =>

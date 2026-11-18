@@ -20,8 +20,7 @@ public class Growlithe : ICardBuilder
                 Mod.GetSprite("Growlithe"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Volcanic))
             .DropsBling(4)
-            .WithText("I don't evolve yet :(")
-            //.EvolvesInto(Haunter.Name)
+            .EvolvesInto(Arcanine.Name)
             .InUnitPool()
             .SubscribeToAfterAllBuildEvent(card =>
             {

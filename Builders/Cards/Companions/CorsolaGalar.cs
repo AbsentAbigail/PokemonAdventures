@@ -20,6 +20,7 @@ public class CorsolaGalar : ICardBuilder
                 Mod.GetSprite("CorsolaGalar"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Graveyard))
             .DropsBling(4)
+            .EvolvesInto(Cursola.Name)
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.startWithEffects =

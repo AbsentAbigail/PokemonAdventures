@@ -116,21 +116,8 @@ public class Pokemon : WildfrostMod
         loadTime += StopWatch.Stop();
         LogHelper.Log($"Loaded data in {StopWatch.GetMilliseconds()} milliseconds");
         StopWatch.Start();
-        
-        var cards = AddressableLoader.groups["CardData"].list.Cast<CardData>();
-        foreach (var cardData in cards)
-        {
-            if (cardData.ModAdded != Instance)
-            {
-                continue;
-            }
-            
-            var name = Pokedex.Names.FirstOrDefault(name => name == cardData.name.Replace(GUID + ".", ""));
-            if (name != null)
-            {
-                Pokedex.PokedexDictionary.Add(name, cardData);
-            }
-        }
+
+        LoadPokedex();
         
         loadTime += StopWatch.Stop();
         LogHelper.Log($"Arranged Pokedex in {StopWatch.GetMilliseconds()} milliseconds");
@@ -169,12 +156,32 @@ public class Pokemon : WildfrostMod
         LogHelper.Log($"Finished loading in {loadTime} milliseconds");
     }
 
+    private void LoadPokedex()
+    {
+        var cards = AddressableLoader.groups["CardData"].list.Cast<CardData>();
+        foreach (var cardData in cards)
+        {
+            if (cardData.ModAdded != Instance)
+            {
+                continue;
+            }
+            
+            var name = Pokedex.Names.FirstOrDefault(name => name == cardData.name.Replace(GUID + ".", ""));
+            if (name != null)
+            {
+                Pokedex.PokedexDictionary.Add(name, cardData);
+            }
+        }
+    }
+
     public override void Unload()
     {
         Mod.ActionsOnUnload.Do(keyValuePair =>
         {
             keyValuePair.Value();
         });
+        
+        Pokedex.PokedexDictionary.Clear();
         
         UnloadEvents();
         UnloadFromClasses();

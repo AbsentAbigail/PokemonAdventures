@@ -2,21 +2,19 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
-using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
-public class ReduceDamageTaken : IStatusBuilder
+public class InstantActivateSacrifice : IStatusBuilder
 {
     public DataFileBuilder<StatusEffectData, StatusEffectDataBuilder> Builder()
     {
         return new StatusEffectDataBuilder(Mod.Instance)
-            .Create<StatusEffectReduceDamageTaken>(Name)
-            .WithText("Take <{a}> less damage")
-            .WithStackable(true)
-            .WithCanBeBoosted(true);
+            .Create<StatusEffectInstantActivateSacrificeEffects>(Name)
+            .WithStackable(false)
+            .WithCanBeBoosted(false);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

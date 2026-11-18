@@ -25,8 +25,8 @@ public class Snowfall : ICardBuilder
             {
                 card.startWithEffects =
                 [
-                    Mod.SStack(WhileActiveWaterIncreaseAttack.Name),
-                    Mod.SStack(OnCardPlayedHealWater.Name),
+                    Mod.SStack(WhileActiveIceAlliesTakeLessDamage.Name),
+                    Mod.SStack(OnCardPlayedApplySnowToRandomNonIceAllyAndEnemy.Name),
                     Mod.SStack(Intensity.Name),
                 ];
                 card.traits =

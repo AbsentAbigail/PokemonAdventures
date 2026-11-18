@@ -26,7 +26,7 @@ public class TagTeamUmbreonEspeon : IStatusBuilder
                 status.secondStance =
                 [
                     Mod.SStack(Types.Psychic.Name),
-                    Mod.SStack(TakeHalfDamage.Name),
+                    Mod.SStack(WhileActiveTakeHalfDamage.Name),
                 ];
             });
     }

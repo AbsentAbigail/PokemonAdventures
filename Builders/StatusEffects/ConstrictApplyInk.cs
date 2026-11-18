@@ -20,6 +20,7 @@ public class ConstrictApplyInk : IStatusBuilder
             {
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Target;
                 status.effectToApply = Mod.GetStatus("Null");
+                status.anyConstrict = true;
                 status.onlyEnemies = true;
                 status.applyEqualAmount = true;
             });

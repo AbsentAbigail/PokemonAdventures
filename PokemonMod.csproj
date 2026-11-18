@@ -402,8 +402,10 @@
     <Compile Include="Builders\Cards\Clunkers\RuinOfAlph.cs" />
     <Compile Include="Builders\Cards\Clunkers\SafariZone.cs" />
     <Compile Include="Builders\Cards\Companions\Ampharos.cs" />
+    <Compile Include="Builders\Cards\Companions\Arcanine.cs" />
     <Compile Include="Builders\Cards\Companions\Corsola.cs" />
     <Compile Include="Builders\Cards\Companions\CorsolaGalar.cs" />
+    <Compile Include="Builders\Cards\Companions\Cursola.cs" />
     <Compile Include="Builders\Cards\Companions\Flaaffy.cs" />
     <Compile Include="Builders\Cards\Companions\Gastly.cs" />
     <Compile Include="Builders\Cards\Companions\Gengar.cs" />
@@ -443,6 +445,7 @@
     <Compile Include="Builders\Cards\Enemies\Bellsprout.cs" />
     <Compile Include="Builders\Cards\Enemies\Butterfree.cs" />
     <Compile Include="Builders\Cards\Enemies\Caterpie.cs" />
+    <Compile Include="Builders\Cards\Enemies\Cloyster.cs" />
     <Compile Include="Builders\Cards\Enemies\Crobat.cs" />
     <Compile Include="Builders\Cards\Enemies\Delibird.cs" />
     <Compile Include="Builders\Cards\Enemies\Donphan.cs" />
@@ -451,6 +454,8 @@
     <Compile Include="Builders\Cards\Enemies\ErikaAndVileplume.cs" />
     <Compile Include="Builders\Cards\Enemies\ErikaAndVileplume2.cs" />
     <Compile Include="Builders\Cards\Enemies\Exeggcute.cs" />
+    <Compile Include="Builders\Cards\Enemies\Exeggutor.cs" />
+    <Compile Include="Builders\Cards\Enemies\ExeggutorAlola.cs" />
     <Compile Include="Builders\Cards\Enemies\Fearow.cs" />
     <Compile Include="Builders\Cards\Enemies\Geodude.cs" />
     <Compile Include="Builders\Cards\Enemies\Gligar.cs" />
@@ -640,12 +645,15 @@
     <Compile Include="Builders\StatusEffects\ConstrictApplyInk.cs" />
     <Compile Include="Builders\StatusEffects\Cursola.cs" />
     <Compile Include="Builders\StatusEffects\DealAdditionalDamage.cs" />
+    <Compile Include="Builders\StatusEffects\DealAdditionalDamageEqualToBerriesInHand.cs" />
+    <Compile Include="Builders\StatusEffects\DealAdditionalDamageEqualToBerriesInHandBoostable.cs" />
     <Compile Include="Builders\StatusEffects\DealAdditionalDamageEqualToFairyTypes.cs" />
     <Compile Include="Builders\StatusEffects\DealAdditionalDamageIfDebuffed.cs" />
     <Compile Include="Builders\StatusEffects\ErikaAndVileplumePhase2.cs" />
     <Compile Include="Builders\StatusEffects\HitAllPokemonExceptRockSteelGround.cs" />
     <Compile Include="Builders\StatusEffects\ImmuneToBomDemonizeSpiceFrost.cs" />
     <Compile Include="Builders\StatusEffects\ImmuneToDebuffsNoText.cs" />
+    <Compile Include="Builders\StatusEffects\InstantActivateSacrifice.cs" />
     <Compile Include="Builders\StatusEffects\InstantAddGanlonBerryToHand.cs" />
     <Compile Include="Builders\StatusEffects\InstantAddLumBerryToHand.cs" />
     <Compile Include="Builders\StatusEffects\InstantAddOranBerryToHand.cs" />
@@ -706,6 +714,8 @@
     <Compile Include="Builders\StatusEffects\OnCardPlayedApplyParalysisToEnemies.cs" />
     <Compile Include="Builders\StatusEffects\OnCardPlayedApplyParalysisToEnemiesInRow.cs" />
     <Compile Include="Builders\StatusEffects\OnCardPlayedApplyShellToRockAllies.cs" />
+    <Compile Include="Builders\StatusEffects\OnCardPlayedApplySnowToConstrictedEnemies.cs" />
+    <Compile Include="Builders\StatusEffects\OnCardPlayedApplySnowToRandomNonIceAllyAndEnemy.cs" />
     <Compile Include="Builders\StatusEffects\OnCardPlayedCleanseElectricAllies.cs" />
     <Compile Include="Builders\StatusEffects\OnCardPlayedConsumeBerriesInHand.cs" />
     <Compile Include="Builders\StatusEffects\OnCardPlayedCountDownGrassAndBugPokemon.cs" />
@@ -738,6 +748,7 @@
     <Compile Include="Builders\StatusEffects\Insomnia.cs" />
     <Compile Include="Builders\StatusEffects\Lum.cs" />
     <Compile Include="Builders\StatusEffects\RetainAtLeastShroom.cs" />
+    <Compile Include="Builders\StatusEffects\RetaliateSoulbound.cs" />
     <Compile Include="Builders\StatusEffects\ShroomResist.cs" />
     <Compile Include="Builders\StatusEffects\SummonPokeball.cs" />
     <Compile Include="Builders\StatusEffects\TakeHealthText.cs" />
@@ -757,6 +768,7 @@
     <Compile Include="Builders\StatusEffects\WhenDeployedDownloadFrontEnemy.cs" />
     <Compile Include="Builders\StatusEffects\WhenDeployedDraw.cs" />
     <Compile Include="Builders\StatusEffects\WhenDeployedIncreaseOwnStatuses.cs" />
+    <Compile Include="Builders\StatusEffects\WhenDestroyedCountAsSacrifice.cs" />
     <Compile Include="Builders\StatusEffects\WhenDragonWaterGhostSteelRecalledMoveThemToHand.cs" />
     <Compile Include="Builders\StatusEffects\WhenEatingBerryRestoreOwnHealth.cs" />
     <Compile Include="Builders\StatusEffects\WhenEnemyEntersBattleApplyShroom.cs" />
@@ -767,6 +779,7 @@
     <Compile Include="Builders\StatusEffects\WhenHitApplyBurnToAttacker.cs" />
     <Compile Include="Builders\StatusEffects\WhenHitApplyConstrictToAttacker.cs" />
     <Compile Include="Builders\StatusEffects\WhenHitApplyFrostToAttacker.cs" />
+    <Compile Include="Builders\StatusEffects\WhenHitApplySoulboundToAttacker.cs" />
     <Compile Include="Builders\StatusEffects\WhenHitByElectricGainShell.cs" />
     <Compile Include="Builders\StatusEffects\WhenHitCastSandstorm.cs" />
     <Compile Include="Builders\StatusEffects\WhenHitGainShellEqualToSandstorm.cs" />
@@ -786,7 +799,7 @@
     <Compile Include="Builders\StatusEffects\WhenBerryPlayedOnSelfGainHealth.cs" />
     <Compile Include="Builders\StatusEffects\WhenBerryPlayedRestoreHealthOfAllies.cs" />
     <Compile Include="Builders\StatusEffects\WhenBerryPlayedRestoreOwnHealth.cs" />
-    <Compile Include="Builders\StatusEffects\WhenBerryPlayedTriggerAllies.cs" />
+    <Compile Include="Builders\StatusEffects\WhenBerryPlayedTriggerBugAllies.cs" />
     <Compile Include="Builders\StatusEffects\WhenDebuffedConstrictApplierAndCleanseSelf.cs" />
     <Compile Include="Builders\StatusEffects\WhenDeployedApplyFrostToEnemies.cs" />
     <Compile Include="Builders\StatusEffects\WhenDestroyedAddSalacBerryToHand.cs" />
@@ -800,6 +813,7 @@
     <Compile Include="Builders\StatusEffects\WhenRainPlayedCountDown.cs" />
     <Compile Include="Builders\StatusEffects\WhenShellLostGainEqualAttack.cs" />
     <Compile Include="Builders\StatusEffects\WhenSleepEnemyTakesDamageGainEqualHeal.cs" />
+    <Compile Include="Builders\StatusEffects\WhileActiveIceAlliesTakeLessDamage.cs" />
     <Compile Include="Builders\StatusEffects\WhileActiveBulletPunchHaveEqualDamage.cs" />
     <Compile Include="Builders\StatusEffects\WhileActiveDecreaseAttackOfEnemies.cs" />
     <Compile Include="Builders\StatusEffects\WhileActiveFrenzyEqualToAllies.cs" />
@@ -842,14 +856,14 @@
     <Compile Include="Builders\StatusEffects\OnHitGainEqualBling.cs" />
     <Compile Include="Builders\StatusEffects\Paralysis.cs" />
     <Compile Include="Builders\StatusEffects\Pokeball.cs" />
-    <Compile Include="Builders\StatusEffects\ReduceDamageTaken.cs" />
+    <Compile Include="Builders\StatusEffects\WhileActiveReduceDamageTaken.cs" />
     <Compile Include="Builders\StatusEffects\Sleep.cs" />
     <Compile Include="Builders\StatusEffects\SummonDummy.cs" />
     <Compile Include="Builders\StatusEffects\SummonBulletPunch.cs" />
     <Compile Include="Builders\StatusEffects\CastHarshSunlight.cs" />
     <Compile Include="Builders\StatusEffects\TagTeamEevee.cs" />
     <Compile Include="Builders\StatusEffects\TagTeamUmbreonEspeon.cs" />
-    <Compile Include="Builders\StatusEffects\TakeHalfDamage.cs" />
+    <Compile Include="Builders\StatusEffects\WhileActiveTakeHalfDamage.cs" />
     <Compile Include="Builders\StatusEffects\TemporaryFlourish.cs" />
     <Compile Include="Builders\StatusEffects\WhenAllyAttacksGainSpice.cs" />
     <Compile Include="Builders\StatusEffects\WhenItemUsedApplySpiceToAllAllies.cs" />
@@ -988,6 +1002,7 @@
     <Compile Include="StatusEffectImplementations\StatusEffectReduceDamageTaken.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectReduceSuperEffectiveDamage.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectRetainAtLeast.cs" />
+    <Compile Include="StatusEffectImplementations\StatusEffectRetaliateSoulbound.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectStanceChange.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectTriggerWhenCardIsPlayed.cs" />
     <Compile Include="StatusEffectImplementations\StatusEffectWhileActiveXUpdateWhenMoved.cs" />

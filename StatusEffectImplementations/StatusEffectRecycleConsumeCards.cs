@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using DeadExtensions;
-using HarmonyLib;
+using Dead;
 using PokemonMod.GameSystems;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.UI;
 using WildfrostHopeMod.Utils;
 
 namespace PokemonMod.StatusEffectImplementations;
@@ -30,8 +29,7 @@ public class StatusEffectRecycleConsumeCards : StatusEffectData
     
     public override bool RunCardPlayedEvent(Entity entity, Entity[] targets)
     {
-        var tracker = FindObjectOfType<ConsumedItemTrackerSystem>();
-        return target.enabled && entity == target && tracker.ConsumedCards.Count > 0;
+        return target.enabled && entity == target;
     }
 
     private IEnumerator Played(Entity entity, Entity[] targets)
@@ -40,6 +38,11 @@ public class StatusEffectRecycleConsumeCards : StatusEffectData
         var cc = (CardControllerSelectCard)_sequence.cardController;
         cc.pressEvent.AddListener(ChooseCard);
         cc.canPress = true;
+        
+        var button = _sequence.backButton.GetComponentInChildren<Button>();
+        button.onClick.AddListener(Return);
+
+        
         var container = GetCardContainer();
         foreach (var containerEntity in container)
         {
@@ -55,25 +58,6 @@ public class StatusEffectRecycleConsumeCards : StatusEffectData
         _sequence.AddCards(container);
         yield return _sequence.Run();
 
-        // if (_selected != null) //Card Selected
-        // {
-        //     Events.InvokeCardDraw(1);
-        //     yield return Sequences.CardMove(_selected, [References.Player.handContainer]);
-        //     References.Player.handContainer.TweenChildPositions();
-        //     Events.InvokeCardDrawEnd();
-        //     _selected.flipper.FlipUp();
-        //     yield return Sequences.WaitForAnimationEnd(_selected);
-        //     yield return new ActionRunEnableEvent(_selected).Run();
-        //     _selected.display.hover.enabled = true;
-        //
-        //     _selected.display.promptUpdateDescription = true;
-        //     _selected.PromptUpdate();
-        //
-        //     ActionQueue.Stack(new ActionSequence(_selected.UpdateTraits()) { note = $"[{_selected}] Update Traits" });
-        //
-        //     _selected = null;
-        // }
-
         _cardContainer?.ClearAndDestroyAllImmediately();
 
         cc.canPress = false;
@@ -81,8 +65,15 @@ public class StatusEffectRecycleConsumeCards : StatusEffectData
 
         CinemaBarSystem.Clear();
         CinemaBarSystem.Out();
+    }
 
-        yield return Remove();
+    private void Return()
+    {
+        target.owner.freeAction = true;
+        var actionToRemove = ActionQueue.GetActions().FirstOrDefault(action =>
+            action is ActionReduceUses reduceUses && reduceUses.entity == target);
+        ActionQueue.Remove(actionToRemove);
+        ActionQueue.Add(new ActionMove(target, target.preContainers));
     }
 
     private void ChooseCard(Entity entity)
@@ -133,7 +124,7 @@ public class StatusEffectRecycleConsumeCards : StatusEffectData
     // Random Order from Pokefrost StatusEffectChangeData
     private static IOrderedEnumerable<T> InPettyRandomOrder<T>(IEnumerable<T> source)
     {
-        return source.OrderBy(_ => Dead.PettyRandom.Range(0f, 1f));
+        return source.OrderBy(_ => PettyRandom.Range(0f, 1f));
     }
 
     // Card Grid Code by Phan

@@ -29,12 +29,12 @@ public class StatusEffectApplyXWhenConstrictedDamageDealt : StatusEffectApplyX
 
     private bool CheckTarget(Hit hit)
     {
-        if (!onlyEnemies)
+        if (onlyEnemies)
         {
-            return true;
+            return hit.target.owner != target.owner;
         }
+        return true;
 
-        return hit.target.owner != target.owner;
     }
 
     public override bool RunPostHitEvent(Hit hit)

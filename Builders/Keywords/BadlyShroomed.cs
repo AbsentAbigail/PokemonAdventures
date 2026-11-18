@@ -14,9 +14,8 @@ public class BadlyShroomed : IKeywordBuilder
             .Create(Name)
             .WithTitle("Badly Shroomed")
             .WithTitleColour(KeywordColours.DarkPurple)
-            .WithDescription("""
-                             Gain equal amount of <keyword=shroom> when taking <keyword=shroom> damage|<sprite name=badlyshroomed> combines with and replaces <sprite name=shroom>
-                             """)
+            .WithDescription(
+                "Gain equal amount of <keyword=shroom> when taking <keyword=shroom> damage|<sprite name=badlyshroomed> combines with and replaces <sprite name=shroom>")
             .WithBodyColour(KeywordColours.White)
             .WithNoteColour(KeywordColours.DarkPurple)
             .WithCanStack(true);

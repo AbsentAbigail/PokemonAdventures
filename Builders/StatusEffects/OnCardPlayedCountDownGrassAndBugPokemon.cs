@@ -15,7 +15,7 @@ public class OnCardPlayedCountDownGrassAndBugPokemon : IStatusBuilder
     {
         return new StatusEffectDataBuilder(Mod.Instance)
             .Create<StatusEffectApplyXOnCardPlayed>(Name)
-            .WithText($"Count down <keyword=counter> of {Mod.KeywordTag(Types.Grass.Keyword())} and {Mod.KeywordTag(Types.Bug.Keyword())} Pokemon by <{{a}}>")
+            .WithText($"Count down <keyword=counter> of <sprite name={Types.Grass.Keyword()}> and <sprite name={Types.Bug.Keyword()}> Pokemon by <{{a}}>")
             .WithStackable(true)
             .WithCanBeBoosted(true)
             .SubscribeToAfterAllBuildEvent<StatusEffectApplyXOnCardPlayed>(status =>

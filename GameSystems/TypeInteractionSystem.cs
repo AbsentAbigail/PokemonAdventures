@@ -101,24 +101,12 @@ public class TypeInteractionSystem : GameSystem
         foreach (var statusType in attacker.statusEffects.Where(status => status is StatusEffectType))
         {
             var attackingType = (StatusEffectType)statusType;
-            foreach (var defendingType in target.statusEffects.Where(status => attackingType.weakTypes.Contains(status.type)))
-            {
-                var modifier = attackingType.weaknessModifier;
-                FindObjectOfType<BattleLogSystem>()?.Log(_superEffectiveText, BattleLogType.Buff, attackingType.type, defendingType.type, modifier);
-                damageModifier += modifier;
-            }
-            foreach (var defendingType in target.statusEffects.Where(status => attackingType.resistingTypes.Contains(status.type)))
-            {
-                var modifier = attackingType.resistanceModifier;
-                FindObjectOfType<BattleLogSystem>()?.Log(_resistText, BattleLogType.Buff, attackingType.type, defendingType.type, modifier);
-                damageModifier += modifier;
-            }
-            foreach (var defendingType in target.statusEffects.Where(status => attackingType.immuneTypes.Contains(status.type)))
-            {
-                var modifier = attackingType.immunityModifier;
-                FindObjectOfType<BattleLogSystem>()?.Log(_immuneText, BattleLogType.Buff, attackingType.type, defendingType.type, modifier);
-                damageModifier += modifier;
-            }
+            damageModifier += target.statusEffects
+                .Where(status => attackingType.weakTypes.Contains(status.type)).Sum(_ => attackingType.weaknessModifier);
+            damageModifier += target.statusEffects
+                .Where(status => attackingType.resistingTypes.Contains(status.type)).Sum(_ => attackingType.resistanceModifier);
+            damageModifier += target.statusEffects
+                .Where(status => attackingType.immuneTypes.Contains(status.type)).Sum(_ => attackingType.immunityModifier);
         }
         
         return damageModifier;

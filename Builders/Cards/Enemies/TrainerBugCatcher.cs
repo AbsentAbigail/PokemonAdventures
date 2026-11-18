@@ -27,7 +27,7 @@ public class TrainerBugCatcher : ICardBuilder
                 card.startWithEffects =
                 [
                     Mod.SStack(OnCardPlayedAddOranBerryToHand.Name, 2),
-                    Mod.SStack(WhenBerryPlayedTriggerAllies.Name),
+                    Mod.SStack(WhenBerryPlayedTriggerBugAllies.Name),
                 ];
             })
             .WithBossRewards([

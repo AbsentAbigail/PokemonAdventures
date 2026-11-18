@@ -20,14 +20,14 @@ public class Shellder : ICardBuilder
                 Mod.GetSprite("Shellder"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Ocean))
             .DropsBling(4)
-            // .EvolvesInto()
-            .WithText("I don't evolve yet :(")
+            .EvolvesInto(Cloyster.Name)
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.startWithEffects =
                 [
                     Mod.SStack(Types.Water.Name),
                     Mod.SStack("Shell", 6),
+                    Mod.SStack("On Turn Apply Shell To Self"),
                     Mod.SStack("When Hit Apply Snow To Attacker"),
                 ];
             });

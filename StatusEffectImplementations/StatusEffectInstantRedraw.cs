@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 
 namespace PokemonMod.StatusEffectImplementations;
 
@@ -6,24 +7,20 @@ internal class StatusEffectInstantRedraw : StatusEffectInstant
 {
     public override IEnumerator Process()
     {
-        var discarded = DiscardNonLeaders();
-        ActionQueue.Insert(++discarded, new ActionDraw(References.Player, References.Player.handContainer.max));
+        yield return DiscardNonLeaders();
+        yield return new ActionDraw(References.Player, References.Player.handContainer.max).Run();
     
         yield return base.Process();
     }
 
-    private static int DiscardNonLeaders()
+    private static IEnumerator DiscardNonLeaders()
     {
-        var i = 0;
-        foreach (var entity in References.Player.handContainer)
+        var discard = References.Player.handContainer.Where(entity => !entity.data.cardType.miniboss).ToArray();
+        
+        foreach (var entity in discard)
         {
-            if (entity.data.cardType.miniboss)
-            {
-                continue;
-            }
             entity.display.hover.SetHoverable(false);
-            ActionQueue.Insert(i++, new ActionMove(entity, References.Player.discardContainer));
+            yield return new ActionMove(entity, References.Player.discardContainer).Run();
         }
-        return i;
     }
 }

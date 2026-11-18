@@ -39,6 +39,11 @@ public class StatusEffectBadlyShroomed : StatusEffectApplyX
 
     public override bool RunHitEvent(Hit hit)
     {
+        if (hit.target != target)
+        {
+            return false;
+        }
+        
         if (hit.damageType != TargetType)
         {
             return false;

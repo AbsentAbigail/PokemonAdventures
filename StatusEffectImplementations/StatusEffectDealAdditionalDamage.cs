@@ -6,6 +6,7 @@ namespace PokemonMod.StatusEffectImplementations;
 public class StatusEffectDealAdditionalDamage : StatusEffectData
 {
     public ScriptableAmount scriptableAmount;
+    public bool scriptableBoosting = false;
     public TargetConstraint[] attackerConstraints;
     private int _currentAmount;
     private bool _toReset;
@@ -37,7 +38,7 @@ public class StatusEffectDealAdditionalDamage : StatusEffectData
 
     private IEnumerator Gain(Entity entity, Entity[] targets)
     {
-        var amount = scriptableAmount ? scriptableAmount.Get(target) : GetAmount();
+        var amount = GetAmount();
         switch (_toReset)
         {
             case true when amount == _currentAmount: 
@@ -83,5 +84,14 @@ public class StatusEffectDealAdditionalDamage : StatusEffectData
         target.tempDamage -= _currentAmount;
         _currentAmount = 0;
         target.PromptUpdate();
+    }
+
+    public override int GetAmount()
+    {
+        if (scriptableBoosting)
+        {
+            return scriptableAmount.Get(target) * base.GetAmount();
+        }
+        return scriptableAmount ? scriptableAmount.Get(target) : base.GetAmount();
     }
 }

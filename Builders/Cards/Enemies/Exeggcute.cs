@@ -20,8 +20,9 @@ public class Exeggcute : ICardBuilder
             .SetSprites(
                 Mod.GetSprite("Exeggcute"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Garden))
-            .DropsBling(4)
-            .WithText("I don't evolve yet :(")
+            .DropsBling(5)
+            .EvolvesInto(Exeggutor.Name)
+            .EvolvesInto(ExeggutorAlola.Name)
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.startWithEffects =
@@ -29,7 +30,6 @@ public class Exeggcute : ICardBuilder
                     Mod.SStack(Types.Grass.Name),
                     Mod.SStack(Types.Psychic.Name),
                     Mod.SStack(WhenBerryConsumedAddCopyToDiscardPile.Name),
-                    Mod.SStack(OnCardPlayedHealEqualToSun.Name),
                 ];
             });
     }

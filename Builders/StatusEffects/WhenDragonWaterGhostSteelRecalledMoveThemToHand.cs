@@ -16,7 +16,7 @@ public class WhenDragonWaterGhostSteelRecalledMoveThemToHand : IStatusBuilder
     {
         return new StatusEffectDataBuilder(Mod.Instance)
             .Create<StatusEffectApplyXWhenCardRecalled>(Name)
-            .WithText($"When a {Mod.KeywordTag(Types.Dragon.Keyword())}, {Mod.KeywordTag(Types.Steel.Keyword())}, {Mod.KeywordTag(Types.Water.Keyword())}, or {Mod.KeywordTag(Types.Ghost.Keyword())} Pokemon is recalled, return them to hand")
+            .WithText($"When a <sprite name={Types.Dragon.Keyword()}>, <sprite name={Types.Steel.Keyword()}>, <sprite name={Types.Water.Keyword()}>, or <sprite name={Types.Ghost.Keyword()}> Pokemon is recalled, return them to hand")
             .WithStackable(false)
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectApplyXWhenCardRecalled>(status =>

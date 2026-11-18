@@ -15,7 +15,7 @@ public class WhileActivePsychicPokemonApplyDemonize : IStatusBuilder
     {
         return new StatusEffectDataBuilder(Mod.Instance)
             .Create<StatusEffectWhileActiveX>(Name)
-            .WithText($"While active, {Mod.KeywordTag(Types.Psychic.Keyword())} Pokemon apply <{{a}}><keyword=demonize>")
+            .WithText($"While active, <sprite name={Types.Psychic.Keyword()}> Pokemon apply <{{a}}><keyword=demonize>")
             .WithStackable(true)
             .WithCanBeBoosted(true)
             .SubscribeToAfterAllBuildEvent<StatusEffectWhileActiveX>(status =>

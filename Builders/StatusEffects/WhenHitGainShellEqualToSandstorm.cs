@@ -17,7 +17,7 @@ public class WhenHitGainShellEqualToSandstorm : IStatusBuilder
     {
         return new StatusEffectDataBuilder(Mod.Instance)
             .Create<StatusEffectApplyXWhenHit>(Name)
-            .WithText($"When hit, gain <keyword=shell> equal to {Mod.CardTag(Sandstorm.Name)} intensity")
+            .WithText($"When hit, gain <keyword=shell> equal to {Mod.CardTag(Sandstorm.Name)} {Mod.KeywordTag(Keywords.Intensity.Name)}")
             .WithStackable(false)
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectApplyXWhenHit>(status =>

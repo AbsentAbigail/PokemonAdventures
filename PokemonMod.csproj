@@ -535,6 +535,7 @@
     <Compile Include="Builders\Cards\Items\AssaultVest.cs" />
     <Compile Include="Builders\Cards\Items\BluePresent.cs" />
     <Compile Include="Builders\Cards\Items\BulletPunch.cs" />
+    <Compile Include="Builders\Cards\Items\Curry.cs" />
     <Compile Include="Builders\Cards\Items\DarkBell.cs" />
     <Compile Include="Builders\Cards\Items\GanlonBerry.cs" />
     <Compile Include="Builders\Cards\Items\GoldenPresent.cs" />
@@ -579,6 +580,7 @@
     <Compile Include="Builders\Cards\LeaderPokemon\Squirtle.cs" />
     <Compile Include="Builders\Cards\LeaderPokemon\Totodile.cs" />
     <Compile Include="Builders\Cards\LeaderPokemon\Typhlosion.cs" />
+    <Compile Include="Builders\Cards\LeaderPokemon\TyphlosionHisui.cs" />
     <Compile Include="Builders\Cards\LeaderPokemon\UmbreonAndEspeon.cs" />
     <Compile Include="Builders\Cards\LeaderPokemon\Venusaur.cs" />
     <Compile Include="Builders\Cards\LeaderPokemon\Wartortle.cs" />
@@ -684,6 +686,7 @@
     <Compile Include="Builders\StatusEffects\InstantConsumeBerriesInHand.cs" />
     <Compile Include="Builders\StatusEffects\InstantConsumeRightmostBerries.cs" />
     <Compile Include="Builders\StatusEffects\InstantCountDown.cs" />
+    <Compile Include="Builders\StatusEffects\InstantCountUpNegativeStatuses.cs" />
     <Compile Include="Builders\StatusEffects\InstantCountUpStatuses.cs" />
     <Compile Include="Builders\StatusEffects\InstantDealDamage.cs" />
     <Compile Include="Builders\StatusEffects\InstantDealDamageEqualToSleep.cs" />

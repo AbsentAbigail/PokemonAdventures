@@ -182,6 +182,7 @@ public static class Pokedex
         "Cyndaquil",
         "Quilava",
         "Typhlosion",
+        "TyphlosionHisui",
         "Totodile",
         "Croconaw",
         "Feraligatr",

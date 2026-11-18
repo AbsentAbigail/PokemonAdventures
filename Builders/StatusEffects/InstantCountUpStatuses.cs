@@ -15,6 +15,7 @@ public class InstantCountUpStatuses : IStatusBuilder
     {
         return new StatusEffectDataBuilder(Mod.Instance)
             .Create<StatusEffectInstantCountUpStatus>(Name)
+            .WithText("Counts up all statuses by <{a}>")
             .WithStackable(true)
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectInstantCountUpStatus>(status =>

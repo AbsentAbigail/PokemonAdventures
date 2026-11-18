@@ -21,6 +21,7 @@ public class Quilava : ICardBuilder
                 Mod.GetBackgroundSprite(BackgroundSprites.Volcanic))
             .DropsBling(4)
             .EvolvesInto(Typhlosion.Name)
+            .EvolvesInto(TyphlosionHisui.Name)
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.startWithEffects =

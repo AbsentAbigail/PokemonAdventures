@@ -26,6 +26,7 @@ public static class Localization
         uiText.SetString(CustomStats.PokemonEvolvedKey, "Pokemon evolved: {0}");
 
         uiText.SetString("CountUpWaveBell", "{0} counted up the Wave Bell by [{1}]");
+        uiText.SetString("CountDownWaveBell", "{0} counted down the Wave Bell by [{1}]");
 
         uiText.SetString("TagTeamEevee1", "Eevee");
         uiText.SetString("TagTeamEevee2", "Eevee");

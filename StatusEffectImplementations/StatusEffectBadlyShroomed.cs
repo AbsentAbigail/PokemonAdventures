@@ -16,7 +16,22 @@ public class StatusEffectBadlyShroomed : StatusEffectApplyX
     {
         OnApplyStatus += CheckCleanse;
         PostApplyStatus += ChangeIcon;
-        OnHit += Hit;
+    }
+
+    public override bool RunPostHitEvent(Hit hit)
+    {
+        if (hit.target != target)
+        {
+            return false;
+        }
+
+        if (hit.damageType == TargetType)
+        {
+            ActionQueue.Add(new ActionSequence(
+                StatusEffectSystem.Apply(target, hit.attacker, effectToApply, hit.damage + hit.damageBlocked)));
+        }
+
+        return false;
     }
 
     public override bool RunApplyStatusEvent(StatusEffectApply apply)
@@ -35,27 +50,6 @@ public class StatusEffectBadlyShroomed : StatusEffectApplyX
         ChangeIcon(stacks);
 
         return base.RunStackEvent(stacks);
-    }
-
-    public override bool RunHitEvent(Hit hit)
-    {
-        if (hit.target != target)
-        {
-            return false;
-        }
-
-        if (hit.damageType != TargetType)
-        {
-            return false;
-        }
-
-        var status = target.FindStatus(TargetType);
-        return status;
-    }
-
-    private IEnumerator Hit(Hit hit)
-    {
-        yield return StatusEffectSystem.Apply(target, target, target.FindStatus(TargetType), hit.damage + hit.damageBlocked);
     }
 
     public override bool RunPostApplyStatusEvent(StatusEffectApply apply)

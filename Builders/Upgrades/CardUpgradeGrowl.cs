@@ -25,6 +25,7 @@ public class CardUpgradeGrowl : IUpgradeBuilder
                 charm.targetConstraints =
                 [
                     TargetConstraintHelper.DoesTrigger(),
+                    TargetConstraintHelper.General<TargetConstraintIsUnit>(),
                 ];
             });
     }

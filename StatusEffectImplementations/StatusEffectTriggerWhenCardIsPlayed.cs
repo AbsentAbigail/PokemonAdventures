@@ -58,7 +58,6 @@ public class StatusEffectTriggerWhenCardIsPlayed : StatusEffectReaction
 
     private bool CheckEntity(Entity entity)
     {
-        return entity && allowedCards.Any(allowedCard => allowedCard.name == entity.data.name)
-                      && entity.owner.team == target.owner.team && entity != target;
+        return entity && allowedCards.Any(allowedCard => allowedCard.name == entity.data.name) && entity != target;
     }
 }

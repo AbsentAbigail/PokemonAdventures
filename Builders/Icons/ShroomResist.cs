@@ -17,7 +17,7 @@ public class ShroomResist : IIconBuilder
                 Mod.GetIconSprite("shroomresist"))
             .WithIconGroupName(StatusIconBuilder.IconGroups.health)
             .WithTextboxSprite()
-            .WithKeywords(Keywords.ParalysisResist.Name);
+            .WithKeywords(Keywords.ShroomResist.Name);
     }
 
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower();

@@ -36,6 +36,6 @@ public class Snowfall : ICardBuilder
                 card.charmSlots = 0;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

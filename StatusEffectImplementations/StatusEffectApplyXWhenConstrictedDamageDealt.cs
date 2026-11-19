@@ -10,7 +10,7 @@ public class StatusEffectApplyXWhenConstrictedDamageDealt : StatusEffectApplyX
     public bool postHit = false;
 
     public bool onlyEnemies = false;
-    
+
     public override void Init()
     {
         if (postHit)
@@ -18,7 +18,7 @@ public class StatusEffectApplyXWhenConstrictedDamageDealt : StatusEffectApplyX
             PostHit += Check;
             return;
         }
-        
+
         OnHit += Check;
     }
 
@@ -34,7 +34,6 @@ public class StatusEffectApplyXWhenConstrictedDamageDealt : StatusEffectApplyX
             return hit.target.owner != target.owner;
         }
         return true;
-
     }
 
     public override bool RunPostHitEvent(Hit hit)
@@ -46,7 +45,7 @@ public class StatusEffectApplyXWhenConstrictedDamageDealt : StatusEffectApplyX
     {
         yield return Run(GetTargets(hit), hit.damage + hit.damageBlocked);
     }
-    
+
     private bool CheckAttacker(Hit hit)
     {
         if (anyConstrict)
@@ -58,12 +57,12 @@ public class StatusEffectApplyXWhenConstrictedDamageDealt : StatusEffectApplyX
         {
             return false;
         }
-        
+
         if (ownConstrict && hit.attacker == target)
         {
             return true;
         }
-        
+
         return alliedConstrict && hit.attacker != target && hit.attacker.owner == target.owner;
     }
 }

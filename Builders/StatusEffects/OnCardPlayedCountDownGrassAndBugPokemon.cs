@@ -6,7 +6,7 @@ using PokemonMod.Helpers;
 using PokemonMod.Variables;
 using Berry = PokemonMod.Builders.Keywords.Berry;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class OnCardPlayedCountDownGrassAndBugPokemon : IStatusBuilder
@@ -31,6 +31,6 @@ public class OnCardPlayedCountDownGrassAndBugPokemon : IStatusBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

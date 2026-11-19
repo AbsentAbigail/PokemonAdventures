@@ -14,14 +14,14 @@ public class StatusEffectInstantCastWeather : StatusEffectInstantSummon
     public override IEnumerator Process()
     {
         var weather = Battle.GetCardsOnBoard().FirstOrDefault(ally => ally.data.name == targetSummon.summonCard.name);
-        
+
         if (!weather)
         {
             yield return NewWeather();
             yield return Remove();
             yield break;
         }
-        
+
         var intensity = weather.statusEffects.FirstOrDefault(status => status.name == intensityEffect.name)?.count ?? 0;
 
         var hit = new Hit(applier, weather, 0);
@@ -30,7 +30,7 @@ public class StatusEffectInstantCastWeather : StatusEffectInstantSummon
         yield return hit.Process();
         weather.display.promptUpdateDescription = true;
         weather.PromptUpdate();
-        
+
         yield return Remove();
     }
 
@@ -42,12 +42,13 @@ public class StatusEffectInstantCastWeather : StatusEffectInstantSummon
             list.AddRange(target.actualContainers);
             if (list.Count > 0 && list.ToArray().RandomItem() is CardSlot cardSlot)
             {
-                targetSummon.toSummon = [
+                targetSummon.toSummon =
+                [
                     cardSlot,
                 ];
             }
         }
-        
+
         var originalData = targetSummon.summonCard;
         targetSummon.summonCard = targetSummon.summonCard.Clone();
         var summonCard = targetSummon.summonCard;
@@ -65,24 +66,24 @@ public class StatusEffectInstantCastWeather : StatusEffectInstantSummon
                 new CardData.StatusEffectStacks(intensityEffect, GetAmount()),
             ];
         }
-        
+
         var controller = target.display.hover.controller;
         target.curveAnimator.Ping();
         var cardSlotArray = targetSummon.toSummon;
-            
+
         for (var index = 0; index < (cardSlotArray?.Length ?? 0); ++index)
         {
             yield return TrySummon(cardSlotArray![index], controller, target);
         }
-        
+
         targetSummon.summonCard = originalData;
     }
 
     private IEnumerator TrySummon(
         CardContainer container,
         CardController controller,
-        Entity summonedBy) {
-        
+        Entity summonedBy)
+    {
         if (container.Count < container.max)
         {
             yield return targetSummon.Summon(container, controller, summonedBy);

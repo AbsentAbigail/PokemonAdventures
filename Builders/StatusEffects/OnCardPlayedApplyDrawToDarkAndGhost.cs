@@ -5,7 +5,7 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 using PokemonMod.Variables;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class OnCardPlayedApplyDrawToDarkAndGhost : IStatusBuilder
@@ -31,6 +31,6 @@ public class OnCardPlayedApplyDrawToDarkAndGhost : IStatusBuilder
                 status.queue = true;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

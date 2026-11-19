@@ -5,7 +5,7 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 using PokemonMod.Variables;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class OnCardPlayedIncreaseAttackOfNormalAllies : IStatusBuilder
@@ -27,6 +27,6 @@ public class OnCardPlayedIncreaseAttackOfNormalAllies : IStatusBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

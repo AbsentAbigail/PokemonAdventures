@@ -15,13 +15,14 @@ public class Download : ITraitBuilder
             .Create(Name)
             .SubscribeToAfterAllBuildEvent(trait =>
             {
-                trait.effects = [
+                trait.effects =
+                [
                     Mod.GetStatus(WhenDeployedDownloadFrontEnemy.Name),
                     Mod.GetStatus(WhenDeployedIncreaseOwnStatuses.Name),
                 ];
                 trait.keyword = Mod.GetKeyword(Keywords.Download.Name);
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

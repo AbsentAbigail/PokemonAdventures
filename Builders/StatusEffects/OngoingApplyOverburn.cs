@@ -20,6 +20,6 @@ public class OngoingApplyOverburn : IStatusBuilder
                 status.attackEffect = Mod.GetStatus("Overload");
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

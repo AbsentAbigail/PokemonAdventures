@@ -37,6 +37,6 @@ public class Fearow : ICardBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

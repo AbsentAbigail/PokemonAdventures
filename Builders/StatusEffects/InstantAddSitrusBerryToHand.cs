@@ -24,6 +24,6 @@ public class InstantAddSitrusBerryToHand : IStatusBuilder
                 status.summonPosition = StatusEffectInstantSummon.Position.Hand;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

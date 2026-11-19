@@ -28,11 +28,12 @@ public class Porygon2 : ICardBuilder
                 [
                     Mod.SStack(Types.Normal.Name),
                 ];
-                card.traits = [
+                card.traits =
+                [
                     Mod.TStack(Download.Name, 2),
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

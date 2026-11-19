@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class TagTeamEevee : IStatusBuilder
@@ -27,6 +27,6 @@ public class TagTeamEevee : IStatusBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

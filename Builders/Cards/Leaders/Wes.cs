@@ -29,12 +29,10 @@ public class Wes : ITrainerBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public ITrainerBuilder.MenuTrainerModifier MenuTrainerModifiers => new()
     {
-        Partners = [EeveeAndEevee.Name],
-        MenuSpriteName = "WesAndEeveeAndEevee",
-        MenuTitle = "Wes and Eevee and Eevee",
+        Partners = [EeveeAndEevee.Name], MenuSpriteName = "WesAndEeveeAndEevee", MenuTitle = "Wes and Eevee and Eevee",
     };
 }

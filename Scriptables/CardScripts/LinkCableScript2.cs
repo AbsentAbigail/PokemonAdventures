@@ -9,11 +9,11 @@ using Random = Dead.Random;
 
 namespace PokemonMod.Scriptables.CardScripts;
 
-
 public class LinkCableScript2 : CardScript
 {
     private static readonly LocalizedString Title = Mod.GetLocalizedString("LinkCable");
-    private static readonly Predicate<CardData> Predicate = card => !card.cardType.miniboss && card.startWithEffects.Any(status => status.data is StatusEffectType) && card.mainSprite?.name != "Nothing";
+    private static readonly Predicate<CardData> Predicate = card =>
+        !card.cardType.miniboss && card.startWithEffects.Any(status => status.data is StatusEffectType) && card.mainSprite?.name != "Nothing";
     private const int Options = 3;
 
     private static Entity _selected;
@@ -22,7 +22,7 @@ public class LinkCableScript2 : CardScript
     private static GameObject _objectGroup;
     private static CardPocketSequence _sequence;
     private static CardController _cardController;
-    
+
     public override void Run(CardData target)
     {
         References.instance.StartCoroutine(Trade(target));
@@ -31,13 +31,13 @@ public class LinkCableScript2 : CardScript
     private static IEnumerator Trade(CardData target)
     {
         _cardController = FindObjectOfType<CardControllerDeck>();
-        
+
         CardScriptDestroyCard.RemoveFromDeck(target);
         CardScriptDestroyCard.DestroyEntities(target);
-        
+
         _sequence = FindObjectOfType<CardPocketSequence>(true);
-        var backButtonScale = _sequence.backButton.transform.localScale; 
-        _sequence.backButton.transform.localScale = new Vector3(0,0,0);
+        var backButtonScale = _sequence.backButton.transform.localScale;
+        _sequence.backButton.transform.localScale = new Vector3(0, 0, 0);
         var cardController = (CardControllerSelectCard)_sequence.cardController;
         cardController.pressEvent.AddListener(ChooseCard);
         cardController.canPress = true;
@@ -56,17 +56,17 @@ public class LinkCableScript2 : CardScript
         }
         _sequence.AddCards(container);
         yield return _sequence.Run();
-        
+
         _cardContainer?.ClearAndDestroyAllImmediately();
 
         cardController.canPress = false;
         cardController.pressEvent.RemoveListener(ChooseCard);
         _sequence.backButton.transform.localScale = backButtonScale;
-        
+
         CinemaBarSystem.Clear();
         CinemaBarSystem.Out();
     }
-    
+
     private static void ChooseCard(Entity entity)
     {
         _selected = entity;
@@ -107,13 +107,13 @@ public class LinkCableScript2 : CardScript
         var cards = AddressableLoader.GetGroup<CardData>("CardData")
             .Where(c => Predicate.Invoke(c))
             .OrderBy(_ => Random.Range(0f, 1f)).ToList().Take(Options);
-        
+
         foreach (var c in cards)
         {
             var cardData = c.Clone();
             cardData.cardType = Mod.GetCardType("Friendly");
             cardData.SetCustomData("OverrideCardType", "Friendly");
-            
+
             var card = CardManager.Get(cardData, _cardController, References.Player,
                 true,
                 true);
@@ -161,7 +161,7 @@ public class LinkCableScript2 : CardScript
         parentObject.GetOrAdd<ScrollToNavigation>().scroller = scroller; // Scroll with controllers
         parentObject.GetOrAdd<TouchScroller>().scroller = scroller; // Scroll with touchscreen
     }
-    
+
     // Copied from Pokefrosts CardScriptCopy
     // ReSharper disable Unity.PerformanceAnalysis
     private static IEnumerator Animation(Card card)
@@ -175,7 +175,7 @@ public class LinkCableScript2 : CardScript
         }
 
         deckDisplaySequence.activeCardsGroup.GetGrid(card).Add(card.entity);
-        
+
         deckDisplaySequence.UpdatePositions();
     }
 }

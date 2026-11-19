@@ -30,6 +30,6 @@ public class DealAdditionalDamageEqualToBerriesInHandBoostable : IStatusBuilder
                 status.scriptableBoosting = true;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

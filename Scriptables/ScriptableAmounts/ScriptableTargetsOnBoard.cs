@@ -18,9 +18,10 @@ internal class ScriptableTargetsOnBoard : ScriptableAmount
 
         if (all)
         {
-            return Battle.GetCardsOnBoard().Count(e => cardType is null || e.data.cardType == cardType && (!statusEffect || e.statusEffects.Any(s => s.name == statusEffect.name)));
+            return Battle.GetCardsOnBoard().Count(e =>
+                cardType is null || e.data.cardType == cardType && (!statusEffect || e.statusEffects.Any(s => s.name == statusEffect.name)));
         }
-        
+
         if (inRow)
         {
             return InRow(entity, rows);
@@ -28,11 +29,13 @@ internal class ScriptableTargetsOnBoard : ScriptableAmount
 
         if (allies)
         {
-            result += entity.GetAllies().Count(e => cardType is null || e.data.cardType == cardType && (!statusEffect || e.statusEffects.Any(s => s.name == statusEffect.name)));
+            result += entity.GetAllies().Count(e =>
+                cardType is null || e.data.cardType == cardType && (!statusEffect || e.statusEffects.Any(s => s.name == statusEffect.name)));
         }
         if (enemies)
         {
-            result += entity.GetEnemies().Count(e => cardType is null || e.data.cardType == cardType && (!statusEffect || e.statusEffects.Any(s => s.name == statusEffect.name)));
+            result += entity.GetEnemies().Count(e =>
+                cardType is null || e.data.cardType == cardType && (!statusEffect || e.statusEffects.Any(s => s.name == statusEffect.name)));
         }
         return result;
     }
@@ -44,11 +47,13 @@ internal class ScriptableTargetsOnBoard : ScriptableAmount
         {
             if (allies)
             {
-                result += entity.GetAlliesInRow(row).Count(e => cardType is null || e.data.cardType == cardType && (!statusEffect || e.statusEffects.Any(s => s.name == statusEffect.name)));
+                result += entity.GetAlliesInRow(row).Count(e =>
+                    cardType is null || e.data.cardType == cardType && (!statusEffect || e.statusEffects.Any(s => s.name == statusEffect.name)));
             }
             if (enemies)
             {
-                result += entity.GetEnemiesInRow(row).Count(e => cardType is null || e.data.cardType == cardType && (!statusEffect || e.statusEffects.Any(s => s.name == statusEffect.name)));
+                result += entity.GetEnemiesInRow(row).Count(e =>
+                    cardType is null || e.data.cardType == cardType && (!statusEffect || e.statusEffects.Any(s => s.name == statusEffect.name)));
             }
         }
 

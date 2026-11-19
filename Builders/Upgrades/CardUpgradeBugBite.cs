@@ -29,6 +29,6 @@ public class CardUpgradeBugBite : IUpgradeBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

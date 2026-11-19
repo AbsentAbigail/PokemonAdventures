@@ -3,7 +3,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class OnCardPlayedRedraw : IStatusBuilder
@@ -22,6 +22,6 @@ public class OnCardPlayedRedraw : IStatusBuilder
                 status.eventPriority = +1;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

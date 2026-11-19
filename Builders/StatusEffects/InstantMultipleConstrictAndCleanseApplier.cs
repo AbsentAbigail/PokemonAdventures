@@ -16,7 +16,8 @@ public class InstantMultipleConstrictAndCleanseApplier : IStatusBuilder
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectInstantMultiple>(status =>
             {
-                status.applyXEffects = [
+                status.applyXEffects =
+                [
                     Mod.GetStatusOf<StatusEffectApplyXInstant>(InstantCleanseApplier.Name),
                 ];
                 status.effects =
@@ -25,6 +26,6 @@ public class InstantMultipleConstrictAndCleanseApplier : IStatusBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

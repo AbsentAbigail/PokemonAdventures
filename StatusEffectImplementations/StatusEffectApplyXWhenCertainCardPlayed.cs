@@ -8,7 +8,7 @@ internal class StatusEffectApplyXWhenCertainCardPlayed : StatusEffectApplyX
     public TargetConstraint[] cardConstraints;
     public bool onlyAllied = true;
     public bool onSelf = false;
-    
+
     public override void Init()
     {
         OnCardPlayed += Check;
@@ -33,7 +33,7 @@ internal class StatusEffectApplyXWhenCertainCardPlayed : StatusEffectApplyX
 
         return !onlyAllied || entity.owner == target.owner;
     }
-    
+
     private IEnumerator Check(Entity entity, Entity[] targets)
     {
         yield return Run(GetTargets());

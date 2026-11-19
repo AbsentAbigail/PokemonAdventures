@@ -32,6 +32,6 @@ public class CardUpgradeMudShot : IUpgradeBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

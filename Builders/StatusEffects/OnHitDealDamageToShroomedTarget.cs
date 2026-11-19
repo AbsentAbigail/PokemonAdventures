@@ -5,7 +5,7 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class OnHitDealDamageToShroomedTarget : IStatusBuilder
@@ -20,12 +20,12 @@ public class OnHitDealDamageToShroomedTarget : IStatusBuilder
             .SubscribeToAfterAllBuildEvent<StatusEffectApplyXOnHit>(status =>
             {
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Target;
-                
+
                 status.dealDamage = true;
                 status.doesDamage = true;
                 status.countsAsHit = true;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

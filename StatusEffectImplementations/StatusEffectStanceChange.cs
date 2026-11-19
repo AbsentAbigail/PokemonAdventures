@@ -9,7 +9,7 @@ public class StatusEffectStanceChange : StatusEffectData
     public CardData.StatusEffectStacks[] secondStance;
 
     public bool isFirstStance = true;
-    
+
     public override void Init()
     {
         OnCardPlayed += Swap;
@@ -28,7 +28,7 @@ public class StatusEffectStanceChange : StatusEffectData
         {
             yield return StatusEffectSystem.Apply(target, target, stack.data, stack.count);
         }
-        
+
         target.display.promptUpdateDescription = true;
         target.PromptUpdate();
     }
@@ -37,7 +37,7 @@ public class StatusEffectStanceChange : StatusEffectData
     {
         return target.enabled && entity == target && !ActionQueue.GetActions().Any(action => action is ActionTrigger actionTrigger && actionTrigger.entity == target);
     }
-    
+
     private IEnumerator Swap(Entity entity, Entity[] targets)
     {
         isFirstStance = !isFirstStance;
@@ -55,12 +55,12 @@ public class StatusEffectStanceChange : StatusEffectData
         {
             yield return StatusEffectSystem.Apply(target, target, stack.data, stack.count);
         }
-        
+
         target.display.promptUpdateDescription = true;
         target.PromptUpdate();
     }
-    
-    
+
+
     public override object GetMidBattleData()
     {
         return isFirstStance;
@@ -70,5 +70,4 @@ public class StatusEffectStanceChange : StatusEffectData
     {
         isFirstStance = (bool)data;
     }
-
 }

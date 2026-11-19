@@ -25,7 +25,7 @@ public class StatusEffectCursola : StatusEffectData
         {
             yield break;
         }
-        
+
         target.data.upgrades.ForEach(upgrade =>
         {
             References.PlayerData.inventory.upgrades.Add(upgrade.Clone());

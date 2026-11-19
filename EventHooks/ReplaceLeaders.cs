@@ -22,7 +22,7 @@ public static class ReplaceLeaders
     private static void ReplaceWithCards(CardData card, SaveCollection<string> replaceWith)
     {
         var deck = References.PlayerData.inventory.deck;
-        
+
         var index = 0;
         foreach (var newCardName in replaceWith.collection)
         {

@@ -8,13 +8,25 @@ namespace PokemonMod.GameSystems;
 public class TypeInteractionSystem : GameSystem
 {
     public static event UnityAction<Hit> OnSuperEffectiveEvent;
-    public static void InvokeSuperEffectiveEvent(Hit hit) => OnSuperEffectiveEvent?.Invoke(hit);
+
+    public static void InvokeSuperEffectiveEvent(Hit hit)
+    {
+        OnSuperEffectiveEvent?.Invoke(hit);
+    }
 
     public static event UnityAction<Hit> OnResistEvent;
-    public static void InvokeResistEvent(Hit hit) => OnResistEvent?.Invoke(hit);
+
+    public static void InvokeResistEvent(Hit hit)
+    {
+        OnResistEvent?.Invoke(hit);
+    }
 
     public static event UnityAction<Hit> OnImmuneEvent;
-    public static void InvokeImmuneEvent(Hit hit) => OnImmuneEvent?.Invoke(hit);
+
+    public static void InvokeImmuneEvent(Hit hit)
+    {
+        OnImmuneEvent?.Invoke(hit);
+    }
 
     private static LocalizedString _superEffectiveText;
     private static LocalizedString _resistText;
@@ -26,7 +38,7 @@ public class TypeInteractionSystem : GameSystem
         _resistText = Mod.GetLocalizedString("ResistedLog");
         _immuneText = Mod.GetLocalizedString("ImmuneLog");
     }
-    
+
     // Prefix Patched Hit.Process()
     public static void Check(Hit hit)
     {
@@ -34,7 +46,7 @@ public class TypeInteractionSystem : GameSystem
         {
             return;
         }
-        
+
         var attacker = hit.attacker;
         var enemy = hit.target;
 
@@ -46,12 +58,12 @@ public class TypeInteractionSystem : GameSystem
         {
             return;
         }
-        
+
         var isSupereffective = false;
         var isResisted = false;
         var isImmune = false;
         var damageModifier = 0;
-        
+
         foreach (var statusType in attacker.statusEffects.Where(status => status is StatusEffectType))
         {
             var attackingType = (StatusEffectType)statusType;
@@ -79,7 +91,7 @@ public class TypeInteractionSystem : GameSystem
         }
 
         hit.damage += damageModifier;
-        
+
         if (isSupereffective)
         {
             InvokeSuperEffectiveEvent(hit);
@@ -97,7 +109,7 @@ public class TypeInteractionSystem : GameSystem
     public static int GetDamagePreview(Entity attacker, Entity target)
     {
         var damageModifier = 0;
-        
+
         foreach (var statusType in attacker.statusEffects.Where(status => status is StatusEffectType))
         {
             var attackingType = (StatusEffectType)statusType;
@@ -108,7 +120,7 @@ public class TypeInteractionSystem : GameSystem
             damageModifier += target.statusEffects
                 .Where(status => attackingType.immuneTypes.Contains(status.type)).Sum(_ => attackingType.immunityModifier);
         }
-        
+
         return damageModifier;
     }
 }

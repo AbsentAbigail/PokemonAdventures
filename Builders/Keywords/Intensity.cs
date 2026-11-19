@@ -23,6 +23,6 @@ public class Intensity : IKeywordBuilder
             .WithBodyColour(KeywordColours.White)
             .WithNoteColour(KeywordColours.Orange);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower();
 }

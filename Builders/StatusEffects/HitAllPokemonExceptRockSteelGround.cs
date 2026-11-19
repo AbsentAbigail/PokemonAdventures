@@ -24,13 +24,15 @@ public class HitAllPokemonExceptRockSteelGround : IStatusBuilder
             {
                 status.targetMode = new Script<TargetModeAlliesAndEnemies>(t =>
                 {
-                    t.constraints = [
+                    t.constraints =
+                    [
                         TargetConstraintHelper.IsPokemon(),
                         TargetConstraintHelper.IsOfTypes([
                             Types.Rock.Name,
                             Types.Steel.Name,
                             Types.Ground.Name,
-                    ], true)];
+                        ], true),
+                    ];
                 });
             });
     }

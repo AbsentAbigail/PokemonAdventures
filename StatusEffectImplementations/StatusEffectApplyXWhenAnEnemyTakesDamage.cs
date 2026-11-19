@@ -16,5 +16,8 @@ public class StatusEffectApplyXWhenAnEnemyTakesDamage : StatusEffectApplyX
         return target.enabled && target.alive && hit.Offensive && hit.damageType == targetDamageType && Battle.IsOnBoard(target) && hit.target.owner != target.owner;
     }
 
-    private IEnumerator CheckHit(Hit hit) => Run(GetTargets(hit), hit.damage + hit.damageBlocked);
+    private IEnumerator CheckHit(Hit hit)
+    {
+        return Run(GetTargets(hit), hit.damage + hit.damageBlocked);
+    }
 }

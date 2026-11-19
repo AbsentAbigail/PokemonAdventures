@@ -29,7 +29,8 @@ public class CardUpgradeSupersonic : IUpgradeBuilder
                 [
                     Mod.SStack("Haze"),
                 ];
-                charm.scripts = [
+                charm.scripts =
+                [
                     new Script<CardScriptMultiplyHealth>("Multiply Health by 0.5", script =>
                     {
                         script.multiply = 0.5f;
@@ -44,6 +45,6 @@ public class CardUpgradeSupersonic : IUpgradeBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

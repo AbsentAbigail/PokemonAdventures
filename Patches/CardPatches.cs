@@ -24,7 +24,7 @@ public class CardPatches
         {
             return;
         }
-        
+
         foreach (var replacement in replaceWith.collection)
         {
             var replacementCard = Mod.GetCard(replacement);
@@ -53,7 +53,7 @@ public class CardPatches
             .. newCard.startWithEffects,
             .. !stanceChange.isFirstStance ? stanceChange.firstStance : stanceChange.secondStance,
         ];
-        
+
         if (stanceChange.isFirstStance && newCard.scriptableImagePrefab is TagTeamImage tagTeamImage)
         {
             newCard.mainSprite = tagTeamImage.sprite2;
@@ -73,7 +73,7 @@ public class CardPatches
         {
             return false;
         }
-        
+
         var stance1 = Mod.GetCard(partner.name).Clone();
         stance1.startWithEffects =
         [
@@ -81,7 +81,7 @@ public class CardPatches
             .. stanceChange.firstStance,
         ];
         card.mentionedCards.Add(stance1);
-        
+
         var stance2 = Mod.GetCard(partner.name).Clone();
         if (stance2.scriptableImagePrefab is TagTeamImage scriptableImage)
         {
@@ -94,7 +94,7 @@ public class CardPatches
             .. stanceChange.secondStance,
         ];
         card.mentionedCards.Add(stance2);
-        
+
         return true;
     }
 }

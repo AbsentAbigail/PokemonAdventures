@@ -5,7 +5,7 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenAnythingSleepdDealDamageEqualToAttack : IStatusBuilder
@@ -31,6 +31,6 @@ public class WhenAnythingSleepdDealDamageEqualToAttack : IStatusBuilder
                 status.queue = true;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

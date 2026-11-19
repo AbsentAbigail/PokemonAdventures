@@ -15,8 +15,8 @@ public class Sleep : IIconBuilder
     public DataFileBuilder<_StatusIconData, StatusIconBuilder> Builder()
     {
         return new StatusIconBuilder(Mod.Instance)
-            .Create(name: Name,
-                statusType: "sleep",
+            .Create(Name,
+                "sleep",
                 Mod.GetIconSprite("sleep"))
             .WithIconGroupName(StatusIconBuilder.IconGroups.counter)
             .WithTextColour(KeywordColours.White)

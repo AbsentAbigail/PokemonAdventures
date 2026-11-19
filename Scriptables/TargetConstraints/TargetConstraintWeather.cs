@@ -6,7 +6,7 @@ namespace PokemonMod.Scriptables.TargetConstraints;
 public class TargetConstraintWeather : TargetConstraint
 {
     public CardData weather;
-    
+
     public override bool Check(Entity target)
     {
         List<Entity> entities = [.. target.GetAllAllies(), .. target.GetAllEnemies()];

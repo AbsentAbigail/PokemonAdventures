@@ -29,12 +29,10 @@ public class Red : ITrainerBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public ITrainerBuilder.MenuTrainerModifier MenuTrainerModifiers => new()
     {
-        Partners = [Charmander.Name],
-        MenuSpriteName = "RedAndCharmander",
-        MenuTitle = "Red and Charmander",
+        Partners = [Charmander.Name], MenuSpriteName = "RedAndCharmander", MenuTitle = "Red and Charmander",
     };
 }

@@ -30,12 +30,10 @@ public class Yellow : ITrainerBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public ITrainerBuilder.MenuTrainerModifier MenuTrainerModifiers => new()
     {
-        Partners = [Pikachu.Name],
-        MenuSpriteName = "YellowAndPikachu",
-        MenuTitle = "Yellow and Pikachu",
+        Partners = [Pikachu.Name], MenuSpriteName = "YellowAndPikachu", MenuTitle = "Yellow and Pikachu",
     };
 }

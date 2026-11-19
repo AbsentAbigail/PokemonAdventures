@@ -5,7 +5,7 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 using Berry = PokemonMod.Builders.Keywords.Berry;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenHealthLostConsumeBerriesInHand : IStatusBuilder
@@ -31,6 +31,6 @@ public class WhenHealthLostConsumeBerriesInHand : IStatusBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

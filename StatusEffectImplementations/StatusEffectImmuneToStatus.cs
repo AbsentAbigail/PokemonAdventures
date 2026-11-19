@@ -14,9 +14,9 @@ public class StatusEffectImmuneToStatus : StatusEffectData
     public string[] excludeTypes = [];
 
     public TargetConstraint[] conditions;
-    
+
     private bool _removeAfterInk = false;
-    
+
     public override void Init()
     {
         OnEffectBonusChanged += Clear;
@@ -31,7 +31,7 @@ public class StatusEffectImmuneToStatus : StatusEffectData
 
         return false;
     }
-    
+
     public override bool RunEffectBonusChangedEvent()
     {
         if (!_removeAfterInk)
@@ -67,7 +67,7 @@ public class StatusEffectImmuneToStatus : StatusEffectData
         {
             return !excludeTypes.Contains(status.type);
         }
-        
+
         if (includeTypes.Length > 0 && includeTypes.Contains(status.type))
         {
             return true;
@@ -77,7 +77,7 @@ public class StatusEffectImmuneToStatus : StatusEffectData
         {
             return !excludeTypes.Contains(status.type);
         }
-        
+
         return false;
     }
 
@@ -87,7 +87,7 @@ public class StatusEffectImmuneToStatus : StatusEffectData
         {
             return true;
         }
-        
+
         _removeAfterInk = true;
         return false;
     }

@@ -19,6 +19,6 @@ public class ShroomResist : IKeywordBuilder
             .WithNoteColour(KeywordColours.Trample)
             .WithCanStack(false);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower();
 }

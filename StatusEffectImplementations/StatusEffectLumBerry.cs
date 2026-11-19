@@ -31,16 +31,16 @@ internal class StatusEffectLumBerry : StatusEffectData
     private IEnumerator CancelDebuff(StatusEffectApply apply)
     {
         LogHelper.Log("apply status event " + apply.effectData.name);
-        
+
         apply.effectData = doNothing;
         if (_isActive)
         {
             yield break;
         }
-        
+
         _isActive = true;
     }
-    
+
     private IEnumerator CleanseAfter()
     {
         _isActive = false;

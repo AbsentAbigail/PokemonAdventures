@@ -3,7 +3,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class OnKillTakeDamage : IStatusBuilder
@@ -20,10 +20,10 @@ public class OnKillTakeDamage : IStatusBuilder
                 status.doesDamage = true;
                 status.dealDamage = true;
                 status.countsAsHit = true;
-                
+
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

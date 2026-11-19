@@ -6,7 +6,7 @@ using PokemonMod.Builders.Keywords;
 using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenBerryPlayedApplyShroomParalysisToEnemiesInRow : IStatusBuilder
@@ -29,6 +29,6 @@ public class WhenBerryPlayedApplyShroomParalysisToEnemiesInRow : IStatusBuilder
                 status.onlyAllied = false;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

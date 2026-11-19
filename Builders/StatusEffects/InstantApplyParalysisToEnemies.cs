@@ -22,5 +22,4 @@ public class InstantApplyParalysisToEnemies : IStatusBuilder
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Enemies;
             });
     }
-
 }

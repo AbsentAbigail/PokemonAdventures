@@ -15,7 +15,7 @@ public static class PetManager
             {
                 continue;
             }
-            
+
             MetaprogressionSystem.Add<string, string>("pets", id, null);
             Pets.Remove(id);
         }

@@ -12,8 +12,8 @@ public class StatusEffectReduceDamageTaken : StatusEffectData
     public bool self = true;
     public bool allies;
     public bool enemies;
-    
-    
+
+
     public override void Init()
     {
         OnHit += Check;
@@ -38,7 +38,7 @@ public class StatusEffectReduceDamageTaken : StatusEffectData
         {
             return true;
         }
-        
+
         return enemies && target.owner != entity.owner;
     }
 
@@ -49,7 +49,7 @@ public class StatusEffectReduceDamageTaken : StatusEffectData
             hit.damage = Mathf.CeilToInt(hit.damage * multiplier);
             yield break;
         }
-        
+
         var block = GetAmount();
         hit.damage -= block;
         hit.damageBlocked += block;

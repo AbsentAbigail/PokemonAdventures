@@ -28,6 +28,6 @@ public class InstantDealDamageEqualToSleep : IStatusBuilder
                 status.scriptableAmount = new Script<ScriptableCurrentStatus>(script => script.statusType = "sleep");
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

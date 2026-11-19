@@ -6,7 +6,7 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenBulletPunchPlayedGainAttack : IStatusBuilder
@@ -24,11 +24,11 @@ public class WhenBulletPunchPlayedGainAttack : IStatusBuilder
                 status.effectToApply = Mod.GetStatus("Increase Attack");
                 status.cardConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintIsSpecificCard>("Is Bullet Punch", 
+                    TargetConstraintHelper.General<TargetConstraintIsSpecificCard>("Is Bullet Punch",
                         script => script.allowedCards = [Mod.GetCard(BulletPunch.Name)]),
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

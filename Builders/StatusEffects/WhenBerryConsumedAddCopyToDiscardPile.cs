@@ -6,7 +6,7 @@ using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 using Berry = PokemonMod.Builders.Keywords.Berry;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenBerryConsumedAddCopyToDiscardPile : IStatusBuilder
@@ -27,6 +27,6 @@ public class WhenBerryConsumedAddCopyToDiscardPile : IStatusBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

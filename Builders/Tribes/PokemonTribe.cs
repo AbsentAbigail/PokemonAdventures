@@ -25,10 +25,10 @@ public class PokemonTribe : IClassBuilder
     private static readonly List<string> BerryPoolCards = [];
     public const string CharmPoolName = "PokemonCharmPool";
     private static readonly List<string> CharmPoolCharms = [];
-    
+
     public static readonly string TitleKey = Mod.PrefixGuid("TribeTitle");
     public static readonly string DescKey = Mod.PrefixGuid("TribeDesc");
-    
+
     public DataFileBuilder<ClassData, ClassDataBuilder> Builder()
     {
         return Mod.TribeCopy("Basic", Name)
@@ -36,7 +36,7 @@ public class PokemonTribe : IClassBuilder
             .SubscribeToAfterAllBuildEvent(tribe =>
             {
                 tribe.id = "pokemon";
-                
+
                 var playerCharacter = tribe.characterPrefab.gameObject.InstantiateKeepName();
                 Object.DontDestroyOnLoad(playerCharacter);
                 playerCharacter.name = "Pokemon";
@@ -70,7 +70,7 @@ public class PokemonTribe : IClassBuilder
     {
         UnitPoolCards.Add(name);
     }
-    
+
     public static void AddToItemPool(string name)
     {
         ItemPoolCards.Add(name);
@@ -150,7 +150,7 @@ public class PokemonTribe : IClassBuilder
         return CreateRewardPool(CharmPoolName, nameof(RewardPool.Type.Charms),
         [
             .. DataList<CardUpgradeData>(
-            [
+                [
                     ..CharmPoolCharms,
                     "CardUpgradeAcorn",
                     "CardUpgradeSpiky",

@@ -21,7 +21,7 @@ internal static class Mod
         var sprite = Pokemon.IconSpriteAtlas?.GetSprite(spriteName);
         return sprite != null ? sprite : Instance.ImagePath($"Icons/{spriteName}.png").ToSprite();
     }
-    
+
     public static Sprite GetCharmSprite(string spriteName)
     {
         return GetSprite(spriteName, Pokemon.CharmSpriteAtlas, "Charms/");
@@ -33,7 +33,7 @@ internal static class Mod
         {
             return GetBetaSprite(spriteName) ?? GetReleaseSprite(spriteName) ?? "".ToSprite();
         }
-        
+
         return GetReleaseSprite(spriteName) ?? GetBetaSprite(spriteName) ?? "".ToSprite();
     }
 
@@ -49,7 +49,7 @@ internal static class Mod
         {
             return sprite;
         }
-        
+
         var path = Pokemon.Instance.ImagePath($"{pathPrefix}{spriteName}.png");
         if (!File.Exists(path))
         {
@@ -59,7 +59,7 @@ internal static class Mod
         return Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
             new Vector2(0.5f, 1f), 160, 0U, SpriteMeshType.FullRect);
     }
-    
+
     public static string PrefixGuid(string name)
     {
         return Extensions.PrefixGUID(name, Pokemon.Instance);
@@ -173,17 +173,17 @@ internal static class Mod
     {
         return LocalizationHelper.GetCollection(collection, SystemLanguage.English).GetString(name);
     }
-    
+
     private static Sprite GetReleaseSprite(string spriteName)
     {
         return GetSprite(spriteName, Pokemon.SpriteAtlas);
     }
-    
+
     private static Sprite GetBetaSprite(string spriteName)
     {
         return GetSprite(spriteName, Pokemon.BetaSpriteAtlas, "BetaArt/");
     }
-    
+
     // Code by Phan
     public static T CreateScriptableCardImage<T>(string name) where T : ScriptableCardImage
     {

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,11 +11,16 @@ internal class StatusEffectApplyXBeforeCardTrigger : StatusEffectApplyX
     public bool onlyAllied = true;
     public bool onSelf = false;
     public List<Entity> blockedEntities = [];
-    
+
     public override void Init()
     {
         PreTrigger += Check;
         Events.OnActionFinished += ActionFinished;
+    }
+
+    private void OnDestroy()
+    {
+        Events.OnActionFinished -= ActionFinished;
     }
 
     private void ActionFinished(PlayAction arg0)
@@ -33,12 +39,12 @@ internal class StatusEffectApplyXBeforeCardTrigger : StatusEffectApplyX
         {
             return false;
         }
-        
+
         if (entity == target)
         {
             return false;
         }
-        
+
         if (onSelf && (trigger.targets == null || !trigger.targets.Contains(target)))
         {
             return false;

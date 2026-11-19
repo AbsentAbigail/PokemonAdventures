@@ -7,7 +7,7 @@ using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 using PokemonMod.Variables;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenBerryPlayedOnSelfGainHealth : IStatusBuilder
@@ -31,6 +31,6 @@ public class WhenBerryPlayedOnSelfGainHealth : IStatusBuilder
                 status.onSelf = true;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

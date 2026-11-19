@@ -19,5 +19,4 @@ public class InstantRecall : IStatusBuilder
             .WithStackable(false)
             .WithCanBeBoosted(false);
     }
-
 }

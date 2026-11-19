@@ -23,6 +23,6 @@ public class Item : ICardBuilder
             })
             .WithText($"<color=#{KeywordColours.Gray.ToHexRGB()}>Gain the equipped charm:</color>\n{{0}}");
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

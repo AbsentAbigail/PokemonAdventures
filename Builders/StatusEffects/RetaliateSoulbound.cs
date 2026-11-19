@@ -7,7 +7,7 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.Keywords;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class RetaliateSoulbound : IStatusBuilder
@@ -19,6 +19,6 @@ public class RetaliateSoulbound : IStatusBuilder
             .WithStackable(false)
             .WithCanBeBoosted(false);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -9,14 +9,14 @@ internal class StatusEffectInstantRedraw : StatusEffectInstant
     {
         yield return DiscardNonLeaders();
         yield return new ActionDraw(References.Player, References.Player.handContainer.max).Run();
-    
+
         yield return base.Process();
     }
 
     private static IEnumerator DiscardNonLeaders()
     {
         var discard = References.Player.handContainer.Where(entity => !entity.data.cardType.miniboss).ToArray();
-        
+
         foreach (var entity in discard)
         {
             entity.display.hover.SetHoverable(false);

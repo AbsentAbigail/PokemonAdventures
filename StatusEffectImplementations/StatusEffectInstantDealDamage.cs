@@ -13,19 +13,18 @@ public class StatusEffectInstantDealDamage : StatusEffectApplyXInstant
     {
         var targets = GetTargets();
         var amount = GetAmount(target, applyEqualAmount);
-        
+
         var clump = new Routine.Clump();
         foreach (var entity in targets)
         {
             var hit = new Hit(applier, entity, amount)
             {
-                canRetaliate = canRetaliate,
-                countsAsHit = countsAsHit,
+                canRetaliate = canRetaliate, countsAsHit = countsAsHit,
             };
             clump.Add(hit.Process());
         }
         yield return clump.WaitForEnd();
-        
+
         yield return Remove();
     }
 }

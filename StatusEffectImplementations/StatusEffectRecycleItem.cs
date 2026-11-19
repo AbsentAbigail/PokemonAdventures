@@ -8,7 +8,7 @@ public class StatusEffectRecycleItem : StatusEffectData
     public StatusEffectSummon summonEffect;
     public TargetConstraint[] cardConstraints;
     public StatusEffectData[] withEffects;
-    
+
     public override void Init()
     {
         OnEntityDestroyed += Recycle;
@@ -23,7 +23,7 @@ public class StatusEffectRecycleItem : StatusEffectData
 
         return cardConstraints.All(constraint => constraint.Check(entity));
     }
-    
+
     private IEnumerator Recycle(Entity entity, DeathType deathType)
     {
         target.curveAnimator.Ping();

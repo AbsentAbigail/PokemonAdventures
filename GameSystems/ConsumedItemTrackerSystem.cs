@@ -32,12 +32,15 @@ public class ConsumedItemTrackerSystem : GameSystem
         {
             return;
         }
-        
+
         ConsumedCards.Add(actionConsume.target.name);
         SaveData();
     }
 
-    public void BattleLoaded() => LoadData();
+    public void BattleLoaded()
+    {
+        LoadData();
+    }
 
     public void SaveData()
     {

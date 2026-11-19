@@ -5,7 +5,7 @@ namespace PokemonMod.StatusEffectImplementations;
 public class StatusEffectPoisonHeal : StatusEffectData
 {
     public bool heal;
-    
+
     public override void Init()
     {
         if (heal)
@@ -13,7 +13,7 @@ public class StatusEffectPoisonHeal : StatusEffectData
             OnHit += Heal;
             return;
         }
-        
+
         OnHit += Nullify;
     }
 
@@ -30,7 +30,7 @@ public class StatusEffectPoisonHeal : StatusEffectData
         hit.damageBlocked = 0;
         yield break;
     }
-    
+
     private static IEnumerator Nullify(Hit hit)
     {
         hit.damage = 0;

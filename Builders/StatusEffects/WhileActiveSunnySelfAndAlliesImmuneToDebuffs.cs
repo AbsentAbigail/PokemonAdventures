@@ -5,7 +5,7 @@ using PokemonMod.Builders.Cards.FieldEffects;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhileActiveSunnySelfAndAlliesImmuneToDebuffs : IStatusBuilder
@@ -26,6 +26,6 @@ public class WhileActiveSunnySelfAndAlliesImmuneToDebuffs : IStatusBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

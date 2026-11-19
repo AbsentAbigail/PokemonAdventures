@@ -6,7 +6,7 @@ namespace PokemonMod.StatusEffectImplementations;
 public class StatusEffectInstantRecall : StatusEffectInstant
 {
     public bool forceRecall;
-    
+
     public override IEnumerator Process()
     {
         if (AlreadyRecalling(target))
@@ -14,7 +14,7 @@ public class StatusEffectInstantRecall : StatusEffectInstant
             yield return Remove();
             yield break;
         }
-        
+
         if (forceRecall || target.CanRecall())
         {
             var action = new ActionMove(target, References.Player.discardContainer);
@@ -25,7 +25,7 @@ public class StatusEffectInstantRecall : StatusEffectInstant
         {
             yield return NoTargetTextSystem.Run(target, NoTargetType.CantMove);
         }
-        
+
         yield return Remove();
     }
 

@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using Berry = PokemonMod.Builders.Keywords.Berry;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class OnCardPlayedHealEnemies : IStatusBuilder
@@ -22,6 +22,6 @@ public class OnCardPlayedHealEnemies : IStatusBuilder
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Enemies;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

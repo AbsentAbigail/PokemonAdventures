@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using PokemonMod.Builders.Cards.Enemies;
 using PokemonMod.Builders.Interfaces;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class MistyAndStarmiePhase2 : IStatusBuilder
@@ -22,6 +22,6 @@ public class MistyAndStarmiePhase2 : IStatusBuilder
                 status.preventDeath = true;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

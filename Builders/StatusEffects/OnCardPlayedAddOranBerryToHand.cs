@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using PokemonMod.Builders.Cards.Items;
 using PokemonMod.Builders.Interfaces;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class OnCardPlayedAddOranBerryToHand : IStatusBuilder
@@ -22,6 +22,6 @@ public class OnCardPlayedAddOranBerryToHand : IStatusBuilder
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

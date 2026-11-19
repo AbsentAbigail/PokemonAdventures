@@ -7,7 +7,7 @@ using PokemonMod.Scriptables.ScriptableAmounts;
 using PokemonMod.StatusEffectImplementations;
 using PokemonMod.Variables;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhileActiveReduceOwnAttackPerCardInHand : IStatusBuilder
@@ -26,6 +26,6 @@ public class WhileActiveReduceOwnAttackPerCardInHand : IStatusBuilder
                 status.scriptableAmount = new Script<ScriptableCardTypeInHand>(script => script.type = "Item");
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

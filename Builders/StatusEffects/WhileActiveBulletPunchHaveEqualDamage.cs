@@ -5,7 +5,7 @@ using PokemonMod.Builders.Cards.Items;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhileActiveBulletPunchHaveEqualDamage : IStatusBuilder
@@ -23,12 +23,12 @@ public class WhileActiveBulletPunchHaveEqualDamage : IStatusBuilder
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Hand;
                 status.applyConstraints =
                 [
-                    TargetConstraintHelper.General<TargetConstraintIsSpecificCard>("Is Bullet Punch", 
+                    TargetConstraintHelper.General<TargetConstraintIsSpecificCard>("Is Bullet Punch",
                         script => script.allowedCards = [Mod.GetCard(BulletPunch.Name)]),
                 ];
                 status.scriptableAmount = new Script<ScriptableCurrentAttack>();
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -7,7 +7,7 @@ using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 using PokemonMod.Variables;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenBerryPlayedTriggerBugAllies : IStatusBuilder
@@ -34,6 +34,6 @@ public class WhenBerryPlayedTriggerBugAllies : IStatusBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -11,7 +11,8 @@ internal class StatusEffectApplyXBerryWhenHit : StatusEffectApplyX
 
     public override bool RunPostHitEvent(Hit hit)
     {
-        return target.enabled && hit.target == target && hit.canRetaliate && (!targetMustBeAlive || target.alive && Battle.IsOnBoard(target)) && hit.Offensive && hit.BasicHit;
+        return target.enabled && hit.target == target && hit.canRetaliate && (!targetMustBeAlive || target.alive && Battle.IsOnBoard(target)) && hit.Offensive
+               && hit.BasicHit;
     }
 
     private IEnumerator Check(Hit hit)

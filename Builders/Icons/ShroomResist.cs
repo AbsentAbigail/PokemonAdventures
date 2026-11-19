@@ -12,13 +12,13 @@ public class ShroomResist : IIconBuilder
     public DataFileBuilder<_StatusIconData, StatusIconBuilder> Builder()
     {
         return new StatusIconBuilder(Mod.Instance)
-            .Create(name: Name,
-                statusType: "shroomresist",
+            .Create(Name,
+                "shroomresist",
                 Mod.GetIconSprite("shroomresist"))
             .WithIconGroupName(StatusIconBuilder.IconGroups.health)
             .WithTextboxSprite()
             .WithKeywords(Keywords.ParalysisResist.Name);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower();
 }

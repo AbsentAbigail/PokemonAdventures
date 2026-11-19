@@ -33,12 +33,10 @@ public class Blue : ITrainerBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public ITrainerBuilder.MenuTrainerModifier MenuTrainerModifiers => new()
     {
-        Partners = [Squirtle.Name],
-        MenuSpriteName = "BlueAndSquirtle",
-        MenuTitle = "Blue and Squirtle",
+        Partners = [Squirtle.Name], MenuSpriteName = "BlueAndSquirtle", MenuTitle = "Blue and Squirtle",
     };
 }

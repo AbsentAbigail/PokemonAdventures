@@ -29,11 +29,11 @@ public class CustomRewardSystem : GameSystem
         {
             yield break;
         }
-        
+
         const string key = "rewards";
         var node = Campaign.FindCharacterNode(References.Battle.player);
         var oldRewards = node.data.GetValueOrDefault(key, null);
-        
+
         node.data[key] = newRewards;
 
         yield return SceneManager.Load("BossReward", SceneType.Temporary);
@@ -46,7 +46,7 @@ public class CustomRewardSystem : GameSystem
         yield return SceneManager.WaitUntilUnloaded("BossReward");
 
         node.data.Remove(key);
-        
+
         // Return boss rewards
         if (oldRewards != null)
         {

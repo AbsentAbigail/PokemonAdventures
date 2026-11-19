@@ -5,7 +5,7 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenAnEnemyTakesShroomDamageGainEqualHealth : IStatusBuilder
@@ -24,6 +24,6 @@ public class WhenAnEnemyTakesShroomDamageGainEqualHealth : IStatusBuilder
                 status.applyEqualAmount = true;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

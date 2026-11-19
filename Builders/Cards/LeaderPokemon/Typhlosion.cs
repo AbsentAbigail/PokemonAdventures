@@ -29,6 +29,6 @@ public class Typhlosion : ICardBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

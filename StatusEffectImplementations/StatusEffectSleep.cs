@@ -7,7 +7,7 @@ namespace PokemonMod.StatusEffectImplementations;
 public class StatusEffectSleep : StatusEffectData
 {
     public bool primed;
-    
+
     public override void Init()
     {
         PreTrigger += ReplaceTrigger;
@@ -25,7 +25,7 @@ public class StatusEffectSleep : StatusEffectData
         this.PlayApplyAnimation();
         yield return CustomTextPopupSystem.RunWithShake(target, Mod.GetLocalizedString("Sleep"), target.data.title);
     }
-    
+
     public override bool RunTurnStartEvent(Entity entity)
     {
         if (!primed && entity == target && Battle.IsOnBoard(entity))

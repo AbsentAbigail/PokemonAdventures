@@ -18,7 +18,7 @@ public class StatusEffectApplyXWhenEnemyEntersBattle : StatusEffectApplyX
         {
             return;
         }
-        
+
         if (entity.owner == References.Player)
         {
             return;
@@ -28,7 +28,7 @@ public class StatusEffectApplyXWhenEnemyEntersBattle : StatusEffectApplyX
         {
             return;
         }
-        
+
         ActionQueue.Stack(new ActionSequence(Run(GetTargets(new Hit(target, entity)))));
     }
 }

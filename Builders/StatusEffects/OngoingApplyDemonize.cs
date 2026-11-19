@@ -20,6 +20,6 @@ public class OngoingApplyDemonize : IStatusBuilder
                 status.attackEffect = Mod.GetStatus("Demonize");
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

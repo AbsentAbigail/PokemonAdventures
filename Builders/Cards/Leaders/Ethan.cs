@@ -30,12 +30,10 @@ public class Ethan : ITrainerBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public ITrainerBuilder.MenuTrainerModifier MenuTrainerModifiers => new()
     {
-        Partners = [Cyndaquil.Name],
-        MenuSpriteName = "EthanAndCyndaquil",
-        MenuTitle = "Ethan and Cyndaquil",
+        Partners = [Cyndaquil.Name], MenuSpriteName = "EthanAndCyndaquil", MenuTitle = "Ethan and Cyndaquil",
     };
 }

@@ -7,7 +7,7 @@ public class StatusEffectInstantSwapAttackAndCounter : StatusEffectInstant
 {
     public int modifyAttack;
     public int modifyCounter;
-    
+
     public override IEnumerator Process()
     {
         var previousDamage = target.damage.max;
@@ -15,7 +15,7 @@ public class StatusEffectInstantSwapAttackAndCounter : StatusEffectInstant
         var difference = target.damage.max - previousDamage;
         target.damage.current += difference;
         target.counter.current = target.counter.max;
-        
+
         yield return Remove();
     }
 }

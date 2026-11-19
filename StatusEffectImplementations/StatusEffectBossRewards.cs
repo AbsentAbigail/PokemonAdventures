@@ -6,7 +6,7 @@ namespace PokemonMod.StatusEffectImplementations;
 public class StatusEffectBossReward : StatusEffectApplyX
 {
     public CardUpgradeData[] choices;
-    
+
     public override void Init()
     {
         OnEntityDestroyed += CheckDestroy;

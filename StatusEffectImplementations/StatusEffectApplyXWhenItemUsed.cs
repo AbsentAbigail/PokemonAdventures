@@ -13,10 +13,9 @@ public class StatusEffectApplyXWhenItemUsed : StatusEffectApplyX
     {
         return entity.data.cardType.item;
     }
-    
+
     private IEnumerator Check(Entity entity, Entity[] targets)
     {
         yield return Run(GetTargets(new Hit(entity, target), targets: targets));
     }
-
 }

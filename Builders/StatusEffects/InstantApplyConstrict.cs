@@ -21,5 +21,4 @@ public class InstantApplyConstrict : IStatusBuilder
                 status.effectToApply = Mod.GetStatus(Constricted.Name);
             });
     }
-
 }

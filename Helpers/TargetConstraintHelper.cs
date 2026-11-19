@@ -22,7 +22,7 @@ public class TargetConstraintHelper
         var constraints = Types.TypeChart.Select(type => HasStatus(type.Name)).ToArray();
         return Or((not ? "Is not" : "Is") + $" a Pokemon", not, constraints.ToArray<TargetConstraint>());
     }
-    
+
     public static TargetConstraintOr IsOfTypes(string[] types, bool not = false)
     {
         var constraints = types.Select(type => HasStatus(type));

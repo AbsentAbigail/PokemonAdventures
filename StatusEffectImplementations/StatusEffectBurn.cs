@@ -37,7 +37,7 @@ public class StatusEffectBurn : StatusEffectData
         }
 
         yield return StatusEffectSystem.Apply(target, applier, overburn, overburn.GetAmount());
-        
+
         var amount = 1;
         Events.InvokeStatusEffectCountDown(this, ref amount);
         if (amount != 0)

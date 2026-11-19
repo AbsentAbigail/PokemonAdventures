@@ -14,7 +14,7 @@ public class StatusEffectInstantChooseEvolution : StatusEffectInstant
     {
         return (from profile in Evolutions.Profiles where target.name == profile.cardName select Mod.GetCard(profile.changeToCardName).Clone()).ToArray();
     }
-    
+
     public StatusEffectInstantEvolve evolveEffect;
     public LocalizedString title;
 
@@ -34,14 +34,14 @@ public class StatusEffectInstantChooseEvolution : StatusEffectInstant
 
         var button = _sequence.backButton.GetComponentInChildren<Button>();
         button.onClick.AddListener(Return);
-        
+
         var container = GetCardContainer();
 
         foreach (var entity in container)
         {
             yield return entity.GetCard()!.UpdateData();
         }
-        
+
         CinemaBarSystem.In();
         CinemaBarSystem.SetSortingLayer("UI2");
         if (!title.IsEmpty)
@@ -79,7 +79,7 @@ public class StatusEffectInstantChooseEvolution : StatusEffectInstant
         _sequence.promptEnd = true;
 
         evolveEffect.evolveInto = _selected.data;
-        
+
         ActionQueue.Stack(new ActionApplyStatus(target, applier, evolveEffect, count));
 
         _selected = null;
@@ -112,7 +112,7 @@ public class StatusEffectInstantChooseEvolution : StatusEffectInstant
         {
             cardData.cardType = target.data.cardType;
             cardData.SetCustomData("OverrideCardType", cardData.cardType.name);
-            
+
             var card = CardManager.Get(cardData, Battle.instance.playerCardController, References.Player,
                 true,
                 true);

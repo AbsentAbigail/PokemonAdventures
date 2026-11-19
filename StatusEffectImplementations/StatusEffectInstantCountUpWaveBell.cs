@@ -11,9 +11,9 @@ public class StatusEffectInstantCountUpWaveBell : StatusEffectInstant
         {
             var localisedString = Mod.GetLocalizedString("CountUpWaveBell");
             FindObjectOfType<BattleLogSystem>()?.Log(localisedString, BattleLogType.Buff, BattleLogSystem.GetBattleEntity(applier), GetAmount());
-            
+
             SfxSystem.OneShot("event:/sfx/inventory/wave_counter_refresh");
-            
+
             waveBell.SetCounter(waveBell.counter + GetAmount());
         }
 

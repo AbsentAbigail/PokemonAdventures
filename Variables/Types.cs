@@ -6,20 +6,22 @@ public static class Types
 {
     public static readonly Type Normal = new(NormalId)
     {
-        WeakTypes = 
+        WeakTypes =
         [
         ],
-        ResistingTypes = [
+        ResistingTypes =
+        [
             RockId,
             SteelId,
         ],
-        ImmuneTypes = [
+        ImmuneTypes =
+        [
             GhostId,
         ],
     };
     public static readonly Type Fighting = new(FightingId)
     {
-        WeakTypes = 
+        WeakTypes =
         [
             NormalId,
             RockId,
@@ -27,53 +29,59 @@ public static class Types
             IceId,
             DarkId,
         ],
-        ResistingTypes = [
+        ResistingTypes =
+        [
             FlyingId,
             PoisonId,
             BugId,
             PsychicId,
             FairyId,
         ],
-        ImmuneTypes = [
+        ImmuneTypes =
+        [
             GhostId,
         ],
     };
     public static readonly Type Flying = new(FlyingId)
     {
-        WeakTypes = 
+        WeakTypes =
         [
             FightingId,
             BugId,
             GrassId,
         ],
-        ResistingTypes = [
+        ResistingTypes =
+        [
             RockId,
             SteelId,
             ElectricId,
         ],
-        ImmuneTypes = [
+        ImmuneTypes =
+        [
         ],
     };
     public static readonly Type Poison = new(PoisonId)
     {
-        WeakTypes = 
+        WeakTypes =
         [
             GrassId,
             FairyId,
         ],
-        ResistingTypes = [
+        ResistingTypes =
+        [
             PoisonId,
             GroundId,
             RockId,
             GhostId,
         ],
-        ImmuneTypes = [
+        ImmuneTypes =
+        [
             SteelId,
         ],
     };
     public static readonly Type Ground = new(GroundId)
     {
-        WeakTypes = 
+        WeakTypes =
         [
             PoisonId,
             RockId,
@@ -81,40 +89,45 @@ public static class Types
             FireId,
             ElectricId,
         ],
-        ResistingTypes = [
+        ResistingTypes =
+        [
             BugId,
             GrassId,
         ],
-        ImmuneTypes = [
+        ImmuneTypes =
+        [
             FlyingId,
         ],
     };
     public static readonly Type Rock = new(RockId)
     {
-        WeakTypes = 
+        WeakTypes =
         [
             FlyingId,
             BugId,
             FireId,
             IceId,
         ],
-        ResistingTypes = [
+        ResistingTypes =
+        [
             FightingId,
             GroundId,
             SteelId,
         ],
-        ImmuneTypes = [
+        ImmuneTypes =
+        [
         ],
     };
     public static readonly Type Bug = new(BugId)
     {
-        WeakTypes = 
+        WeakTypes =
         [
             GrassId,
             PsychicId,
             DarkId,
         ],
-        ResistingTypes = [
+        ResistingTypes =
+        [
             FightingId,
             FlyingId,
             PoisonId,
@@ -123,83 +136,93 @@ public static class Types
             FireId,
             FairyId,
         ],
-        ImmuneTypes = [
+        ImmuneTypes =
+        [
         ],
     };
     public static readonly Type Ghost = new(GhostId)
     {
-        WeakTypes = 
+        WeakTypes =
         [
             GhostId,
             PsychicId,
         ],
-        ResistingTypes = [
+        ResistingTypes =
+        [
             DarkId,
         ],
-        ImmuneTypes = [
+        ImmuneTypes =
+        [
             NormalId,
         ],
     };
     public static readonly Type Steel = new(SteelId)
     {
-        WeakTypes = 
+        WeakTypes =
         [
             RockId,
             IceId,
             FairyId,
         ],
-        ResistingTypes = [
+        ResistingTypes =
+        [
             SteelId,
             FireId,
             WaterId,
             ElectricId,
         ],
-        ImmuneTypes = [
+        ImmuneTypes =
+        [
         ],
     };
     public static readonly Type Fire = new(FireId)
     {
-        WeakTypes = 
+        WeakTypes =
         [
             BugId,
             SteelId,
             GrassId,
             IceId,
         ],
-        ResistingTypes = [
+        ResistingTypes =
+        [
             RockId,
             FireId,
             WaterId,
             DragonId,
         ],
-        ImmuneTypes = [
+        ImmuneTypes =
+        [
         ],
     };
     public static readonly Type Water = new(WaterId)
     {
-        WeakTypes = 
+        WeakTypes =
         [
             GroundId,
             RockId,
             FireId,
         ],
-        ResistingTypes = [
+        ResistingTypes =
+        [
             WaterId,
             GrassId,
             DragonId,
         ],
-        ImmuneTypes = [
+        ImmuneTypes =
+        [
         ],
     };
     public static readonly Type Grass = new(GrassId)
     {
-        WeakTypes = 
+        WeakTypes =
         [
             GroundId,
             WaterId,
             RockId,
         ],
-        ResistingTypes = [
+        ResistingTypes =
+        [
             PoisonId,
             DragonId,
             SteelId,
@@ -210,45 +233,50 @@ public static class Types
     };
     public static readonly Type Electric = new(ElectricId)
     {
-        WeakTypes = 
+        WeakTypes =
         [
             FlyingId,
             WaterId,
         ],
-        ResistingTypes = [
+        ResistingTypes =
+        [
             GrassId,
             ElectricId,
             DragonId,
         ],
-        ImmuneTypes = [
+        ImmuneTypes =
+        [
             GroundId,
         ],
     };
     public static readonly Type Psychic = new(PsychicId)
     {
-        WeakTypes = 
+        WeakTypes =
         [
             FightingId,
             PoisonId,
         ],
-        ResistingTypes = [
+        ResistingTypes =
+        [
             SteelId,
             PsychicId,
         ],
-        ImmuneTypes = [
+        ImmuneTypes =
+        [
             DarkId,
         ],
     };
     public static readonly Type Ice = new(IceId)
     {
-        WeakTypes = 
+        WeakTypes =
         [
             FlyingId,
             GroundId,
             GrassId,
             DragonId,
         ],
-        ResistingTypes = [
+        ResistingTypes =
+        [
             SteelId,
             FireId,
             WaterId,
@@ -258,25 +286,28 @@ public static class Types
     };
     public static readonly Type Dragon = new(DragonId)
     {
-        WeakTypes = 
+        WeakTypes =
         [
             DragonId,
         ],
-        ResistingTypes = [
+        ResistingTypes =
+        [
             SteelId,
         ],
-        ImmuneTypes = [
+        ImmuneTypes =
+        [
             FairyId,
         ],
     };
     public static readonly Type Dark = new(DarkId)
     {
-        WeakTypes = 
+        WeakTypes =
         [
             GhostId,
             PsychicId,
         ],
-        ResistingTypes = [
+        ResistingTypes =
+        [
             FightingId,
             DarkId,
             FairyId,
@@ -285,13 +316,14 @@ public static class Types
     };
     public static readonly Type Fairy = new(FairyId)
     {
-        WeakTypes = 
+        WeakTypes =
         [
             FightingId,
             DragonId,
             DarkId,
         ],
-        ResistingTypes = [
+        ResistingTypes =
+        [
             PoisonId,
             SteelId,
             FireId,

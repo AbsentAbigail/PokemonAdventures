@@ -29,6 +29,6 @@ public class CardUpgradeSing : IUpgradeBuilder
                 charm.becomesTargetedCard = true;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

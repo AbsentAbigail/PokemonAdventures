@@ -33,6 +33,6 @@ public class Octillery : ICardBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

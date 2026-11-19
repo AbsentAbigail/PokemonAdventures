@@ -13,8 +13,8 @@ public class BadlyShroomed : IIconBuilder
     public DataFileBuilder<_StatusIconData, StatusIconBuilder> Builder()
     {
         return new StatusIconBuilder(Mod.Instance)
-            .Create(name: Name,
-                statusType: "badlyshroomed",
+            .Create(Name,
+                "badlyshroomed",
                 Mod.GetIconSprite("badlyshroomed"))
             .WithIconGroupName(StatusIconBuilder.IconGroups.health)
             .WithTextColour(KeywordColours.DarkLabel)
@@ -22,6 +22,6 @@ public class BadlyShroomed : IIconBuilder
             .WithTextboxSprite()
             .WithKeywords(Keywords.BadlyShroomed.Name);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower();
 }

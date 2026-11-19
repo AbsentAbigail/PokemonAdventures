@@ -36,6 +36,6 @@ public class TrainerBugCatcher : ICardBuilder
                 Mod.PrefixGuid(CardUpgradeBugBite.Name),
             ]);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

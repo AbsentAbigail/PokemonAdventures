@@ -14,7 +14,7 @@ public class StatusEffectInstantEvolve : StatusEffectInstant
     public override IEnumerator Process()
     {
         yield return Evolve();
-        
+
         yield return base.Process();
     }
 
@@ -35,7 +35,7 @@ public class StatusEffectInstantEvolve : StatusEffectInstant
                 inventory.upgrades.Add(cardUpgradeData.Clone());
             }
         }
-        
+
         var action = new ActionChangeForm(target, evolvedForm, animation)
         {
             priority = 10,
@@ -44,7 +44,7 @@ public class StatusEffectInstantEvolve : StatusEffectInstant
 
         if (deckCopy)
         {
-            AdjustStats(deckCopy, evolvedForm);   
+            AdjustStats(deckCopy, evolvedForm);
         }
 
         var cardIndex = inventory.deck.IndexOf(deckCopy);
@@ -52,7 +52,7 @@ public class StatusEffectInstantEvolve : StatusEffectInstant
         {
             inventory.deck.Insert(cardIndex, evolvedForm);
         }
-        
+
         CustomStats.AddPokemonEvolved();
         CardDiscoverSystem.instance.DiscoverCard(evolvedForm);
         SaveDeckMidBattleSystem.PromptSave();
@@ -62,12 +62,12 @@ public class StatusEffectInstantEvolve : StatusEffectInstant
     private static void AdjustStats(CardData deckCopy, CardData evolvedCard)
     {
         var originalCard = Mod.GetCard(deckCopy.name);
-        
+
         foreach (var upgrade in deckCopy.upgrades.ToArray().Reverse())
         {
             upgrade.UnAssign(deckCopy);
         }
-        
+
         var healthDiff = deckCopy.hp - originalCard.hp;
         var damageDiff = deckCopy.damage - originalCard.damage;
         var counterDiff = deckCopy.counter - originalCard.counter;
@@ -130,15 +130,14 @@ public class StatusEffectInstantEvolve : StatusEffectInstant
 
             var changeAction = new ActionSequence(Change(entity, newPhase))
             {
-                note = "Evolve",
-                priority = 10,
+                note = "Evolve", priority = 10,
             };
             ActionQueue.Stack(changeAction, true);
-            
+
             PauseMenu.Unblock();
             DeckpackBlocker.Unblock();
         }
-        
+
         private new static IEnumerator Change(Entity entity, CardData newData)
         {
             entity.alive = false;

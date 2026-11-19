@@ -15,8 +15,8 @@ public class Constricted : IIconBuilder
     public DataFileBuilder<_StatusIconData, StatusIconBuilder> Builder()
     {
         return new StatusIconBuilder(Mod.Instance)
-            .Create(name: Name,
-                statusType: "constricted",
+            .Create(Name,
+                "constricted",
                 Mod.GetIconSprite("constricted"))
             .WithIconGroupName(StatusIconBuilder.IconGroups.health)
             .WithTextColour(KeywordColours.White)

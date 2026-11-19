@@ -19,6 +19,6 @@ public class Incinerate : ITraitBuilder
                 trait.keyword = Mod.GetKeyword(Keywords.Incinerate.Name);
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

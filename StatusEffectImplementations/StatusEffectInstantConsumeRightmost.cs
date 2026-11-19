@@ -6,7 +6,7 @@ namespace PokemonMod.StatusEffectImplementations;
 public class StatusEffectInstantConsumeRightmost : StatusEffectInstant
 {
     public TargetConstraint[] constraints;
-    
+
     public override IEnumerator Process()
     {
         var hand = References.Player.handContainer;
@@ -23,16 +23,15 @@ public class StatusEffectInstantConsumeRightmost : StatusEffectInstant
                 LogHelper.Log("Destroying card");
                 i++;
             }
-            
+
             if (i >= count)
             {
-                
                 LogHelper.Log("Break loop");
                 break;
             }
         }
-        
-        
+
+
         LogHelper.Log("Done");
         yield return Remove();
     }

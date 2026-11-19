@@ -10,7 +10,7 @@ public class CustomStats
 {
     private static bool _loaded = false;
     private static readonly List<GameStatData> CustomStatData = [];
-    
+
     public static string PokemonCaughtKey = "StatPokemonCaught";
     public static string PokemonEvolvedKey = "StatPokemonEvolved";
 
@@ -18,7 +18,7 @@ public class CustomStats
     {
         Add(PokemonCaughtKey, 1);
     }
-    
+
     public static void AddPokemonEvolved()
     {
         Add(PokemonEvolvedKey, 1);
@@ -28,7 +28,7 @@ public class CustomStats
     {
         StatsSystem.instance.stats.Add(key, amount);
     }
-    
+
     [UsedImplicitly, HarmonyPrefix, HarmonyPatch(typeof(StatsPanel), nameof(StatsPanel.Awake))]
     private static void Prefix(StatsPanel __instance)
     {

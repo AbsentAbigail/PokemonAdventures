@@ -24,6 +24,6 @@ public class InstantDealDamage : IStatusBuilder
                 status.countsAsHit = true;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

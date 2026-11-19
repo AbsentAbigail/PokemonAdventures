@@ -20,10 +20,10 @@ public class StatusEffectReduceSuperEffectiveDamage : StatusEffectData
         {
             return;
         }
-        
+
         var amount = GetAmount();
         hit.damage -= amount;
-        
+
         var localisedString = Mod.GetLocalizedString("KasibLog");
         FindObjectOfType<BattleLogSystem>()?.Log(localisedString, BattleLogType.Buff, BattleLogSystem.GetBattleEntity(target), amount);
     }

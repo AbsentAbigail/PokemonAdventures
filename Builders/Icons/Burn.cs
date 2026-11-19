@@ -15,8 +15,8 @@ public class Burn : IIconBuilder
     public DataFileBuilder<_StatusIconData, StatusIconBuilder> Builder()
     {
         return new StatusIconBuilder(Mod.Instance)
-            .Create(name: Name,
-                statusType: "burn",
+            .Create(Name,
+                "burn",
                 Mod.GetIconSprite("burn"))
             .WithIconGroupName(StatusIconBuilder.IconGroups.health)
             .WithTextColour(KeywordColours.DarkLabel)

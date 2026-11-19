@@ -27,7 +27,7 @@ public static class KeywordColours
     public static readonly Color BurnLight = Color(255, 182, 109);
     public static readonly Color SleepDark = Color(62, 51, 118);
     public static readonly Color SleepLight = Color(161, 193, 235);
-    
+
     private static Color Color(int r, int g, int b)
     {
         Color color = new(

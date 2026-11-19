@@ -43,7 +43,7 @@ public class StatusEffectBadlyShroomed : StatusEffectApplyX
         {
             return false;
         }
-        
+
         if (hit.damageType != TargetType)
         {
             return false;
@@ -72,7 +72,7 @@ public class StatusEffectBadlyShroomed : StatusEffectApplyX
         LogHelper.Log("Post apply: " + apply.effectData.type);
 
         ChangeIcon(apply.count);
-        
+
         yield return Sequences.Wait(apply.target.curveAnimator.Ping());
     }
 

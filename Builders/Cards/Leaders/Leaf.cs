@@ -30,12 +30,10 @@ public class Leaf : ITrainerBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public ITrainerBuilder.MenuTrainerModifier MenuTrainerModifiers => new()
     {
-        Partners = [Bulbasaur.Name],
-        MenuSpriteName = "LeafAndBulbasaur",
-        MenuTitle = "Leaf and Bulbasaur",
+        Partners = [Bulbasaur.Name], MenuSpriteName = "LeafAndBulbasaur", MenuTitle = "Leaf and Bulbasaur",
     };
 }

@@ -9,7 +9,7 @@ internal class StatusEffectApplyXWhenCardRecalled : StatusEffectApplyX
     public bool allies;
     public bool enemies;
     public TargetConstraint[] constraints = [];
-    
+
     public int actionPriority = 0;
 
     public override void Init()
@@ -33,7 +33,7 @@ internal class StatusEffectApplyXWhenCardRecalled : StatusEffectApplyX
         {
             return;
         }
-        
+
         if (!CheckTarget(discarded))
         {
             return;
@@ -45,7 +45,10 @@ internal class StatusEffectApplyXWhenCardRecalled : StatusEffectApplyX
         }
 
         var hackyHit = new Hit(null, discarded);
-        ActionQueue.Stack(new ActionSequence(Run(GetTargets(hackyHit))) {priority = actionPriority});
+        ActionQueue.Stack(new ActionSequence(Run(GetTargets(hackyHit)))
+        {
+            priority = actionPriority,
+        });
     }
 
     private bool CheckTarget(Entity entity)

@@ -3,7 +3,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenHitApplyConstrictToAttacker : IStatusBuilder
@@ -21,6 +21,6 @@ public class WhenHitApplyConstrictToAttacker : IStatusBuilder
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Attacker;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

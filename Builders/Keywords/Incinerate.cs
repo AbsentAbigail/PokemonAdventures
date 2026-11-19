@@ -21,6 +21,6 @@ public class Incinerate : IKeywordBuilder
             .WithNoteColour(KeywordColours.Orange)
             .WithCanStack(true);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower();
 }

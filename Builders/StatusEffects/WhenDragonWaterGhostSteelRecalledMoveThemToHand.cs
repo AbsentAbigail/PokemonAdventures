@@ -7,7 +7,7 @@ using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 using PokemonMod.Variables;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenDragonWaterGhostSteelRecalledMoveThemToHand : IStatusBuilder
@@ -16,7 +16,8 @@ public class WhenDragonWaterGhostSteelRecalledMoveThemToHand : IStatusBuilder
     {
         return new StatusEffectDataBuilder(Mod.Instance)
             .Create<StatusEffectApplyXWhenCardRecalled>(Name)
-            .WithText($"When a <sprite name={Types.Dragon.Keyword()}>, <sprite name={Types.Steel.Keyword()}>, <sprite name={Types.Water.Keyword()}>, or <sprite name={Types.Ghost.Keyword()}> Pokemon is recalled, return them to hand")
+            .WithText(
+                $"When a <sprite name={Types.Dragon.Keyword()}>, <sprite name={Types.Steel.Keyword()}>, <sprite name={Types.Water.Keyword()}>, or <sprite name={Types.Ghost.Keyword()}> Pokemon is recalled, return them to hand")
             .WithStackable(false)
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectApplyXWhenCardRecalled>(status =>
@@ -37,6 +38,6 @@ public class WhenDragonWaterGhostSteelRecalledMoveThemToHand : IStatusBuilder
                 status.actionPriority = -1;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

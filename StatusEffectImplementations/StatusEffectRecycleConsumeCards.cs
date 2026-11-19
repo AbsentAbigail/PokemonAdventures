@@ -26,7 +26,7 @@ public class StatusEffectRecycleConsumeCards : StatusEffectData
     {
         OnCardPlayed += Played;
     }
-    
+
     public override bool RunCardPlayedEvent(Entity entity, Entity[] targets)
     {
         return target.enabled && entity == target;
@@ -38,11 +38,11 @@ public class StatusEffectRecycleConsumeCards : StatusEffectData
         var cc = (CardControllerSelectCard)_sequence.cardController;
         cc.pressEvent.AddListener(ChooseCard);
         cc.canPress = true;
-        
+
         var button = _sequence.backButton.GetComponentInChildren<Button>();
         button.onClick.AddListener(Return);
 
-        
+
         var container = GetCardContainer();
         foreach (var containerEntity in container)
         {

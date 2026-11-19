@@ -5,7 +5,7 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 using PokemonMod.Variables;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhileActiveShroomRetainsAtLeast : IStatusBuilder
@@ -20,11 +20,11 @@ public class WhileActiveShroomRetainsAtLeast : IStatusBuilder
             .SubscribeToAfterAllBuildEvent<StatusEffectWhileActiveX>(status =>
             {
                 status.effectToApply = Mod.GetStatus(RetainAtLeastShroom.Name);
-                status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self 
+                status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self
                                       | StatusEffectApplyX.ApplyToFlags.Allies
                                       | StatusEffectApplyX.ApplyToFlags.Enemies;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

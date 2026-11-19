@@ -33,6 +33,6 @@ public class JabocaBerry : ICardBuilder
             })
             .IsBerry();
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -8,7 +8,7 @@ using PokemonMod.Builders.Keywords;
 using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class OnCardPlayedRestoreConsumedCard : IStatusBuilder
@@ -26,6 +26,6 @@ public class OnCardPlayedRestoreConsumedCard : IStatusBuilder
                 status.summonCopy = Mod.GetStatusOf<StatusEffectInstantSummon>(InstantSummonDummyToHand.Name);
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

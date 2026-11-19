@@ -40,6 +40,6 @@ public class EeveeAndEevee : ICardBuilder
                 card.scriptableImagePrefab = scriptableCardImage;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

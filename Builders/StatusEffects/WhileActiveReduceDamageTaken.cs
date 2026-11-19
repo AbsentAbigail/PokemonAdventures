@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhileActiveReduceDamageTaken : IStatusBuilder
@@ -17,6 +17,6 @@ public class WhileActiveReduceDamageTaken : IStatusBuilder
             .WithStackable(true)
             .WithCanBeBoosted(true);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

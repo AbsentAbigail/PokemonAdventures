@@ -23,7 +23,7 @@ public class StatusEffectAttackWithStatus : StatusEffectData
 
         hit.damage = attack;
 
-        if (FindObjectOfType<VfxStatusSystem>() is { } hitSystem  && !withDamageTypeAnimation.IsNullOrEmpty())
+        if (FindObjectOfType<VfxStatusSystem>() is { } hitSystem && !withDamageTypeAnimation.IsNullOrEmpty())
         {
             hitSystem.EntityHit(new Hit(hit.attacker, hit.target, hit.damage)
             {

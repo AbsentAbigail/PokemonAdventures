@@ -31,6 +31,6 @@ public class SinjohRuins : ICardBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

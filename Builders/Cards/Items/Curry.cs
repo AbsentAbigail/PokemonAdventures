@@ -29,11 +29,11 @@ public class Curry : ICardBuilder
                 ];
                 card.traits =
                 [
-                   Mod.TStack("Barrage"),
-                   Mod.TStack("Consume"),
+                    Mod.TStack("Barrage"),
+                    Mod.TStack("Consume"),
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

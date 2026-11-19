@@ -6,7 +6,7 @@ using PokemonMod.Builders.Traits;
 using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenBerryPlayedOnSelfApplyFrenzy : IStatusBuilder
@@ -30,6 +30,6 @@ public class WhenBerryPlayedOnSelfApplyFrenzy : IStatusBuilder
                 status.onSelf = true;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

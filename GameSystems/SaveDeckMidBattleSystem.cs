@@ -4,7 +4,7 @@
 internal class SaveDeckMidBattleSystem : GameSystem
 {
     private static SaveDeckMidBattleSystem _instance;
-    
+
     public bool promptSave;
 
     public void OnEnable()
@@ -32,7 +32,7 @@ internal class SaveDeckMidBattleSystem : GameSystem
         {
             return;
         }
-        
+
         Campaign.PromptSave();
         promptSave = false;
     }

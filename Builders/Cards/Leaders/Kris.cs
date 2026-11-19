@@ -29,12 +29,10 @@ public class Kris : ITrainerBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public ITrainerBuilder.MenuTrainerModifier MenuTrainerModifiers => new()
     {
-        Partners = [Totodile.Name],
-        MenuSpriteName = "KrisAndTotodile",
-        MenuTitle = "Kris and Totodile",
+        Partners = [Totodile.Name], MenuSpriteName = "KrisAndTotodile", MenuTitle = "Kris and Totodile",
     };
 }

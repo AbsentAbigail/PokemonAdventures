@@ -43,13 +43,13 @@ public static class Extensions
             PokemonTribe.AddToUnitPool(builder._data.name);
             return builder;
         }
-        
+
         public CardDataBuilder InItemPool()
         {
             PokemonTribe.AddToItemPool(builder._data.name);
             return builder;
         }
-        
+
         public CardDataBuilder IsBerry()
         {
             PokemonTribe.AddToBerryPool(builder._data.name);
@@ -67,9 +67,9 @@ public static class Extensions
 
         public CardDataBuilder WithBossRewards(string[] rewards)
         {
-            return builder._data.cardType.miniboss 
-                    ? builder.SubscribeToAfterAllBuildEvent(card => card.SetCustomData("pokemon.rewards", new SaveCollection<string>(rewards)))
-                    : throw new NotSupportedException("Only Boss cards can have rewards");
+            return builder._data.cardType.miniboss
+                ? builder.SubscribeToAfterAllBuildEvent(card => card.SetCustomData("pokemon.rewards", new SaveCollection<string>(rewards)))
+                : throw new NotSupportedException("Only Boss cards can have rewards");
         }
     }
 
@@ -83,14 +83,14 @@ public static class Extensions
         PokemonTribe.AddToCharmPool(builder._data.name);
         return builder;
     }
-    
+
     public static StatusEffectDataBuilder IsReaction(this StatusEffectDataBuilder statusEffectDataBuilder)
     {
         return statusEffectDataBuilder
             .WithIsReaction(true)
             .FreeModify(status => status.descColorHex = "F99C61");
     }
-    
+
     public static void PlayApplyAnimation(this StatusEffectData status)
     {
         if (Object.FindObjectOfType<VfxStatusSystem>() is not { } hitSystem)
@@ -101,7 +101,7 @@ public static class Extensions
         {
             return;
         }
-        
+
         var transform = status.target.transform;
         hitSystem.CreateEffect(profile.applyEffectPrefab, transform.position, transform.lossyScale);
     }

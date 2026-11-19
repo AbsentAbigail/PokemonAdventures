@@ -19,6 +19,6 @@ public class ParalysisResist : IKeywordBuilder
             .WithNoteColour(KeywordColours.Paralysis)
             .WithCanStack(false);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower();
 }

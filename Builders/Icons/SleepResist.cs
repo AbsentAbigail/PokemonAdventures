@@ -12,13 +12,13 @@ public class SleepResist : IIconBuilder
     public DataFileBuilder<_StatusIconData, StatusIconBuilder> Builder()
     {
         return new StatusIconBuilder(Mod.Instance)
-            .Create(name: Name,
-                statusType: "sleepresist",
+            .Create(Name,
+                "sleepresist",
                 Mod.GetIconSprite("sleepresist"))
             .WithIconGroupName(StatusIconBuilder.IconGroups.counter)
             .WithTextboxSprite()
             .WithKeywords(Keywords.SleepResist.Name);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower();
 }

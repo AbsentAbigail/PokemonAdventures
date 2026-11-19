@@ -18,7 +18,8 @@ public class InstantMultipleParalysisToEnemiesAndIncreaseOwnEffects : IStatusBui
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectInstantMultiple>(status =>
             {
-                status.applyXEffects = [
+                status.applyXEffects =
+                [
                     Mod.GetStatusOf<StatusEffectApplyXInstant>(InstantApplyParalysisToEnemies.Name),
                     Mod.GetStatusOf<StatusEffectApplyXInstant>(InstantIncreaseOwnEffectsBy1.Name),
                 ];

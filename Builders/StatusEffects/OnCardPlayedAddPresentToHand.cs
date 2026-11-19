@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using Berry = PokemonMod.Builders.Keywords.Berry;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class OnCardPlayedAddPresentToHand : IStatusBuilder
@@ -23,6 +23,6 @@ public class OnCardPlayedAddPresentToHand : IStatusBuilder
                 status.targetMustBeAlive = false;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using PokemonMod.Builders.Cards.Items;
 using PokemonMod.Builders.Interfaces;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class SummonPokeball : IStatusBuilder
@@ -17,6 +17,6 @@ public class SummonPokeball : IStatusBuilder
                 status.summonCard = Mod.GetCard(Cards.Items.Pokeball.Name);
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

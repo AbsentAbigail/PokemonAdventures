@@ -6,7 +6,7 @@ using PokemonMod.Builders.Keywords;
 using PokemonMod.Helpers;
 using PokemonMod.Variables;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class OnCardPlayedConsumeBerriesInHand : IStatusBuilder
@@ -28,6 +28,6 @@ public class OnCardPlayedConsumeBerriesInHand : IStatusBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

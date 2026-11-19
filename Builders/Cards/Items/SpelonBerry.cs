@@ -31,6 +31,6 @@ public class SpelonBerry : ICardBuilder
             })
             .IsBerry();
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

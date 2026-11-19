@@ -22,5 +22,4 @@ public class InstantCleanseApplier : IStatusBuilder
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Applier;
             });
     }
-
 }

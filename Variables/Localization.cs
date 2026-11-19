@@ -11,25 +11,25 @@ public static class Localization
     public static void CreateLocalizedStrings()
     {
         var uiText = LocalizationHelper.GetCollection("UI Text", SystemLanguage.English);
-        
+
         AddStatusText(uiText);
-        
+
         uiText.SetString(InstantChooseEvolution.Name, "Do you want to evolve {0}?");
         uiText.SetString(OnCardPlayedRestoreConsumedCard.Name, "Which card do you want to recycle?");
-        
+
         uiText.SetString("LinkCable", "Which Pokemon do you want to trade for?");
-        
+
         uiText.SetString("MinibossReward", "You defeated a miniboss! Pick your reward");
         uiText.SetString("BossReward", "You defeated a boss! Here's your reward");
-        
+
         uiText.SetString(CustomStats.PokemonCaughtKey, "Pokemon caught: {0}");
         uiText.SetString(CustomStats.PokemonEvolvedKey, "Pokemon evolved: {0}");
-        
+
         uiText.SetString("CountUpWaveBell", "{0} counted up the Wave Bell by [{1}]");
-        
+
         uiText.SetString("TagTeamEevee1", "Eevee");
         uiText.SetString("TagTeamEevee2", "Eevee");
-        
+
         uiText.SetString("CorsolaDies", ":(");
     }
 
@@ -44,7 +44,7 @@ public static class Localization
         uiText.SetString("Sleep", "{0} is asleep");
         uiText.SetString("Paralysed", "{0} is paralysed!");
         uiText.SetString("ConstrictedFreed", "{0} freed itself of Constrict!");
-        
+
         uiText.SetString("CharmReward", "You may take a charm as your reward for winning this fight!");
     }
 }

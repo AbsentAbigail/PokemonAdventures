@@ -6,7 +6,7 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.Keywords;
 using PokemonMod.Helpers;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class OnCardPlayedSunnyDoubleOwnAttack : IStatusBuilder
@@ -28,6 +28,6 @@ public class OnCardPlayedSunnyDoubleOwnAttack : IStatusBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

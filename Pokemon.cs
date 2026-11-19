@@ -37,7 +37,8 @@ public class Pokemon : WildfrostMod
 
     public override string GUID => "abigail.josephine.pelli.pokemon";
 
-    public override string[] Depends => [
+    public override string[] Depends =>
+    [
         "mhcdc9.wildfrost.battle",
         "hope.wildfrost.vfx",
     ];
@@ -55,10 +56,9 @@ public class Pokemon : WildfrostMod
     public static List<string> ClunkerNames = [];
     public static List<string> LeaderNames = [];
 
-    [UsedImplicitly]
-    [ConfigItem(false, null, "Enable beta arts (Requires restart)")]
+    [UsedImplicitly, ConfigItem(false, null, "Enable beta arts (Requires restart)")]
     public bool BetaArt;
-    
+
     //this is here to allow our icon to appear in the text box of cards
     public override TMP_SpriteAsset SpriteAsset => _assetSprites;
     private TMP_SpriteAsset _assetSprites;
@@ -80,7 +80,7 @@ public class Pokemon : WildfrostMod
     {
         StopWatch.Start();
         var loadTime = 0;
-        
+
         if (!Addressables.ResourceLocators.Any(r => r is ResourceLocationMap map && map.LocatorId == CatalogPath))
         {
             Addressables.LoadContentCatalogAsync(CatalogPath).WaitForCompletion();
@@ -98,7 +98,6 @@ public class Pokemon : WildfrostMod
         VFXHelper.SFX = new SFXLoader(ImagePath("Sounds"));
         VFXHelper.SFX.RegisterAllSoundsToGlobal();
 
-
         //Needed to get sprites in text boxes
         _assetSprites = HopeUtils.CreateSpriteAsset("PokemonAssets", ImagePath("Icons"));
         SpriteAsset.RegisterSpriteAsset();
@@ -106,37 +105,37 @@ public class Pokemon : WildfrostMod
         loadTime += StopWatch.Stop();
         LogHelper.Log($"Loaded assets in {StopWatch.GetMilliseconds()} milliseconds");
         StopWatch.Start();
-        
+
         if (!_loaded)
         {
             CreateModAssets();
         }
         base.Load();
-        
+
         loadTime += StopWatch.Stop();
         LogHelper.Log($"Loaded data in {StopWatch.GetMilliseconds()} milliseconds");
         StopWatch.Start();
 
         LoadPokedex();
-        
+
         loadTime += StopWatch.Stop();
         LogHelper.Log($"Arranged Pokedex in {StopWatch.GetMilliseconds()} milliseconds");
         StopWatch.Start();
 
         Battles.Battles.AddBattles();
-        
+
         loadTime += StopWatch.Stop();
         LogHelper.Log($"Created battles in {StopWatch.GetMilliseconds()} milliseconds");
         StopWatch.Start();
 
         Evolutions.Setup();
-        
+
         loadTime += StopWatch.Stop();
         LogHelper.Log($"Loaded evolutions in {StopWatch.GetMilliseconds()} milliseconds");
         StopWatch.Start();
-        
+
         PetManager.AddPets();
-            
+
         loadTime += StopWatch.Stop();
         LogHelper.Log($"Added pets in {StopWatch.GetMilliseconds()} milliseconds");
         StopWatch.Start();
@@ -149,7 +148,7 @@ public class Pokemon : WildfrostMod
 
         var gameMode = Mod.TryGet<GameMode>("GameModeNormal"); //GameModeNormal is the standard game mode. 
         gameMode.classes = gameMode.classes.Append(Mod.TryGet<ClassData>(PokemonTribe.Name)).ToArray();
-        
+
         loadTime += StopWatch.Stop();
         LogHelper.Log($"Added tribe in {StopWatch.GetMilliseconds()} milliseconds");
 
@@ -165,7 +164,7 @@ public class Pokemon : WildfrostMod
             {
                 continue;
             }
-            
+
             var name = Pokedex.Names.FirstOrDefault(name => name == cardData.name.Replace(GUID + ".", ""));
             if (name != null)
             {
@@ -180,9 +179,9 @@ public class Pokemon : WildfrostMod
         {
             keyValuePair.Value();
         });
-        
+
         Pokedex.PokedexDictionary.Clear();
-        
+
         UnloadEvents();
         UnloadFromClasses();
         base.Unload();
@@ -223,7 +222,7 @@ public class Pokemon : WildfrostMod
         const string builderNamespace = "PokemonMod.Builders";
 
         RegisterTypes();
-            
+
         _assets.AddRange(Assembly.GetExecutingAssembly().GetTypes()
             .Where(t =>
                 string.Equals(t.Namespace, builderNamespace + ".Icons",
@@ -318,45 +317,45 @@ public class Pokemon : WildfrostMod
             string.Equals(t.Namespace, builderNamespace + ".Cards.Leaders",
                 StringComparison.Ordinal)
             && typeof(ITrainerBuilder).IsAssignableFrom(t)).ToArray();
-        
+
         var leaders = leaderTypes.Select(type =>
-            {
-                var builder = (ITrainerBuilder)Activator.CreateInstance(type);
-                return ((CardDataBuilder)builder.Builder())
-                    .WithCardType("Leader")
-                    .FreeModify(card =>
-                    {
-                        card.createScripts =
-                        [
-                            LeaderHelper.GiveUpgrade(),
-                        ];
-                    });
-            }).ToList();
+        {
+            var builder = (ITrainerBuilder)Activator.CreateInstance(type);
+            return ((CardDataBuilder)builder.Builder())
+                .WithCardType("Leader")
+                .FreeModify(card =>
+                {
+                    card.createScripts =
+                    [
+                        LeaderHelper.GiveUpgrade(),
+                    ];
+                });
+        }).ToList();
         _assets.AddRange(leaders);
 
         var menuLeaders = leaderTypes.Select(type =>
-            {
-                var builder = (ITrainerBuilder)Activator.CreateInstance(type);
-                var menuModifiers = builder.MenuTrainerModifiers;
-                var partners = menuModifiers.Partners;
-                var cardBuilder = (CardDataBuilder)builder.Builder();
-                cardBuilder
-                    .ReplacePreRun([cardBuilder._data.name, .. partners])
-                    .FreeModify(card =>
-                    {
-                        card.name = string.Join("And", [card.name, .. partners]);
-                        card.mainSprite = Mod.GetSprite(menuModifiers.MenuSpriteName);
-                        card.createScripts =
-                        [
-                            LeaderHelper.GiveUpgrade(),
-                        ];
-                    })
-                    .WithCardType("Leader")
-                    .WithTitle(menuModifiers.MenuTitle);
-                LeaderNames.Add(cardBuilder._data.name);
-                
-                return cardBuilder;
-            }).ToList();
+        {
+            var builder = (ITrainerBuilder)Activator.CreateInstance(type);
+            var menuModifiers = builder.MenuTrainerModifiers;
+            var partners = menuModifiers.Partners;
+            var cardBuilder = (CardDataBuilder)builder.Builder();
+            cardBuilder
+                .ReplacePreRun([cardBuilder._data.name, .. partners])
+                .FreeModify(card =>
+                {
+                    card.name = string.Join("And", [card.name, .. partners]);
+                    card.mainSprite = Mod.GetSprite(menuModifiers.MenuSpriteName);
+                    card.createScripts =
+                    [
+                        LeaderHelper.GiveUpgrade(),
+                    ];
+                })
+                .WithCardType("Leader")
+                .WithTitle(menuModifiers.MenuTitle);
+            LeaderNames.Add(cardBuilder._data.name);
+
+            return cardBuilder;
+        }).ToList();
         _assets.AddRange(menuLeaders);
         var enemies = Assembly.GetExecutingAssembly().GetTypes()
             .Where(t =>
@@ -384,7 +383,7 @@ public class Pokemon : WildfrostMod
         );
 
         Localization.CreateLocalizedStrings();
-            
+
         _loaded = true;
     }
 
@@ -415,12 +414,12 @@ public class Pokemon : WildfrostMod
 
             _assets.Add(new StatusIconBuilder(Instance)
                 .Create(type.Keyword(),
-                    statusType: type.Keyword(),
+                    type.Keyword(),
                     Instance.ImagePath($"Icons/{type.Keyword()}.png").ToSprite())
                 .WithIconGroupName(StatusIconBuilder.IconGroups.damage)
                 .WithTextboxSprite()
                 .WithKeywords(type.Keyword()));
-                
+
             _assets.Add(new StatusEffectDataBuilder(Instance)
                 .Create<StatusEffectType>(type.Name)
                 .WithStackable(false)

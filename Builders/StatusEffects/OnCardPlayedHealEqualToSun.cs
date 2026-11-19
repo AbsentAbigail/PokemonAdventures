@@ -6,7 +6,7 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 using PokemonMod.Scriptables.ScriptableAmounts;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class OnCardPlayedHealEqualToSun : IStatusBuilder
@@ -29,6 +29,6 @@ public class OnCardPlayedHealEqualToSun : IStatusBuilder
                 });
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

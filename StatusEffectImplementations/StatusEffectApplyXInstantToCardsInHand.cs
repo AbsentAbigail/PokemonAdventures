@@ -20,14 +20,14 @@ public class StatusEffectApplyXInstantToCardsInHand : StatusEffectApplyXInstant
             yield return Remove();
             yield break;
         }
-        
+
         foreach (var entity in References.Player.handContainer)
         {
             if (!applyConstraints.AllApply(entity))
             {
                 continue;
             }
-            
+
             targets.Add(entity);
             if (--found <= 0)
             {

@@ -29,12 +29,10 @@ public class RangerKate : ITrainerBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
     public ITrainerBuilder.MenuTrainerModifier MenuTrainerModifiers => new()
     {
-        Partners = [Munchlax.Name],
-        MenuSpriteName = "KateAndMunchlax",
-        MenuTitle = "Kate and Munchlax",
+        Partners = [Munchlax.Name], MenuSpriteName = "KateAndMunchlax", MenuTitle = "Kate and Munchlax",
     };
 }

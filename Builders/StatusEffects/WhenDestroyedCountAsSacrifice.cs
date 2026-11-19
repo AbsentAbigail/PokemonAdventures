@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using PokemonMod.Builders.Cards.Items;
 using PokemonMod.Builders.Interfaces;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenDestroyedCountAsSacrifice : IStatusBuilder
@@ -21,10 +21,10 @@ public class WhenDestroyedCountAsSacrifice : IStatusBuilder
                 status.effectToApply = Mod.GetStatus(InstantActivateSacrifice.Name);
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
                 status.targetMustBeAlive = false;
-                
+
                 status.eventPriority = int.MaxValue;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

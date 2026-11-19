@@ -20,5 +20,4 @@ public class InstantIncreaseCurrentCounter : IStatusBuilder
             .WithStackable(true)
             .WithCanBeBoosted(false);
     }
-
 }

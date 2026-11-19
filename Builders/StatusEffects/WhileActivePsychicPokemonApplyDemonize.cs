@@ -6,7 +6,7 @@ using PokemonMod.Helpers;
 using PokemonMod.Scriptables.TargetConstraints;
 using PokemonMod.Variables;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhileActivePsychicPokemonApplyDemonize : IStatusBuilder
@@ -28,6 +28,6 @@ public class WhileActivePsychicPokemonApplyDemonize : IStatusBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -20,11 +20,11 @@ public class BadlyShroomed : IStatusBuilder
                 status.offensive = true;
                 status.removeOnDiscard = true;
                 status.sprite = Mod.GetIconSprite(Icons.BadlyShroomed.Name);
-                
+
                 status.keywordData = Mod.GetKeyword(Keywords.BadlyShroomed.Name);
                 status.effectToApply = Mod.GetStatus("Shroom");
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

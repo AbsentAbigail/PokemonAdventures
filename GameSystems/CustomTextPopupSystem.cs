@@ -10,8 +10,12 @@ namespace PokemonMod.GameSystems;
 public class CustomTextPopupSystem : GameSystem
 {
     private static CustomTextPopupSystem _instance;
-    private static bool Exists() => (bool) _instance;
-    
+
+    private static bool Exists()
+    {
+        return (bool)_instance;
+    }
+
     private readonly Vector3 _textPopOffset = new(0.0f, 1.5f, -1f);
     private const float PopupDuration = 0.8f;
 
@@ -26,7 +30,7 @@ public class CustomTextPopupSystem : GameSystem
         {
             yield break;
         }
-        
+
         yield return _instance._RunWithShake(entity, text, args);
     }
 
@@ -44,7 +48,7 @@ public class CustomTextPopupSystem : GameSystem
             var num1 = noTargetTextSystem.shakeDurationRange.Random();
             entity.curveAnimator.Move(noTargetTextSystem.shakeAmount.WithX(noTargetTextSystem.shakeAmount.x.WithRandomSign()), noTargetTextSystem.shakeCurve, duration: num1);
         }
-        
+
         var textElement = NoTargetTextSystem.instance.textElement;
         textElement.text = text.GetLocalizedString().Format(args);
         PopText(entity.transform.position);
@@ -57,7 +61,7 @@ public class CustomTextPopupSystem : GameSystem
         {
             yield break;
         }
-        
+
         yield return _instance._Run(entity, text, args);
     }
 
@@ -81,7 +85,7 @@ public class CustomTextPopupSystem : GameSystem
         {
             yield break;
         }
-        
+
         yield return _instance._RunNoWait(entity, text, args);
     }
 
@@ -107,6 +111,6 @@ public class CustomTextPopupSystem : GameSystem
         LeanTween.move(obj, fromPos + _textPopOffset, 1.5f).setEaseOutElastic();
         textElement.color = textElement.color.WithAlpha(1f);
         LeanTween.value(obj, 1f, 0.0f, 0.2f).setDelay(1.3f)
-            .setOnUpdate(a => textElement.color = textElement.color.WithAlpha(a)).setOnComplete((Action) (() => obj.SetActive(false)));
+            .setOnUpdate(a => textElement.color = textElement.color.WithAlpha(a)).setOnComplete((Action)(() => obj.SetActive(false)));
     }
 }

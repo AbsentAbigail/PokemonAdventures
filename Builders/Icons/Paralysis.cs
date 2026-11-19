@@ -15,8 +15,8 @@ public class Paralysis : IIconBuilder
     public DataFileBuilder<_StatusIconData, StatusIconBuilder> Builder()
     {
         return new StatusIconBuilder(Mod.Instance)
-            .Create(name: Name,
-                statusType: "paralysis",
+            .Create(Name,
+                "paralysis",
                 Mod.GetIconSprite("paralysis"))
             .WithIconGroupName(StatusIconBuilder.IconGroups.counter)
             .WithTextColour(KeywordColours.DarkLabel)

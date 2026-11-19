@@ -5,7 +5,7 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenConstrictedEnemyIsKilledGainBlock : IStatusBuilder
@@ -26,6 +26,6 @@ public class WhenConstrictedEnemyIsKilledGainBlock : IStatusBuilder
                 status.enemy = true;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

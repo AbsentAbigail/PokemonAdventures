@@ -36,6 +36,6 @@ public class TrainerLass : ICardBuilder
                 Mod.PrefixGuid(CardUpgradeMegaDrain.Name),
             ]);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

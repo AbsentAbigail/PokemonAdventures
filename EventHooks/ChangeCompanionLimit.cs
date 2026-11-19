@@ -10,7 +10,7 @@ public static class ChangeCompanionLimit
         {
             return Task.CompletedTask;
         }
-        
+
         References.PlayerData.companionLimit = 6;
         return Task.CompletedTask;
     }

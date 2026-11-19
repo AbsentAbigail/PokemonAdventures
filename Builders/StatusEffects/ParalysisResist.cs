@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using WildfrostHopeMod.VFX;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class ParalysisResist : IStatusBuilder
@@ -21,6 +21,6 @@ public class ParalysisResist : IStatusBuilder
             })
             .Subscribe_WithStatusIcon("paralysisresist");
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

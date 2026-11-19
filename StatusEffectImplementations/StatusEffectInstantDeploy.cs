@@ -21,7 +21,7 @@ public class StatusEffectInstantDeploy : StatusEffectInstant
                 cardSlotList.AddRange(cardSlotLane.slots.Where(slot => slot.Empty));
             }
         }
-        
+
         var i = 0;
         foreach (var slot in cardSlotList)
         {
@@ -31,11 +31,11 @@ public class StatusEffectInstantDeploy : StatusEffectInstant
             target.owner.reserveContainer.SetChildPosition(card.entity);
             ActionQueue.Stack(new ActionMove(card.entity, slot), true);
             ActionQueue.Stack(new ActionRunEnableEvent(card.entity), true);
-            
+
             if (++i >= GetAmount())
             {
                 break;
-            } 
+            }
         }
         yield return base.Process();
     }

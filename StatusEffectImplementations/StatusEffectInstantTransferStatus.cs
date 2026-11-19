@@ -5,7 +5,7 @@ namespace PokemonMod.StatusEffectImplementations;
 public class StatusEffectInstantTransferStatus : StatusEffectInstant
 {
     public string transferType = "scrap";
-    
+
     public override IEnumerator Process()
     {
         var status = target.FindStatus(transferType);

@@ -6,7 +6,7 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.Keywords;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class CastSandstorm : IStatusBuilder
@@ -26,6 +26,6 @@ public class CastSandstorm : IStatusBuilder
                 status.increaseHealthEffect = Mod.GetStatus("Increase Max Health");
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

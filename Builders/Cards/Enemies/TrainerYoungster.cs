@@ -36,6 +36,6 @@ public class TrainerYoungster : ICardBuilder
                 Mod.PrefixGuid(CardUpgradeGrowl.Name),
             ]);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

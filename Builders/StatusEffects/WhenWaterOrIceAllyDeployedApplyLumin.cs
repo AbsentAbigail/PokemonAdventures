@@ -5,7 +5,7 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 using PokemonMod.Variables;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenWaterOrIceAllyDeployedApplyLumin : IStatusBuilder
@@ -27,13 +27,13 @@ public class WhenWaterOrIceAllyDeployedApplyLumin : IStatusBuilder
                 status.applyConstraints =
                 [
                     TargetConstraintHelper.Or("Ice or Water",
-                        not: false,
+                        false,
                         TargetConstraintHelper.HasStatus(Types.Water.Name),
                         TargetConstraintHelper.HasStatus(Types.Ice.Name)
                     ),
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

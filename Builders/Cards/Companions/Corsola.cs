@@ -33,6 +33,6 @@ public class Corsola : ICardBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -24,6 +24,6 @@ public class Burn : IStatusBuilder
             })
             .Subscribe_WithStatusIcon("burn");
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

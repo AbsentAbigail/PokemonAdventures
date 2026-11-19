@@ -13,8 +13,8 @@ public class Lum : IIconBuilder
     public DataFileBuilder<_StatusIconData, StatusIconBuilder> Builder()
     {
         return new StatusIconBuilder(Mod.Instance)
-            .Create(name: Name,
-                statusType: "lum",
+            .Create(Name,
+                "lum",
                 Mod.GetIconSprite("lum"))
             .WithIconGroupName(StatusIconBuilder.IconGroups.health)
             .WithTextColour(KeywordColours.DarkLabel)
@@ -22,6 +22,6 @@ public class Lum : IIconBuilder
             .WithTextboxSprite()
             .WithKeywords(Keywords.Lum.Name);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower();
 }

@@ -5,7 +5,7 @@ using PokemonMod.Builders.Cards.Items;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhileActiveFrenzyEqualToShell : IStatusBuilder
@@ -27,6 +27,6 @@ public class WhileActiveFrenzyEqualToShell : IStatusBuilder
                 });
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

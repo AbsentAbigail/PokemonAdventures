@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using PokemonMod.Builders.Cards.Enemies;
 using PokemonMod.Builders.Interfaces;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenHitDeployRemoraid : IStatusBuilder
@@ -23,6 +23,6 @@ public class WhenHitDeployRemoraid : IStatusBuilder
                 status.queue = true;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

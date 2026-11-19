@@ -23,6 +23,6 @@ public class WhenAllyHitGainEqualSpice : IStatusBuilder
                 status.applyEqualAmount = true;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -6,7 +6,7 @@ using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 using PokemonMod.Variables;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhileActiveIceAlliesTakeLessDamage : IStatusBuilder
@@ -29,6 +29,6 @@ public class WhileActiveIceAlliesTakeLessDamage : IStatusBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

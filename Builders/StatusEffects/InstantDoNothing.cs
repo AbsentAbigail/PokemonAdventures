@@ -18,5 +18,4 @@ public class InstantDoNothing : IStatusBuilder
             .WithStackable(false)
             .WithCanBeBoosted(false);
     }
-
 }

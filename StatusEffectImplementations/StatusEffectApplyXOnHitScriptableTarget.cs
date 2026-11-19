@@ -5,7 +5,7 @@ namespace PokemonMod.StatusEffectImplementations;
 public class StatusEffectApplyXOnHitScriptableTarget : StatusEffectApplyXOnHit
 {
     public ScriptableAmount targetScriptableAmount;
-    
+
     public override void Init()
     {
         if (postHit)

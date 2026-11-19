@@ -29,9 +29,12 @@ internal class StatusEffectApplyXWhenCardTakesDamage : StatusEffectApplyX
         {
             return false;
         }
-        
+
         return target.enabled && target.alive && hit.Offensive && Battle.IsOnBoard(target) && constraints.AllApply(hit.target);
     }
 
-    private IEnumerator CheckHit(Hit hit) => Run(GetTargets(hit), hit.damage + hit.damageBlocked);
+    private IEnumerator CheckHit(Hit hit)
+    {
+        return Run(GetTargets(hit), hit.damage + hit.damageBlocked);
+    }
 }

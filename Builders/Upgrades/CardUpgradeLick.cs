@@ -32,6 +32,6 @@ public class CardUpgradeLick : IUpgradeBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

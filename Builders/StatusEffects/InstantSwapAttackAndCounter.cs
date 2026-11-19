@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class InstantSwapAttackAndCounter : IStatusBuilder
@@ -16,6 +16,6 @@ public class InstantSwapAttackAndCounter : IStatusBuilder
             .WithStackable(false)
             .WithCanBeBoosted(false);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

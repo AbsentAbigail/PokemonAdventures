@@ -6,7 +6,7 @@ using PokemonMod.Helpers;
 using PokemonMod.Scriptables.ScriptableAmounts;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhileActiveFrenzyEqualToAllies : IStatusBuilder
@@ -28,6 +28,6 @@ public class WhileActiveFrenzyEqualToAllies : IStatusBuilder
                 });
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

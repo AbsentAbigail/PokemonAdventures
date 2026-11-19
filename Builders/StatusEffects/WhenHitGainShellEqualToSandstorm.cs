@@ -8,7 +8,7 @@ using PokemonMod.Builders.Keywords;
 using PokemonMod.Helpers;
 using PokemonMod.Scriptables.ScriptableAmounts;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenHitGainShellEqualToSandstorm : IStatusBuilder
@@ -33,6 +33,6 @@ public class WhenHitGainShellEqualToSandstorm : IStatusBuilder
                     });
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

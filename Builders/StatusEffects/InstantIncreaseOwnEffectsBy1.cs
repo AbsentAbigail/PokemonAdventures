@@ -24,5 +24,4 @@ public class InstantIncreaseOwnEffectsBy1 : IStatusBuilder
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
             });
     }
-
 }

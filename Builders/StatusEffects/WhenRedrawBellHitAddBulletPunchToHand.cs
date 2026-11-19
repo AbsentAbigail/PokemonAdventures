@@ -5,7 +5,7 @@ using PokemonMod.Builders.Cards.Items;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenRedrawBellHitAddBulletPunchToHand : IStatusBuilder
@@ -24,6 +24,6 @@ public class WhenRedrawBellHitAddBulletPunchToHand : IStatusBuilder
                 status.queue = true;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

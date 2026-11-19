@@ -4,7 +4,8 @@ namespace PokemonMod.Variables;
 
 public static class Pokedex
 {
-    public static readonly string[] Names = [
+    public static readonly string[] Names =
+    [
         "Bulbasaur",
         "Ivysaur",
         "Venusaur",

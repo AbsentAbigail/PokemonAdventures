@@ -36,6 +36,6 @@ public class TrainerCamper : ICardBuilder
                 Mod.PrefixGuid(CardUpgradeMudShot.Name),
             ]);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

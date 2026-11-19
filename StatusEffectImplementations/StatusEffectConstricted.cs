@@ -19,12 +19,12 @@ public class StatusEffectConstricted : StatusEffectApplyX
         {
             return false;
         }
-        
+
         if (Battle.IsOnBoard(applier))
         {
             return target.enabled && entity == target;
         }
-        
+
         ActionQueue.Stack(new ActionSequence(Freed()));
         return false;
     }
@@ -34,8 +34,7 @@ public class StatusEffectConstricted : StatusEffectApplyX
         this.PlayApplyAnimation();
         return new Hit(GetDamager(), target, count)
         {
-            screenShake = 0.25f,
-            damageType = type,
+            screenShake = 0.25f, damageType = type,
         }.Process();
     }
 

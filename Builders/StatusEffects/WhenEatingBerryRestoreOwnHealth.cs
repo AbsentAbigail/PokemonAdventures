@@ -6,7 +6,7 @@ using PokemonMod.Builders.Keywords;
 using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenEatingBerryRestoreOwnHealth : IStatusBuilder
@@ -30,6 +30,6 @@ public class WhenEatingBerryRestoreOwnHealth : IStatusBuilder
                 status.onSelf = true;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -20,7 +20,7 @@ public class MiniBossRewardSystem : GameSystem
     private static GameObject _gameObject;
     private static GameObject _objectGroup;
     private static CardPocketSequence _sequence;
-    
+
     public IEnumerator ChooseRewards(CardUpgradeData[] choices, bool boss = false)
     {
         _sequence = FindObjectOfType<CardPocketSequence>(true);
@@ -37,10 +37,10 @@ public class MiniBossRewardSystem : GameSystem
         CinemaBarSystem.In();
         CinemaBarSystem.SetSortingLayer("UI2");
         CinemaBarSystem.Top.SetPrompt((boss ? TitleBoss : TitleMiniboss).GetLocalizedString(), "Select");
-        
+
         _sequence.AddCards(container);
         yield return _sequence.Run();
-        
+
         _cardContainer?.ClearAndDestroyAllImmediately();
 
         cardController.canPress = false;
@@ -49,7 +49,7 @@ public class MiniBossRewardSystem : GameSystem
         CinemaBarSystem.Clear();
         CinemaBarSystem.Out();
     }
-    
+
     private static void ChooseCard(Entity entity)
     {
         _selected = entity;

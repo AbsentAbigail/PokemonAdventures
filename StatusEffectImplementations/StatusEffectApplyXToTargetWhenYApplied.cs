@@ -9,5 +9,8 @@ public class StatusEffectApplyXToTargetWhenYApplied : StatusEffectApplyXWhenYApp
         PostApplyStatus += Apply;
     }
 
-    private IEnumerator Apply(StatusEffectApply apply) => Run(GetTargets(new Hit(apply.applier, apply.target)), apply.count);
+    private IEnumerator Apply(StatusEffectApply apply)
+    {
+        return Run(GetTargets(new Hit(apply.applier, apply.target)), apply.count);
+    }
 }

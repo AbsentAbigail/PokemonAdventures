@@ -20,6 +20,6 @@ public class BadlyShroomed : IKeywordBuilder
             .WithNoteColour(KeywordColours.DarkPurple)
             .WithCanStack(true);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name.ToLower();
 }

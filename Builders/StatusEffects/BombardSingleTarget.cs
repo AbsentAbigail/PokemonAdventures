@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using UnityEngine;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class BombardSingleTarget : IStatusBuilder
@@ -22,6 +22,6 @@ public class BombardSingleTarget : IStatusBuilder
                 status.maxFrontTargets = 1;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

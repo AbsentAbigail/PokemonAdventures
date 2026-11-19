@@ -7,7 +7,7 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Builders.Keywords;
 using PokemonMod.Helpers;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class OnCardPlayedSunnyAddGanlonBerryToHand : IStatusBuilder
@@ -29,6 +29,6 @@ public class OnCardPlayedSunnyAddGanlonBerryToHand : IStatusBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

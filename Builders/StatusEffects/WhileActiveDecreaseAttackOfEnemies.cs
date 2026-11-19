@@ -5,7 +5,7 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 using PokemonMod.Variables;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhileActiveDecreaseAttackOfEnemies : IStatusBuilder
@@ -23,6 +23,6 @@ public class WhileActiveDecreaseAttackOfEnemies : IStatusBuilder
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Enemies;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

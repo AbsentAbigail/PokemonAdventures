@@ -15,7 +15,7 @@ internal class ScriptableWeatherIntensity : ScriptableAmount
         {
             return 0;
         }
-        
+
         return weather.statusEffects.FirstOrDefault(status => status.name == intensityEffect.name)?.count ?? 0;
     }
 }

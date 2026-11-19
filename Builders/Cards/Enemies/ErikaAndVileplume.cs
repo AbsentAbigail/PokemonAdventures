@@ -40,6 +40,6 @@ public class ErikaAndVileplume : ICardBuilder
                 Mod.PrefixGuid(CardUpgradeLinkCable.Name),
             ]);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -41,16 +41,16 @@ public class StatusEffectDealAdditionalDamage : StatusEffectData
         var amount = GetAmount();
         switch (_toReset)
         {
-            case true when amount == _currentAmount: 
+            case true when amount == _currentAmount:
                 yield break;
             case true:
-                LoseCurrentAmount(); 
+                LoseCurrentAmount();
                 break;
         }
 
         if (amount > 0)
         {
-          yield return GainAmount(amount);
+            yield return GainAmount(amount);
         }
     }
 

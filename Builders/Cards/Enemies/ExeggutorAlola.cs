@@ -29,11 +29,12 @@ public class ExeggutorAlola : ICardBuilder
                     Mod.SStack(Types.Dragon.Name),
                     Mod.SStack(DealAdditionalDamageEqualToBerriesInHandBoostable.Name, 2),
                 ];
-                card.traits = [
+                card.traits =
+                [
                     Mod.TStack("Barrage"),
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

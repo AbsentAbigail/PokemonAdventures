@@ -5,7 +5,7 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenEnemyEntersBattleApplyShroom : IStatusBuilder
@@ -23,6 +23,6 @@ public class WhenEnemyEntersBattleApplyShroom : IStatusBuilder
                 status.effectToApply = Mod.GetStatus("Shroom");
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -6,7 +6,7 @@ using PokemonMod.Builders.Keywords;
 using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class WhenBerryPlayedApplyShroomParalysisSleepToEnemiesInRow : IStatusBuilder
@@ -15,7 +15,8 @@ public class WhenBerryPlayedApplyShroomParalysisSleepToEnemiesInRow : IStatusBui
     {
         return new StatusEffectDataBuilder(Mod.Instance)
             .Create<StatusEffectApplyXWhenCertainCardPlayed>(Name)
-            .WithText($"When a {Mod.KeywordTag(Berry.Name)} is played, apply <{{a}}><keyword=shroom>, <{{a}}>{Mod.KeywordTag(Keywords.Paralysis.Name)} and <{{a}}>{Mod.KeywordTag(Keywords.Sleep.Name)} to enemies in row")
+            .WithText(
+                $"When a {Mod.KeywordTag(Berry.Name)} is played, apply <{{a}}><keyword=shroom>, <{{a}}>{Mod.KeywordTag(Keywords.Paralysis.Name)} and <{{a}}>{Mod.KeywordTag(Keywords.Sleep.Name)} to enemies in row")
             .WithStackable(true)
             .WithCanBeBoosted(true)
             .SubscribeToAfterAllBuildEvent<StatusEffectApplyXWhenCertainCardPlayed>(status =>
@@ -29,6 +30,6 @@ public class WhenBerryPlayedApplyShroomParalysisSleepToEnemiesInRow : IStatusBui
                 status.onlyAllied = false;
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

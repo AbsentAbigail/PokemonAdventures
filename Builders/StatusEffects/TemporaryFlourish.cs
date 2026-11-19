@@ -3,7 +3,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class TemporaryFlourish : IStatusBuilder
@@ -19,6 +19,6 @@ public class TemporaryFlourish : IStatusBuilder
                 status.trait = Mod.GetTrait("Heartburn");
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

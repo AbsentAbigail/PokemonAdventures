@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.StatusEffectImplementations;
 
-namespace PokemonMod.Builders. StatusEffects;
+namespace PokemonMod.Builders.StatusEffects;
 
 [UsedImplicitly]
 public class ImmuneToBomDemonizeSpiceFrost : IStatusBuilder
@@ -23,6 +23,6 @@ public class ImmuneToBomDemonizeSpiceFrost : IStatusBuilder
                 status.includeTypes = ["vim", "demonize", "spice", "frost"];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -24,6 +24,6 @@ public class Sleep : IStatusBuilder
             })
             .Subscribe_WithStatusIcon("sleep");
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

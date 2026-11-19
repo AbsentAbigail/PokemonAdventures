@@ -7,7 +7,7 @@ public class StatusEffectTriggerWhenCardIsPlayed : StatusEffectReaction
 {
     public bool againstTarget;
     public CardData[] allowedCards;
-    
+
     private readonly HashSet<Entity> _prime = [];
 
     public override bool RunHitEvent(Hit hit)
@@ -16,12 +16,12 @@ public class StatusEffectTriggerWhenCardIsPlayed : StatusEffectReaction
         {
             return false;
         }
-        
+
         if ((hit.countsAsHit || hit.Offensive || hit.target && hit.trigger != null) && CheckEntity(hit.attacker))
         {
             _prime.Add(hit.attacker);
         }
-        
+
         return false;
     }
 
@@ -31,12 +31,12 @@ public class StatusEffectTriggerWhenCardIsPlayed : StatusEffectReaction
         {
             return false;
         }
-        
+
         if (!Battle.IsOnBoard(target) || !CanTrigger())
         {
             return false;
         }
-        
+
         _prime.Remove(entity);
         Run(entity, targets);
         return false;
@@ -49,7 +49,7 @@ public class StatusEffectTriggerWhenCardIsPlayed : StatusEffectReaction
             ActionQueue.Stack(new ActionTrigger(target, attacker), true);
             return;
         }
-        
+
         foreach (var entity in targets)
         {
             ActionQueue.Stack(new ActionTriggerAgainst(target, attacker, entity, null), true);

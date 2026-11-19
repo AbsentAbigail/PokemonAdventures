@@ -33,7 +33,7 @@ public class StatusEffectInstantSummonRandomFromPool : StatusEffectInstantSummon
         {
             return result.ToArray();
         }
-        
+
         foreach (var dataFile in rewardPool.list)
         {
             if (dataFile is CardData cardData)

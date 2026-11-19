@@ -25,7 +25,7 @@ public class AssaultVest : ICardBuilder
             {
                 card.attackEffects =
                 [
-                    Mod.SStack("Shell", 7),
+                    Mod.SStack("Shell", 5),
                     Mod.SStack("Null", 2),
                 ];
             });

@@ -25,7 +25,7 @@ public class Red : ITrainerBuilder
             {
                 card.startWithEffects =
                 [
-                    Mod.SStack(WhileActiveFireElectricAlliesApplyOverburn.Name),
+                    Mod.SStack(WhileActiveFireElectricAlliesApplyOverburn.Name, 2),
                 ];
             });
     }

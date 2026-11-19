@@ -2,7 +2,6 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
-using PokemonMod.Builders.Keywords;
 using PokemonMod.Builders.StatusEffects;
 using PokemonMod.Variables;
 
@@ -25,7 +24,7 @@ public class GoldenPresent : ICardBuilder
             {
                 card.startWithEffects =
                 [
-                    Mod.SStack(OnCardPlayedGainBling.Name, 5),
+                    Mod.SStack(OnCardPlayedGainBling.Name, 10),
                 ];
                 card.traits =
                 [

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using Unity.Mathematics;
 
 namespace PokemonMod.StatusEffectImplementations;
 
@@ -17,7 +16,11 @@ public class StatusEffectInstantCountDownWaveBell : StatusEffectInstant
             var amount = Math.Min(GetAmount(), waveBell.counter);
             for (var i = 0; i < amount; i++)
             {
-                yield return waveBell.CountDown();
+                var action = new ActionSequence(waveBell.CountDown())
+                {
+                    parallel = true,
+                };
+                ActionQueue.Add(action);
             }
         }
 

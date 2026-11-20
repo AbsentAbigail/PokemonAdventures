@@ -664,6 +664,7 @@
         <Compile Include="Builders\StatusEffects\InstantAddRandomPresentToHand.cs"/>
         <Compile Include="Builders\StatusEffects\InstantAddSalacBerryToHand.cs"/>
         <Compile Include="Builders\StatusEffects\InstantAddSitrusBerryToHand.cs"/>
+        <Compile Include="Builders\StatusEffects\InstantAddEnemyWave.cs" />
         <Compile Include="Builders\StatusEffects\InstantApplyApicotBerry.cs"/>
         <Compile Include="Builders\StatusEffects\InstantApplyBadlyShroomed.cs"/>
         <Compile Include="Builders\StatusEffects\InstantApplyConstrict.cs"/>
@@ -969,6 +970,7 @@
         <Compile Include="StatusEffectImplementations\StatusEffectApplyXWhenEnemyEntersBattle.cs"/>
         <Compile Include="StatusEffectImplementations\StatusEffectBadlyShroomed.cs"/>
         <Compile Include="StatusEffectImplementations\StatusEffectCursola.cs"/>
+        <Compile Include="StatusEffectImplementations\StatusEffectInstantAddEnemyWave.cs" />
         <Compile Include="StatusEffectImplementations\StatusEffectInstantCastWeather.cs"/>
         <Compile Include="StatusEffectImplementations\StatusEffectInstantConsumeRightmost.cs"/>
         <Compile Include="StatusEffectImplementations\StatusEffectInstantCountDownWaveBell.cs" />

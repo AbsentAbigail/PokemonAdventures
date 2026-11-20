@@ -27,10 +27,6 @@ public class RockyHelmet : ICardBuilder
                 [
                     Mod.SStack("Teeth", 3),
                 ];
-                card.traits =
-                [
-                    Mod.TStack("Consume"),
-                ];
                 card.targetConstraints =
                 [
                     TargetConstraintHelper.General<TargetConstraintCanBeHit>(),

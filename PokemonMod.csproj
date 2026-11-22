@@ -401,6 +401,7 @@
         <Compile Include="Builders\Cards\Clunkers\PalletTown.cs"/>
         <Compile Include="Builders\Cards\Clunkers\RuinOfAlph.cs"/>
         <Compile Include="Builders\Cards\Clunkers\SafariZone.cs"/>
+        <Compile Include="Builders\Cards\Clunkers\Substitute.cs" />
         <Compile Include="Builders\Cards\Companions\Ampharos.cs"/>
         <Compile Include="Builders\Cards\Companions\Arcanine.cs"/>
         <Compile Include="Builders\Cards\Companions\Corsola.cs"/>

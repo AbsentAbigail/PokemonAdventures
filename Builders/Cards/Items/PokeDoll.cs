@@ -31,7 +31,7 @@ public class PokeDoll : ICardBuilder
                 [
                     Mod.TStack("Consume"),
                 ];
-                
+
                 // Extra Target Constraint because the item has an attack stat
                 card.targetConstraints =
                 [

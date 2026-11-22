@@ -40,7 +40,7 @@ public class CustomStats
 
         __instance.stats =
         [
-            ..__instance.stats,
+            .. __instance.stats,
             .. CustomStatData,
         ];
     }

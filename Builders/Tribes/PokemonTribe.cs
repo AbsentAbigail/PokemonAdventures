@@ -151,7 +151,7 @@ public class PokemonTribe : IClassBuilder
         [
             .. DataList<CardUpgradeData>(
                 [
-                    ..CharmPoolCharms,
+                    .. CharmPoolCharms,
                     "CardUpgradeAcorn",
                     "CardUpgradeSpiky",
                     "CardUpgradeBom",

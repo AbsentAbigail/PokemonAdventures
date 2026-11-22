@@ -9,7 +9,7 @@ internal class StatusEffectInstantAddEnemyWave : StatusEffectInstant
     public BattleWaveManager.WaveData[] DefaultWaves;
     public bool takeNaturalWave = true;
     public int waveCounter = 2;
-    
+
     public override IEnumerator Process()
     {
         var waveBell = FindObjectOfType<WaveDeploySystemOverflow>(false);
@@ -30,7 +30,7 @@ internal class StatusEffectInstantAddEnemyWave : StatusEffectInstant
             }
             wave.counter = waveCounter;
         }
-        
+
         var opponent = Battle.GetOpponent(References.Player);
         foreach (var card in wave.units.Select(cardData => CreateCardCopy(cardData, opponent.reserveContainer, Battle.instance.playerCardController)))
         {
@@ -51,7 +51,7 @@ internal class StatusEffectInstantAddEnemyWave : StatusEffectInstant
     private BattleWaveManager.Wave GetWave()
     {
         var node = Campaign.FindCharacterNode(References.Battle.player);
-        
+
         if (!node.data.TryGetValue("battle", out var obj) || obj is not string assetName)
         {
             return null;
@@ -71,9 +71,7 @@ internal class StatusEffectInstantAddEnemyWave : StatusEffectInstant
         var randomWave = possibleWaves.RandomItem();
         return new BattleWaveManager.Wave
         {
-            counter = waveCounter,
-            isBossWave = false,
-            units = randomWave.units.Select(cardData => cardData.Clone(false)).ToList(),
+            counter = waveCounter, isBossWave = false, units = randomWave.units.Select(cardData => cardData.Clone(false)).ToList(),
         };
     }
 

@@ -34,7 +34,7 @@ public class StatusEffectSubstitute : StatusEffectData
 
         var localisedString = Mod.GetLocalizedString("BreakSubstitute");
         FindObjectOfType<BattleLogSystem>()?.Log(localisedString, BattleLogType.Debuff, BattleLogSystem.GetBattleEntity(target));
-        
+
         const float animationTime = 0.4f;
         card.transform.position = entity.transform.position;
         card.transform.localScale = Vector2.zero;

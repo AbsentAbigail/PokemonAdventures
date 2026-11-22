@@ -7,9 +7,9 @@ namespace PokemonMod.StatusEffectImplementations;
 public class StatusEffectInstantSummonSubstitute : StatusEffectInstantSummon
 {
     public StatusEffectData substituteEffect;
-    
+
     private static CardContainer ReserveContainer => References.Player.reserveContainer;
-    
+
     public override IEnumerator Process()
     {
         if (!target.alive)
@@ -18,10 +18,10 @@ public class StatusEffectInstantSummonSubstitute : StatusEffectInstantSummon
             FindObjectOfType<BattleLogSystem>()?.Log(notEnoughHealthLocalisedString, BattleLogType.Consume, BattleLogSystem.GetBattleEntity(target));
             yield break;
         }
-        
+
         var summonLocalisedString = Mod.GetLocalizedString("SummonSubstitute");
         FindObjectOfType<BattleLogSystem>()?.Log(summonLocalisedString, BattleLogType.Buff, BattleLogSystem.GetBattleEntity(target));
-        
+
         var originalData = targetSummon.summonCard;
         targetSummon.summonCard = CopyDataToSummon();
         var summonTo = target.containers[0];
@@ -43,7 +43,7 @@ public class StatusEffectInstantSummonSubstitute : StatusEffectInstantSummon
         cardData.hasAttack = target.data.hasAttack;
         cardData.damage = target.damage.current;
         cardData.counter = target.counter.max;
-        
+
         cardData.startWithEffects =
         [
             .. CardData.StatusEffectStacks.Stack(
@@ -52,7 +52,7 @@ public class StatusEffectInstantSummonSubstitute : StatusEffectInstantSummon
                     .Where(status => target.traits.All(trait => trait.data.effects.All(traitEffect => traitEffect.name != status.name)))
                     .Where(status => status is not StatusEffectInstant)
                     .Select(status => new CardData.StatusEffectStacks(status, status.count))
-                ),
+            ),
             new CardData.StatusEffectStacks(substituteEffect, 1),
         ];
         cardData.attackEffects =
@@ -63,11 +63,11 @@ public class StatusEffectInstantSummonSubstitute : StatusEffectInstantSummon
         [
             .. target.traits.Select(trait => new CardData.TraitStacks(trait.data, trait.count)),
         ];
-        
+
         cardData.SetCustomData("substitute", target.data.id);
         return cardData;
     }
-    
+
     private IEnumerator MoveToReserveSequence()
     {
         target.flipper.FlipDown();

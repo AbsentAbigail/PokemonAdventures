@@ -17,6 +17,6 @@ public class Substitute : IStatusBuilder
             .WithStackable(false)
             .WithCanBeBoosted(false);
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

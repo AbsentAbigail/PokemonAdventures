@@ -15,9 +15,9 @@ public class InstantSummonSubstitute : IStatusBuilder
         return new StatusEffectDataBuilder(Mod.Instance)
             .Create<StatusEffectInstantSummonSubstitute>(Name)
             .WithText($"""
-                      Replace a Pokemon with a {Mod.CardTag(Cards.Clunkers.Substitute.Name)} that copies its <keyword=attack>, <keyword=counter>, and effects
-                      When it is destroyed, the Pokemon returns to the field
-                      """)
+                       Replace a Pokemon with a {Mod.CardTag(Cards.Clunkers.Substitute.Name)} that copies its <keyword=attack>, <keyword=counter>, and effects
+                       When it is destroyed, the Pokemon returns to the field
+                       """)
             .WithStackable(false)
             .WithCanBeBoosted(false)
             .SubscribeToAfterAllBuildEvent<StatusEffectInstantSummonSubstitute>(status =>
@@ -31,6 +31,6 @@ public class InstantSummonSubstitute : IStatusBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

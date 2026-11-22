@@ -559,6 +559,7 @@
         <Compile Include="Builders\Cards\Items\SalacBerry.cs"/>
         <Compile Include="Builders\Cards\Items\SitrusBerry.cs"/>
         <Compile Include="Builders\Cards\Items\SpelonBerry.cs"/>
+        <Compile Include="Builders\Cards\Items\PokeDoll.cs" />
         <Compile Include="Builders\Cards\Items\ToxicOrb.cs"/>
         <Compile Include="Builders\Cards\Items\AuxPowerguard.cs"/>
         <Compile Include="Builders\Cards\LeaderPokemon\Bayleaf.cs"/>
@@ -706,6 +707,7 @@
         <Compile Include="Builders\StatusEffects\InstantMultipleShroomParalysisSleep.cs"/>
         <Compile Include="Builders\StatusEffects\InstantRedraw.cs"/>
         <Compile Include="Builders\StatusEffects\InstantSummonDummyToHand.cs"/>
+        <Compile Include="Builders\StatusEffects\InstantSummonSubstitute.cs" />
         <Compile Include="Builders\StatusEffects\InstantSwapAttackAndCounter.cs"/>
         <Compile Include="Builders\StatusEffects\InstantSwapAttackAndCounterPlus.cs"/>
         <Compile Include="Builders\StatusEffects\InstantTransferScrap.cs"/>
@@ -759,7 +761,9 @@
         <Compile Include="Builders\StatusEffects\RetainAtLeastShroom.cs"/>
         <Compile Include="Builders\StatusEffects\RetaliateSoulbound.cs"/>
         <Compile Include="Builders\StatusEffects\ShroomResist.cs"/>
+        <Compile Include="Builders\StatusEffects\Substitute.cs" />
         <Compile Include="Builders\StatusEffects\SummonPokeball.cs"/>
+        <Compile Include="Builders\StatusEffects\SummonSubstitute.cs" />
         <Compile Include="Builders\StatusEffects\TakeHealthText.cs"/>
         <Compile Include="Builders\StatusEffects\WhenAllyHitGainEqualSpice.cs"/>
         <Compile Include="Builders\StatusEffects\WhenAnyoneParalysedDoubleAmount.cs"/>
@@ -979,6 +983,7 @@
         <Compile Include="StatusEffectImplementations\StatusEffectInstantCountUpStatus.cs"/>
         <Compile Include="StatusEffectImplementations\StatusEffectInstantDownload.cs"/>
         <Compile Include="StatusEffectImplementations\StatusEffectInstantMoveToHand.cs"/>
+        <Compile Include="StatusEffectImplementations\StatusEffectInstantSummonSubstitute.cs" />
         <Compile Include="StatusEffectImplementations\StatusEffectInstantTransferStatus.cs"/>
         <Compile Include="StatusEffectImplementations\StatusEffectLoseHealthWhenPlayed.cs"/>
         <Compile Include="StatusEffectImplementations\StatusEffectLumBerry.cs"/>
@@ -1015,6 +1020,7 @@
         <Compile Include="StatusEffectImplementations\StatusEffectRetainAtLeast.cs"/>
         <Compile Include="StatusEffectImplementations\StatusEffectRetaliateSoulbound.cs"/>
         <Compile Include="StatusEffectImplementations\StatusEffectStanceChange.cs"/>
+        <Compile Include="StatusEffectImplementations\StatusEffectSubstitute.cs" />
         <Compile Include="StatusEffectImplementations\StatusEffectTriggerWhenCardIsPlayed.cs"/>
         <Compile Include="StatusEffectImplementations\StatusEffectWhileActiveXUpdateWhenMoved.cs"/>
         <Compile Include="StatusEffectImplementations\StatusEffectApplyXWhenAllyAttacks.cs"/>

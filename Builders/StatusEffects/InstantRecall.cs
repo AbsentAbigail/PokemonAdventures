@@ -9,8 +9,6 @@ namespace PokemonMod.Builders.StatusEffects;
 [UsedImplicitly]
 public class InstantRecall : IStatusBuilder
 {
-    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
-
     public DataFileBuilder<StatusEffectData, StatusEffectDataBuilder> Builder()
     {
         return new StatusEffectDataBuilder(Mod.Instance)
@@ -19,4 +17,6 @@ public class InstantRecall : IStatusBuilder
             .WithStackable(false)
             .WithCanBeBoosted(false);
     }
+    
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

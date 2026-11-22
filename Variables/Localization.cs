@@ -47,5 +47,8 @@ public static class Localization
         uiText.SetString("ConstrictedFreed", "{0} freed itself of Constrict!");
 
         uiText.SetString("CharmReward", "You may take a charm as your reward for winning this fight!");
+        uiText.SetString("SummonSubstitute", "{0} hid behind a substitute!");
+        uiText.SetString("BreakSubstitute", "{0}'s substitute broke!");
+        uiText.SetString("NotEnoughHealthSubstitute", "{0} did not have enough health to make a substitute");
     }
 }

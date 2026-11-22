@@ -19,7 +19,7 @@ public class Delibird : ICardBuilder
             .SetStats(5, 2, 3)
             .SetSprites(
                 Mod.GetSprite("Delibird"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Suburban))
+                Mod.GetBackgroundSprite(BackgroundSprites.Winter))
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.startWithEffects =

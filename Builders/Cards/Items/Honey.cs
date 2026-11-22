@@ -19,7 +19,7 @@ public class Honey : ICardBuilder
             .NeedsTarget(false)
             .SetSprites(
                 Mod.GetSprite("Honey"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Pokeball))
+                Mod.GetBackgroundSprite(BackgroundSprites.Garden))
             .WithValue(50)
             .InItemPool()
             .SubscribeToAfterAllBuildEvent(card =>

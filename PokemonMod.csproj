@@ -537,6 +537,7 @@
         <Compile Include="Builders\Cards\Items\BulletPunch.cs"/>
         <Compile Include="Builders\Cards\Items\Curry.cs"/>
         <Compile Include="Builders\Cards\Items\DarkBell.cs"/>
+        <Compile Include="Builders\Cards\Items\FlameOrb.cs" />
         <Compile Include="Builders\Cards\Items\GanlonBerry.cs"/>
         <Compile Include="Builders\Cards\Items\GoldenPresent.cs"/>
         <Compile Include="Builders\Cards\Items\Honey.cs" />
@@ -553,6 +554,7 @@
         <Compile Include="Builders\Cards\Items\Potion.cs"/>
         <Compile Include="Builders\Cards\Items\RareCandy.cs"/>
         <Compile Include="Builders\Cards\Items\Recycle.cs"/>
+        <Compile Include="Builders\Cards\Items\Repel.cs" />
         <Compile Include="Builders\Cards\Items\RockyHelmet.cs"/>
         <Compile Include="Builders\Cards\Items\SalacBerry.cs"/>
         <Compile Include="Builders\Cards\Items\SitrusBerry.cs"/>

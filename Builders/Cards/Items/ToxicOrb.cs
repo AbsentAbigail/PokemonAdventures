@@ -16,7 +16,6 @@ public class ToxicOrb : ICardBuilder
         return new CardDataBuilder(Mod.Instance)
             .CreateItem(Name, "Toxic Orb")
             .SetDamage(0)
-            .CanPlayOnHand()
             .SetSprites(
                 Mod.GetSprite("ToxicOrb"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Pollution))

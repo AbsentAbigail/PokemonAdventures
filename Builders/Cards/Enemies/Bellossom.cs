@@ -19,7 +19,7 @@ public class Bellossom : ICardBuilder
             .SetStats(8, 4, 3)
             .SetSprites(
                 Mod.GetSprite("Bellossom"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Garden))
+                Mod.GetBackgroundSprite(BackgroundSprites.FlowerPark))
             .DropsBling(8)
             .SubscribeToAfterAllBuildEvent(card =>
             {

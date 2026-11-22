@@ -16,7 +16,7 @@ public class Seadra : ICardBuilder
         return new CardDataBuilder(Mod.Instance)
             .CreateUnit(Name, "Seadra")
             .WithCardType("Enemy")
-            .SetStats(5, 2, 4)
+            .SetStats(6, 2, 4)
             .SetSprites(
                 Mod.GetSprite("Seadra"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Ocean))

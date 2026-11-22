@@ -19,7 +19,7 @@ public class SafariZone : ICardBuilder
             .SetStats(null, null, 4)
             .SetSprites(
                 Mod.GetSprite("SafariZone"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Bog))
+                Mod.GetBackgroundSprite(BackgroundSprites.Sunny))
             .DropsBling(35)
             .InItemPool()
             .SubscribeToAfterAllBuildEvent(card =>

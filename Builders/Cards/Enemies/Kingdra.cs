@@ -16,7 +16,7 @@ public class Kingdra : ICardBuilder
         return new CardDataBuilder(Mod.Instance)
             .CreateUnit(Name, "Kingdra")
             .WithCardType("Enemy")
-            .SetStats(5, 2, 4)
+            .SetStats(7, 2, 4)
             .SetSprites(
                 Mod.GetSprite("Kingdra"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Ocean))

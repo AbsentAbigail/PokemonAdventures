@@ -21,7 +21,7 @@ public class Sunkern : ICardBuilder
                 Mod.GetSprite("Sunkern"),
                 Mod.GetBackgroundSprite(BackgroundSprites.Garden))
             .DropsBling(3)
-            .WithText("I don't evolve yet :(")
+            .EvolvesInto(Sunflora.Name)
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.attackEffects =

@@ -31,7 +31,6 @@ public class Repel : ICardBuilder
                 card.traits =
                 [
                     Mod.TStack("Zoomlin"),
-                    Mod.TStack("Consume"),
                 ];
             });
     }

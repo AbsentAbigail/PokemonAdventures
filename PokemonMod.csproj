@@ -501,6 +501,7 @@
         <Compile Include="Builders\Cards\Enemies\Spinarak.cs"/>
         <Compile Include="Builders\Cards\Enemies\Starmie.cs"/>
         <Compile Include="Builders\Cards\Enemies\Steelix.cs"/>
+        <Compile Include="Builders\Cards\Enemies\Sunflora.cs" />
         <Compile Include="Builders\Cards\Enemies\Sunkern.cs"/>
         <Compile Include="Builders\Cards\Enemies\TrainerBiker.cs"/>
         <Compile Include="Builders\Cards\Enemies\TrainerBugCatcher.cs"/>
@@ -797,6 +798,7 @@
         <Compile Include="Builders\StatusEffects\WhenHitByElectricGainShell.cs"/>
         <Compile Include="Builders\StatusEffects\WhenHitCastSandstorm.cs"/>
         <Compile Include="Builders\StatusEffects\WhenHitGainShellEqualToSandstorm.cs"/>
+        <Compile Include="Builders\StatusEffects\WhenRainPlayedTakeHealthFromEnemiesInRow.cs" />
         <Compile Include="Builders\StatusEffects\WhenRainPlayedTrigger.cs"/>
         <Compile Include="Builders\StatusEffects\WhenSandstormPlayedCountDownAlliedPokemon.cs"/>
         <Compile Include="Builders\StatusEffects\WhenSandstormPlayedReduceCounter.cs"/>

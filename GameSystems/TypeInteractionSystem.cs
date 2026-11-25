@@ -89,8 +89,11 @@ public class TypeInteractionSystem : GameSystem
                 damageModifier += modifier;
             }
         }
-
-        hit.damage += damageModifier;
+        
+        if (damageModifier > 0)
+        {
+            hit.damage += damageModifier;
+        }
 
         if (isSupereffective)
         {

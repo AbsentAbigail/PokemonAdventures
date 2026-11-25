@@ -24,7 +24,20 @@ internal static class Mod
 
     public static Sprite GetCharmSprite(string spriteName)
     {
-        return GetSprite(spriteName, Pokemon.CharmSpriteAtlas, "Charms/");
+        var sprite = Pokemon.CharmSpriteAtlas?.GetSprite(spriteName);
+        if (sprite != null)
+        {
+            return sprite;
+        }
+
+        var path = Pokemon.Instance.ImagePath($"Charms/{spriteName}.png");
+        if (!File.Exists(path))
+        {
+            return null;
+        }
+        var texture = path.ToTex();
+        return Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height),
+            new Vector2(0.5f, 0.5f), 160, 0U, SpriteMeshType.FullRect);
     }
 
     public static Sprite GetSprite(string spriteName)

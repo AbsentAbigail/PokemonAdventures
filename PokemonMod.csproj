@@ -548,6 +548,7 @@
         <Compile Include="Builders\Cards\Items\KasibBerry.cs"/>
         <Compile Include="Builders\Cards\Items\LeppaBerry.cs"/>
         <Compile Include="Builders\Cards\Items\LiechiBerry.cs"/>
+        <Compile Include="Builders\Cards\Items\LifeOrb.cs"/>
         <Compile Include="Builders\Cards\Items\LumBerry.cs"/>
         <Compile Include="Builders\Cards\Items\MudBall.cs"/>
         <Compile Include="Builders\Cards\Items\OranBerry.cs"/>
@@ -559,6 +560,7 @@
         <Compile Include="Builders\Cards\Items\Repel.cs"/>
         <Compile Include="Builders\Cards\Items\RockyHelmet.cs"/>
         <Compile Include="Builders\Cards\Items\SalacBerry.cs"/>
+        <Compile Include="Builders\Cards\Items\ShellBell.cs"/>
         <Compile Include="Builders\Cards\Items\SitrusBerry.cs"/>
         <Compile Include="Builders\Cards\Items\SpelonBerry.cs"/>
         <Compile Include="Builders\Cards\Items\PokeDoll.cs"/>
@@ -676,6 +678,8 @@
         <Compile Include="Builders\StatusEffects\InstantApplyGanlonBerry.cs"/>
         <Compile Include="Builders\StatusEffects\InstantApplyKasibBerry.cs"/>
         <Compile Include="Builders\StatusEffects\InstantApplyLiechiBerry.cs"/>
+        <Compile Include="Builders\StatusEffects\InstantApplyOnCardPlayedHealSelf.cs"/>
+        <Compile Include="Builders\StatusEffects\InstantApplyOnCardPlayedDamageSelf.cs"/>
         <Compile Include="Builders\StatusEffects\InstantApplyParalysis.cs"/>
         <Compile Include="Builders\StatusEffects\InstantApplyParalysisEqualToDebuffs.cs"/>
         <Compile Include="Builders\StatusEffects\InstantApplyParalysisToEnemies.cs"/>

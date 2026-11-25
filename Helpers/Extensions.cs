@@ -58,7 +58,7 @@ public static class Extensions
                 {
                     card.traits =
                     [
-                        ..card.traits,
+                        .. card.traits,
                         Mod.TStack("Consume"),
                         Mod.TStack(Berry.Name),
                     ];

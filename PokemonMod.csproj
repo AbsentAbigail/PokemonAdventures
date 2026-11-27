@@ -502,7 +502,7 @@
         <Compile Include="Builders\Cards\Enemies\Spinarak.cs"/>
         <Compile Include="Builders\Cards\Enemies\Starmie.cs"/>
         <Compile Include="Builders\Cards\Enemies\Steelix.cs"/>
-        <Compile Include="Builders\Cards\Enemies\Sunflora.cs" />
+        <Compile Include="Builders\Cards\Enemies\Sunflora.cs"/>
         <Compile Include="Builders\Cards\Enemies\Sunkern.cs"/>
         <Compile Include="Builders\Cards\Enemies\TrainerBiker.cs"/>
         <Compile Include="Builders\Cards\Enemies\TrainerBugCatcher.cs"/>
@@ -676,7 +676,7 @@
         <Compile Include="Builders\StatusEffects\InstantApplyApicotBerry.cs"/>
         <Compile Include="Builders\StatusEffects\InstantApplyBadlyShroomed.cs"/>
         <Compile Include="Builders\StatusEffects\InstantApplyConstrict.cs"/>
-        <Compile Include="Builders\StatusEffects\InstantApplyFrenzy.cs" />
+        <Compile Include="Builders\StatusEffects\InstantApplyFrenzy.cs"/>
         <Compile Include="Builders\StatusEffects\InstantApplyGanlonBerry.cs"/>
         <Compile Include="Builders\StatusEffects\InstantApplyKasibBerry.cs"/>
         <Compile Include="Builders\StatusEffects\InstantApplyLiechiBerry.cs"/>
@@ -710,7 +710,7 @@
         <Compile Include="Builders\StatusEffects\InstantIncreaseOwnEffectsBy1.cs"/>
         <Compile Include="Builders\StatusEffects\InstantMoveToHand.cs"/>
         <Compile Include="Builders\StatusEffects\InstantMultipleConstrictAndCleanseApplier.cs"/>
-        <Compile Include="Builders\StatusEffects\InstantMultipleIncreaseCounterFrenzy.cs" />
+        <Compile Include="Builders\StatusEffects\InstantMultipleIncreaseCounterFrenzy.cs"/>
         <Compile Include="Builders\StatusEffects\InstantMultipleParalysisToEnemiesAndIncreaseOwnEffects.cs"/>
         <Compile Include="Builders\StatusEffects\InstantMultipleShroomParalysis.cs"/>
         <Compile Include="Builders\StatusEffects\InstantMultipleShroomParalysisSleep.cs"/>
@@ -737,7 +737,7 @@
         <Compile Include="Builders\StatusEffects\OnCardPlayedApplySnowToRandomNonIceAllyAndEnemy.cs"/>
         <Compile Include="Builders\StatusEffects\OnCardPlayedCleanseElectricAllies.cs"/>
         <Compile Include="Builders\StatusEffects\OnCardPlayedConsumeBerriesInHand.cs"/>
-        <Compile Include="Builders\StatusEffects\OnCardPlayedCountDownElectricAndSteelPokemon.cs" />
+        <Compile Include="Builders\StatusEffects\OnCardPlayedCountDownElectricAndSteelPokemon.cs"/>
         <Compile Include="Builders\StatusEffects\OnCardPlayedCountDownGrassAndBugPokemon.cs"/>
         <Compile Include="Builders\StatusEffects\OnCardPlayedCountDownWavebell.cs"/>
         <Compile Include="Builders\StatusEffects\OnCardPlayedDrawForSleepingAlliesAndEnemies.cs"/>
@@ -791,7 +791,7 @@
         <Compile Include="Builders\StatusEffects\WhenDeployedDownloadFrontEnemy.cs"/>
         <Compile Include="Builders\StatusEffects\WhenDeployedDraw.cs"/>
         <Compile Include="Builders\StatusEffects\WhenDeployedIncreaseOwnStatuses.cs"/>
-        <Compile Include="Builders\StatusEffects\WhenDestroyedIncreaseCounterAndFrenzyOfElectricAndSteel.cs" />
+        <Compile Include="Builders\StatusEffects\WhenDestroyedIncreaseCounterAndFrenzyOfElectricAndSteel.cs"/>
         <Compile Include="Builders\StatusEffects\WhenDestroyedCountAsSacrifice.cs"/>
         <Compile Include="Builders\StatusEffects\WhenDragonWaterGhostSteelRecalledMoveThemToHand.cs"/>
         <Compile Include="Builders\StatusEffects\WhenEatingBerryRestoreOwnHealth.cs"/>
@@ -807,7 +807,7 @@
         <Compile Include="Builders\StatusEffects\WhenHitByElectricGainShell.cs"/>
         <Compile Include="Builders\StatusEffects\WhenHitCastSandstorm.cs"/>
         <Compile Include="Builders\StatusEffects\WhenHitGainShellEqualToSandstorm.cs"/>
-        <Compile Include="Builders\StatusEffects\WhenRainPlayedTakeHealthFromEnemiesInRow.cs" />
+        <Compile Include="Builders\StatusEffects\WhenRainPlayedTakeHealthFromEnemiesInRow.cs"/>
         <Compile Include="Builders\StatusEffects\WhenRainPlayedTrigger.cs"/>
         <Compile Include="Builders\StatusEffects\WhenSandstormPlayedCountDownAlliedPokemon.cs"/>
         <Compile Include="Builders\StatusEffects\WhenSandstormPlayedReduceCounter.cs"/>

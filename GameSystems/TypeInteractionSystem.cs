@@ -89,7 +89,7 @@ public class TypeInteractionSystem : GameSystem
                 damageModifier += modifier;
             }
         }
-        
+
         if (damageModifier > 0)
         {
             hit.damage += damageModifier;

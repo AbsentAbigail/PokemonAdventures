@@ -9,7 +9,7 @@ public class StatusEffectInstantSummonSubstitute : StatusEffectInstantSummon
     public StatusEffectData substituteEffect;
 
     private static CardContainer ReserveContainer => References.Player.reserveContainer;
-    
+
     private static bool _inUse;
 
     public override IEnumerator Process()

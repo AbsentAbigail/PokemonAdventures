@@ -14,7 +14,8 @@ public class WhenDestroyedIncreaseCounterAndFrenzyOfElectricAndSteel : IStatusBu
     {
         return new StatusEffectDataBuilder(Mod.Instance)
             .Create<StatusEffectApplyXWhenDestroyed>(Name)
-            .WithText($"When destroyed, increase <keyword=counter> and <keyword=frenzy> of <sprite name={Types.Electric.Keyword()}> and <sprite name={Types.Steel.Keyword()}> by <{{a}}>")
+            .WithText(
+                $"When destroyed, increase <keyword=counter> and <keyword=frenzy> of <sprite name={Types.Electric.Keyword()}> and <sprite name={Types.Steel.Keyword()}> by <{{a}}>")
             .WithStackable(true)
             .WithCanBeBoosted(true)
             .SubscribeToAfterAllBuildEvent<StatusEffectApplyXWhenDestroyed>(status =>

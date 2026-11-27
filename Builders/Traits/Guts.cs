@@ -19,6 +19,6 @@ public class Guts : ITraitBuilder
                 trait.keyword = Mod.GetKeyword(Keywords.Guts.Name);
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -17,6 +17,6 @@ public class Berry : ITraitBuilder
                 trait.keyword = Mod.GetKeyword(Keywords.Berry.Name);
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

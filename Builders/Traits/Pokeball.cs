@@ -23,6 +23,6 @@ public class Pokeball : ITraitBuilder
                 ];
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

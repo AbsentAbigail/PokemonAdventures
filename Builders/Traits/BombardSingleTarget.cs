@@ -18,6 +18,6 @@ public class BombardSingleTarget : ITraitBuilder
                 trait.keyword = Mod.GetKeyword("bombard");
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -18,6 +18,6 @@ public class LeechSeed : ITraitBuilder
                 trait.keyword = Mod.GetKeyword(Keywords.LeechSeed.Name);
             });
     }
-    
+
     public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

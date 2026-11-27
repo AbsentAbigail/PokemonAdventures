@@ -2,8 +2,6 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
-using PokemonMod.Builders.Keywords;
-using PokemonMod.Builders.StatusEffects;
 using PokemonMod.Helpers;
 
 namespace PokemonMod.Builders.Upgrades;

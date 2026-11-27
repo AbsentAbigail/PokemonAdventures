@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using HarmonyLib;
 using PokemonMod.Helpers;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Localization;
-using Object = UnityEngine.Object;
 
 namespace PokemonMod.GameSystems;
 

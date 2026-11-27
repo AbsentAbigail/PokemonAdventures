@@ -2,9 +2,9 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
-using PokemonMod.Builders.Keywords;
 using PokemonMod.Builders.StatusEffects;
 using PokemonMod.Helpers;
+using Paralysis = PokemonMod.Builders.Keywords.Paralysis;
 
 namespace PokemonMod.Builders.Upgrades;
 
@@ -18,7 +18,7 @@ public class CardUpgradeLick : IUpgradeBuilder
             .WithType(CardUpgradeData.Type.Charm)
             .WithImage(Mod.GetCharmSprite("Lick"))
             .WithTitle("TM - Lick")
-            .WithText($"Apply {Mod.KeywordTag(Keywords.Paralysis.Name)} equal target's debuffs")
+            .WithText($"Apply {Mod.KeywordTag(Paralysis.Name)} equal target's debuffs")
             .InCharmPool()
             .SubscribeToAfterAllBuildEvent(charm =>
             {

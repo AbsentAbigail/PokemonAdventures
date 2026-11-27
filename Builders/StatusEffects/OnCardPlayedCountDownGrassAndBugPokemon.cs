@@ -4,7 +4,6 @@ using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 using PokemonMod.Variables;
-using Berry = PokemonMod.Builders.Keywords.Berry;
 
 namespace PokemonMod.Builders.StatusEffects;
 

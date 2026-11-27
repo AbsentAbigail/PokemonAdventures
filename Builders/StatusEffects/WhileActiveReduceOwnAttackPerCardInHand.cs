@@ -5,7 +5,6 @@ using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
 using PokemonMod.Scriptables.ScriptableAmounts;
 using PokemonMod.StatusEffectImplementations;
-using PokemonMod.Variables;
 
 namespace PokemonMod.Builders.StatusEffects;
 

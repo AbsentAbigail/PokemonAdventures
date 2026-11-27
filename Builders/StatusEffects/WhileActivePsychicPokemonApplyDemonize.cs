@@ -3,7 +3,6 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
 using PokemonMod.Helpers;
-using PokemonMod.Scriptables.TargetConstraints;
 using PokemonMod.Variables;
 
 namespace PokemonMod.Builders.StatusEffects;

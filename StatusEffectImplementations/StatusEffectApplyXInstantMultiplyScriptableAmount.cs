@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Linq;
-
-namespace PokemonMod.StatusEffectImplementations;
+﻿namespace PokemonMod.StatusEffectImplementations;
 
 internal class StatusEffectApplyXInstantMultiplyScriptableAmount : StatusEffectApplyXInstant
 {

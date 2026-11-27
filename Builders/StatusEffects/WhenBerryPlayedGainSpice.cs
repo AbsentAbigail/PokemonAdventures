@@ -2,7 +2,7 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
-using PokemonMod.Builders.Keywords;
+using PokemonMod.Builders.Traits;
 using PokemonMod.Helpers;
 using PokemonMod.StatusEffectImplementations;
 
@@ -23,7 +23,7 @@ public class WhenBerryPlayedGainSpice : IStatusBuilder
                 status.applyToFlags = StatusEffectApplyX.ApplyToFlags.Self;
                 status.cardConstraints =
                 [
-                    TargetConstraintHelper.HasTrait(Traits.Berry.Name),
+                    TargetConstraintHelper.HasTrait(Berry.Name),
                 ];
                 status.onlyAllied = false;
             });

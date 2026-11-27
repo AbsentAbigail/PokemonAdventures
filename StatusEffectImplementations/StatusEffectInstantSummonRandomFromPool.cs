@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using PokemonMod.Helpers;
 using Extensions = Deadpan.Enums.Engine.Components.Modding.Extensions;
 
 namespace PokemonMod.StatusEffectImplementations;

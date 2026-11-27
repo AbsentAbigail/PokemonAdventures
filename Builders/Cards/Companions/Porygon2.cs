@@ -2,7 +2,6 @@ using Deadpan.Enums.Engine.Components.Modding;
 using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
-using PokemonMod.Builders.StatusEffects;
 using PokemonMod.Builders.Traits;
 using PokemonMod.Helpers;
 using PokemonMod.Variables;

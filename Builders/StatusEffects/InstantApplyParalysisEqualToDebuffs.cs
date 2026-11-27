@@ -2,7 +2,6 @@
 using HarmonyLib;
 using JetBrains.Annotations;
 using PokemonMod.Builders.Interfaces;
-using PokemonMod.Builders.Traits;
 using PokemonMod.Helpers;
 using PokemonMod.Scriptables.ScriptableAmounts;
 

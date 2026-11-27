@@ -19,7 +19,8 @@ public static class Battles
         ErikaGym.AddBattle();
 
         // Fight 4
-        BikerFight.AddBattle();
+        // BikerFight.AddBattle();
+        PunkCoupleFight.AddBattle();
 
         // Fight 5
 

@@ -9,6 +9,8 @@ public class StatusEffectInstantSummonSubstitute : StatusEffectInstantSummon
     public StatusEffectData substituteEffect;
 
     private static CardContainer ReserveContainer => References.Player.reserveContainer;
+    
+    private static bool _inUse;
 
     public override IEnumerator Process()
     {
@@ -18,6 +20,12 @@ public class StatusEffectInstantSummonSubstitute : StatusEffectInstantSummon
             FindObjectOfType<BattleLogSystem>()?.Log(notEnoughHealthLocalisedString, BattleLogType.Consume, BattleLogSystem.GetBattleEntity(target));
             yield break;
         }
+
+        while (_inUse)
+        {
+            yield return null;
+        }
+        _inUse = true;
 
         var summonLocalisedString = Mod.GetLocalizedString("SummonSubstitute");
         FindObjectOfType<BattleLogSystem>()?.Log(summonLocalisedString, BattleLogType.Buff, BattleLogSystem.GetBattleEntity(target));
@@ -33,6 +41,7 @@ public class StatusEffectInstantSummonSubstitute : StatusEffectInstantSummon
         yield return TrySummon(summonTo, controller, target);
 
         targetSummon.summonCard = originalData;
+        _inUse = false;
         yield return Remove();
     }
 

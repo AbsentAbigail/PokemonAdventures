@@ -9,8 +9,6 @@ namespace PokemonMod.Builders.Traits;
 [UsedImplicitly]
 public class Guts : ITraitBuilder
 {
-    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
-
     public DataFileBuilder<TraitData, TraitDataBuilder> Builder()
     {
         return new TraitDataBuilder(Mod.Instance)
@@ -21,4 +19,6 @@ public class Guts : ITraitBuilder
                 trait.keyword = Mod.GetKeyword(Keywords.Guts.Name);
             });
     }
+    
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -10,8 +10,6 @@ namespace PokemonMod.Builders.Traits;
 [UsedImplicitly]
 public class TagTeamEeveeAndEevee : ITraitBuilder
 {
-    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
-
     public DataFileBuilder<TraitData, TraitDataBuilder> Builder()
     {
         return new TraitDataBuilder(Mod.Instance)
@@ -25,4 +23,6 @@ public class TagTeamEeveeAndEevee : ITraitBuilder
                 ];
             });
     }
+    
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

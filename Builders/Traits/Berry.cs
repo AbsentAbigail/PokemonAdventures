@@ -8,8 +8,6 @@ namespace PokemonMod.Builders.Traits;
 [UsedImplicitly]
 public class Berry : ITraitBuilder
 {
-    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
-
     public DataFileBuilder<TraitData, TraitDataBuilder> Builder()
     {
         return new TraitDataBuilder(Mod.Instance)
@@ -19,4 +17,6 @@ public class Berry : ITraitBuilder
                 trait.keyword = Mod.GetKeyword(Keywords.Berry.Name);
             });
     }
+    
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

@@ -9,8 +9,6 @@ namespace PokemonMod.Builders.Traits;
 [UsedImplicitly]
 public class LeafGuard : ITraitBuilder
 {
-    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
-
     public DataFileBuilder<TraitData, TraitDataBuilder> Builder()
     {
         return new TraitDataBuilder(Mod.Instance)
@@ -21,4 +19,6 @@ public class LeafGuard : ITraitBuilder
                 trait.keyword = Mod.GetKeyword(Keywords.LeafGuard.Name);
             });
     }
+    
+    public static string Name { get; } = AccessTools.GetOutsideCaller().DeclaringType!.Name;
 }

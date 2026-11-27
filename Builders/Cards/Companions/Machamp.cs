@@ -18,7 +18,7 @@ public class Machamp : ICardBuilder
             .SetStats(8, 2, 5)
             .SetSprites(
                 Mod.GetSprite("Machamp"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Gym))
+                Mod.GetBackgroundSprite(BackgroundSprites.Battlefield))
             .DropsBling(4)
             .SubscribeToAfterAllBuildEvent(card =>
             {

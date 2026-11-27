@@ -18,7 +18,7 @@ public class Machop : ICardBuilder
             .SetStats(4, 1, 5)
             .SetSprites(
                 Mod.GetSprite("Machop"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Gym))
+                Mod.GetBackgroundSprite(BackgroundSprites.Battlefield))
             .DropsBling(4)
             .InUnitPool()
             .EvolvesInto(Machoke.Name)

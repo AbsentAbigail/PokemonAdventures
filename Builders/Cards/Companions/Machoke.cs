@@ -18,7 +18,7 @@ public class Machoke : ICardBuilder
             .SetStats(6, 2, 5)
             .SetSprites(
                 Mod.GetSprite("Machoke"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Gym))
+                Mod.GetBackgroundSprite(BackgroundSprites.Battlefield))
             .DropsBling(4)
             .EvolvesInto(Machamp.Name)
             .SubscribeToAfterAllBuildEvent(card =>

@@ -394,6 +394,7 @@
         <Compile Include="Battles\MistyGym.cs"/>
         <Compile Include="Battles\YoungsterFight.cs"/>
         <Compile Include="Builders\Cards\Clunkers\BerryBush.cs"/>
+        <Compile Include="Builders\Cards\Clunkers\ChargestoneCave.cs"/>
         <Compile Include="Builders\Cards\Clunkers\EternaForest.cs"/>
         <Compile Include="Builders\Cards\Clunkers\LakeOfRage.cs"/>
         <Compile Include="Builders\Cards\Clunkers\MtMoon.cs"/>
@@ -675,6 +676,7 @@
         <Compile Include="Builders\StatusEffects\InstantApplyApicotBerry.cs"/>
         <Compile Include="Builders\StatusEffects\InstantApplyBadlyShroomed.cs"/>
         <Compile Include="Builders\StatusEffects\InstantApplyConstrict.cs"/>
+        <Compile Include="Builders\StatusEffects\InstantApplyFrenzy.cs" />
         <Compile Include="Builders\StatusEffects\InstantApplyGanlonBerry.cs"/>
         <Compile Include="Builders\StatusEffects\InstantApplyKasibBerry.cs"/>
         <Compile Include="Builders\StatusEffects\InstantApplyLiechiBerry.cs"/>
@@ -708,6 +710,7 @@
         <Compile Include="Builders\StatusEffects\InstantIncreaseOwnEffectsBy1.cs"/>
         <Compile Include="Builders\StatusEffects\InstantMoveToHand.cs"/>
         <Compile Include="Builders\StatusEffects\InstantMultipleConstrictAndCleanseApplier.cs"/>
+        <Compile Include="Builders\StatusEffects\InstantMultipleIncreaseCounterFrenzy.cs" />
         <Compile Include="Builders\StatusEffects\InstantMultipleParalysisToEnemiesAndIncreaseOwnEffects.cs"/>
         <Compile Include="Builders\StatusEffects\InstantMultipleShroomParalysis.cs"/>
         <Compile Include="Builders\StatusEffects\InstantMultipleShroomParalysisSleep.cs"/>
@@ -734,6 +737,7 @@
         <Compile Include="Builders\StatusEffects\OnCardPlayedApplySnowToRandomNonIceAllyAndEnemy.cs"/>
         <Compile Include="Builders\StatusEffects\OnCardPlayedCleanseElectricAllies.cs"/>
         <Compile Include="Builders\StatusEffects\OnCardPlayedConsumeBerriesInHand.cs"/>
+        <Compile Include="Builders\StatusEffects\OnCardPlayedCountDownElectricAndSteelPokemon.cs" />
         <Compile Include="Builders\StatusEffects\OnCardPlayedCountDownGrassAndBugPokemon.cs"/>
         <Compile Include="Builders\StatusEffects\OnCardPlayedCountDownWavebell.cs"/>
         <Compile Include="Builders\StatusEffects\OnCardPlayedDrawForSleepingAlliesAndEnemies.cs"/>
@@ -787,6 +791,7 @@
         <Compile Include="Builders\StatusEffects\WhenDeployedDownloadFrontEnemy.cs"/>
         <Compile Include="Builders\StatusEffects\WhenDeployedDraw.cs"/>
         <Compile Include="Builders\StatusEffects\WhenDeployedIncreaseOwnStatuses.cs"/>
+        <Compile Include="Builders\StatusEffects\WhenDestroyedIncreaseCounterAndFrenzyOfElectricAndSteel.cs" />
         <Compile Include="Builders\StatusEffects\WhenDestroyedCountAsSacrifice.cs"/>
         <Compile Include="Builders\StatusEffects\WhenDragonWaterGhostSteelRecalledMoveThemToHand.cs"/>
         <Compile Include="Builders\StatusEffects\WhenEatingBerryRestoreOwnHealth.cs"/>

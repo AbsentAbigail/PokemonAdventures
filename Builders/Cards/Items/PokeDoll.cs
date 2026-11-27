@@ -17,8 +17,8 @@ public class PokeDoll : ICardBuilder
             .CreateItem(Name, "PokeDoll")
             .SetDamage(3)
             .SetSprites(
-                Mod.GetSprite("PokeDoll"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Pokeball))
+                Mod.GetSprite("ClefairyDoll"),
+                Mod.GetBackgroundSprite(BackgroundSprites.Lorelei))
             .WithValue(50)
             .InItemPool()
             .SubscribeToAfterAllBuildEvent(card =>

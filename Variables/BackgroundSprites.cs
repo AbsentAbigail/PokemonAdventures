@@ -8,7 +8,6 @@ public static class BackgroundSprites
     public const string Garden = "Garden";
     public const string River = "River";
     public const string Volcanic = "Volcanic";
-    public const string Gym = "Gym";
     public const string Surge = "Surge";
     public const string Ocean = "Ocean";
     public const string Bog = "Bog";
@@ -25,4 +24,5 @@ public static class BackgroundSprites
     public const string Sandstorm = "Sandstorm";
     public const string Winter = "Winter";
     public const string FlowerPark = "FlowerPark";
+    public const string Lorelei = "Lorelei";
 }

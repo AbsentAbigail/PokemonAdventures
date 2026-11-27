@@ -17,7 +17,7 @@ public class Substitute : ICardBuilder
             .SetStats()
             .SetSprites(
                 Mod.GetSprite("Substitute"),
-                Mod.GetBackgroundSprite(BackgroundSprites.Cave))
+                Mod.GetBackgroundSprite(BackgroundSprites.Pokeball))
             .SubscribeToAfterAllBuildEvent(card =>
             {
                 card.startWithEffects =
